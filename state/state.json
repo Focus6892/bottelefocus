@@ -4,7 +4,9 @@
   "ETHUSDT": "flat",
   "SOLUSDT": "flat"
  },
- "alerts": {},
+ "alerts": {
+  "BTCUSDT:inside_4h": 1792238400000
+ },
  "last_digest_hour": "2026-10-17T16",
  "trend_1d": {
   "BTCUSDT": "up",
