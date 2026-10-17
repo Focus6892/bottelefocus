@@ -28,14 +28,13 @@ def sma(v, n):
 
 
 def wilder(v, n):
+    """Làm mượt Wilder: giá trị đầu = trung bình n phần tử đầu, sau đó e = (e*(n-1) + x)/n."""
     out, e = [], None
     for i, x in enumerate(v):
-        if x is None:
+        if i < n - 1:
             out.append(None); continue
-        if e is None:
-            e = x if i < n - 1 else x
-        e = x if i < n else (e * (n - 1) + x) / n
-        out.append(e if i >= n - 1 else None)
+        e = sum(v[:n]) / n if i == n - 1 else (e * (n - 1) + x) / n
+        out.append(e)
     return out
 
 
@@ -378,6 +377,8 @@ def strat_orb(k, kh, cfg):
                 pos = 1
             elif bar["c"] < rng[0]:
                 pos = -1
+        if (bar["t"] + cfg["main_ms"]) // 86_400_000 != d:
+            pos = 0  # nến cuối ngày: đóng lệnh ở close
         sig.append(pos)
     return sig
 

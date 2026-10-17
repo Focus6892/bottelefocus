@@ -95,3 +95,14 @@ def test_stock_market_strategies():
         sig = stock.STRATS[key][1](k1h, k1, B.CFG)
         assert len(sig) == len(k1h) and any(sig), key
     B.CFG = B.TF["4h"]
+
+
+def test_trade_sim_no_reentry_on_stop_bar_and_gap_fill():
+    k = [{"t": i * 4 * 3600_000, "o": 100.0, "h": 101.0, "l": 99.0, "c": 100.0, "v": 1.0} for i in range(40)]
+    k[30].update(o=70.0, h=96.0, l=60.0, c=95.0)  # mở gap qua dừng lỗ
+    B.CFG = B.TF["4h"]
+    t = B.trade_sim(k, [1] * 40)
+    assert t["n"] == 1 and t["total_return"] < -25  # khớp ở giá mở 70, không vào lại cùng nến
+    assert t["max_drawdown"] > 25
+    from backtest import stock
+    assert abs(stock.wilder(list(range(1, 15)) + [100], 14)[13] - 7.5) < 1e-9

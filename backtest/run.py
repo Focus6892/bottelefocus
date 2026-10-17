@@ -90,7 +90,8 @@ def adx_series(k, n=14):
         pdi.append(p); mdi.append(m)
         dx.append(100 * abs(p - m) / (p + m) if p + m else 0.0)
     first = next((i for i, x in enumerate(dx) if x is not None), len(dx))
-    sm = wilder([x for x in dx if x is not None], n)
+    # giữ đúng vị trí: ATR = 0 giữa chuỗi coi như DX = 0, không được dồn trái (sẽ nhìn trước)
+    sm = wilder([0.0 if x is None else x for x in dx[first:]], n)
     adx = [None] * first + sm
     return adx, pdi, mdi
 
@@ -115,7 +116,7 @@ def day_index(k4, k1):
     """Với mỗi nến khung chính, chỉ số nến khung cao gần nhất ĐÃ ĐÓNG trước nó."""
     out, j = [], -1
     for bar in k4:
-        while j + 1 < len(k1) and k1[j + 1]["t"] + CFG["high_ms"] <= bar["t"] + CFG["main_ms"]:
+        while j + 1 < len(k1) and k1[j + 1]["t"] + CFG["high_ms"] <= bar["t"]:  # đã đóng trước khi nến chính mở
             j += 1
         out.append(j)
     return out
@@ -515,41 +516,54 @@ def directional(k4, sig):
     return res
 
 
-def trade_sim(k4, sig, atr_stop=None):
+def trade_sim(k4, sig, atr_stop=None, start=0):
+    """Mô phỏng: vào ở close nến có tín hiệu mới, thoát ở close khi tín hiệu đổi hoặc tại giá dừng lỗ (ATR) trong nến.
+    Sau khi dính dừng lỗ, không vào lại cho tới khi tín hiệu đổi giá trị (chờ tín hiệu mới).
+    Nếu nến mở qua dừng lỗ (gap) thì khớp ở giá mở. Sụt giảm tính theo vốn đánh giá lại mỗi nến (kể cả lệnh đang mở).
+    `start`: chỉ tính các lệnh vào từ nến này (chỉ báo và dừng lỗ vẫn tính trên toàn chuỗi)."""
     atr_stop = atr_stop or CFG["atr_stop"]
     c = [x["c"] for x in k4]
     atr = atr_series(k4)
-    pos, entry, stop, trades = 0, 0.0, 0.0, []
+    pos, entry, stop, entry_i, blocked = 0, 0.0, 0.0, None, None
+    trades = []  # (nến vào, nến ra, lợi nhuận)
     eq, peak, mdd = 1.0, 1.0, 0.0
     for i in range(1, len(c)):
         if pos != 0:
             hit_stop = (pos == 1 and k4[i]["l"] <= stop) or (pos == -1 and k4[i]["h"] >= stop)
             flip = sig[i] != pos
             if hit_stop or flip:
-                px = stop if hit_stop else c[i]
+                if hit_stop:
+                    px = min(stop, k4[i]["o"]) if pos == 1 else max(stop, k4[i]["o"])
+                    blocked = sig[i]
+                else:
+                    px = c[i]
                 r = (px / entry - 1) * pos - 2 * FEE
-                trades.append(r)
-                eq *= 1 + r
-                peak = max(peak, eq)
-                mdd = max(mdd, 1 - eq / peak)
+                if entry_i >= start:
+                    trades.append((entry_i, i, r))
+                    eq *= 1 + r
                 pos = 0
-        if pos == 0 and sig[i] != 0 and atr[i]:
-            pos, entry = sig[i], c[i]
+        if blocked is not None and sig[i] != blocked:
+            blocked = None
+        if pos == 0 and sig[i] != 0 and atr[i] and blocked is None:
+            pos, entry, entry_i = sig[i], c[i], i
             stop = entry - pos * atr_stop * atr[i]
-    if pos != 0:  # đóng lệnh còn mở ở nến cuối
+        if i >= start:
+            cur = eq * (1 + (c[i] / entry - 1) * pos) if pos != 0 and entry_i >= start else eq
+            peak = max(peak, cur)
+            mdd = max(mdd, 1 - cur / peak)
+    if pos != 0 and entry_i >= start:  # đóng lệnh còn mở ở nến cuối
         r = (c[-1] / entry - 1) * pos - 2 * FEE
-        trades.append(r)
+        trades.append((entry_i, len(c) - 1, r))
         eq *= 1 + r
-        peak = max(peak, eq)
-        mdd = max(mdd, 1 - eq / peak)
-    if not trades:
+    rets = [t[2] for t in trades]
+    if not rets:
         return {"n": 0}
-    wins = [t for t in trades if t > 0]; losses = [-t for t in trades if t <= 0]
-    bh = c[-1] / c[0] - 1
+    wins = [t for t in rets if t > 0]; losses = [-t for t in rets if t <= 0]
+    bh = c[-1] / c[start] - 1
     return {
-        "n": len(trades),
-        "win_rate": len(wins) / len(trades),
-        "avg_trade": mean(trades) * 100,
+        "n": len(rets),
+        "win_rate": len(wins) / len(rets),
+        "avg_trade": mean(rets) * 100,
         "profit_factor": (sum(wins) / sum(losses)) if losses and sum(losses) > 0 else float("inf"),
         "total_return": (eq - 1) * 100,
         "max_drawdown": mdd * 100,
@@ -577,7 +591,7 @@ def run(tf="4h"):
             sig = fn(k4, k1)
             res = {"label": label, "direction": directional(k4, sig), "trades": trade_sim(k4, sig)}
             # 12 tháng gần nhất (tín hiệu tính trên toàn bộ, chỉ đo giao dịch trong đoạn gần)
-            res["recent"] = trade_sim(k4[i_recent:], sig[i_recent:])
+            res["recent"] = trade_sim(k4, sig, start=i_recent)
             out[sym][key] = res
     with open(os.path.join(os.path.dirname(__file__), CFG["out"] + ".json"), "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)

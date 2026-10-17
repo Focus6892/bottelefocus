@@ -75,19 +75,20 @@ def strat_ob(k, n):
     Thoát khi cấu trúc đổi chiều hoặc đóng nến qua phía kia của OB."""
     st, breaks = structure(k, n)
     bmap = dict(breaks)
-    sig, pos, ob, ob_dir = [], 0, None, 0
+    sig, pos, ob, ob_dir, armed = [], 0, None, 0, 0
     for i, bar in enumerate(k):
         c = bar["c"]
         if i in bmap:
             ob_dir = bmap[i]
             ob = _order_block(k, i, ob_dir)
+            armed = i + 1  # chỉ được vào từ nến sau (phải có nhịp hồi thật)
             if pos != 0 and pos != ob_dir:
                 pos = 0
         if pos == 1 and (st[i] == -1 or (ob and c < ob[0])):
             pos = 0
         elif pos == -1 and (st[i] == 1 or (ob and c > ob[1])):
             pos = 0
-        if pos == 0 and ob and st[i] == ob_dir:
+        if pos == 0 and ob and st[i] == ob_dir and i >= armed:
             lo, hi = ob
             if ob_dir == 1 and bar["l"] <= hi and c > hi:
                 pos = 1
@@ -103,20 +104,20 @@ def strat_fvg(k, n):
     """Fair value gap: khoảng trống 3 nến (đáy nến i > đỉnh nến i-2) khi cấu trúc tăng. Vào khi giá hồi vào FVG và đóng lại trên FVG.
     Hủy FVG khi đóng nến dưới đáy FVG. Thoát khi cấu trúc đổi chiều."""
     st, _ = structure(k, n)
-    sig, pos, gap, gap_dir = [], 0, None, 0
+    sig, pos, gap, gap_dir, armed = [], 0, None, 0, 0
     for i, bar in enumerate(k):
         c = bar["c"]
         if st[i] == 1 and pos != 1 and i >= 2 and bar["l"] > k[i - 2]["h"] and c > bar["o"]:
-            gap, gap_dir = (k[i - 2]["h"], bar["l"]), 1
+            gap, gap_dir, armed = (k[i - 2]["h"], bar["l"]), 1, i + 1  # vào từ nến sau, khi giá hồi vào gap
         elif st[i] == -1 and pos != -1 and i >= 2 and bar["h"] < k[i - 2]["l"] and c < bar["o"]:
-            gap, gap_dir = (bar["h"], k[i - 2]["l"]), -1
+            gap, gap_dir, armed = (bar["h"], k[i - 2]["l"]), -1, i + 1
         if (pos == 1 and st[i] == -1) or (pos == -1 and st[i] == 1):
             pos = 0
-        if pos == 0 and gap and st[i] == gap_dir:
+        if pos == 0 and gap and st[i] == gap_dir and i >= armed:
             lo, hi = gap
-            if gap_dir == 1 and bar["l"] <= hi and c > hi and i > 0 and k[i - 1]["l"] > hi:
+            if gap_dir == 1 and bar["l"] <= hi and c > hi:
                 pos = 1
-            elif gap_dir == -1 and bar["h"] >= lo and c < lo and i > 0 and k[i - 1]["h"] < lo:
+            elif gap_dir == -1 and bar["h"] >= lo and c < lo:
                 pos = -1
             elif (gap_dir == 1 and c < lo) or (gap_dir == -1 and c > hi):
                 gap = None
