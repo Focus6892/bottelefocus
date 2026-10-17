@@ -21,17 +21,17 @@ FEE = 0.0005
 TF = {
     "4h": dict(main="4H", high="1Dutc", main_ms=4 * 3600_000, high_ms=86_400_000,
                horizons={"1d": 6, "3d": 18, "7d": 42}, atr_stop=2.0, squeeze_lookback=180, squeeze_hold=42,
-               recent_months=12, label="4h", out="results"),
+               recent_months=12, label="4h", out="results", vp_window=180),
     "1d": dict(main="1Dutc", high="1Wutc", main_ms=86_400_000, high_ms=7 * 86_400_000,
                horizons={"1 tuần": 7, "2 tuần": 14, "4 tuần": 28}, atr_stop=3.5, squeeze_lookback=120, squeeze_hold=28,
-               recent_months=24, label="1D", out="results_1d"),
+               recent_months=24, label="1D", out="results_1d", vp_window=90),
     # Scalp: xác nhận bằng 4h, dừng lỗ 1,5 ATR, nén tính trong 2 ngày, giữ tối đa 1 ngày
     "15m": dict(main="15m", high="4H", main_ms=15 * 60_000, high_ms=4 * 3600_000,
                 horizons={"1 giờ": 4, "4 giờ": 16, "1 ngày": 96}, atr_stop=1.5, squeeze_lookback=192, squeeze_hold=96,
-                recent_months=3, label="15m", out="results_15m"),
+                recent_months=3, label="15m", out="results_15m", vp_window=192),
     "30m": dict(main="30m", high="4H", main_ms=30 * 60_000, high_ms=4 * 3600_000,
                 horizons={"1 giờ": 2, "4 giờ": 8, "1 ngày": 48}, atr_stop=1.5, squeeze_lookback=96, squeeze_hold=48,
-                recent_months=3, label="30m", out="results_30m"),
+                recent_months=3, label="30m", out="results_30m", vp_window=96),
 }
 CFG = TF["4h"]
 HORIZONS = CFG["horizons"]
@@ -194,12 +194,120 @@ def strat_combo(k4, k1):
     return [x if x == y else 0 for x, y in zip(a, b)]
 
 
+# ---------- volume profile ----------
+def volume_profile(k, window, bin_pct=0.002, value_area=0.70):
+    """Với mỗi nến i: POC, VAH, VAL của `window` nến TRƯỚC nó (không gồm nến i).
+    Khối lượng mỗi nến rải đều trên khoảng low-high theo bin cố định (0,2% giá tham chiếu).
+    Cập nhật dần (thêm nến mới, bỏ nến cũ) nên chạy được trên 35.000 nến."""
+    ref = sorted(x["c"] for x in k)[len(k) // 2]
+    width = ref * bin_pct
+    hist = {}
+
+    def spread(bar, sign):
+        lo, hi = int(bar["l"] // width), int(bar["h"] // width)
+        n = hi - lo + 1
+        v = bar["v"] / n * sign
+        for b in range(lo, hi + 1):
+            hist[b] = hist.get(b, 0.0) + v
+            if hist[b] <= 1e-9:
+                hist.pop(b, None)
+
+    out = []
+    for i in range(len(k)):
+        if i >= window:
+            spread(k[i - window - 1], -1) if i - window - 1 >= 0 else None
+        if i == 0:
+            out.append(None); continue
+        spread(k[i - 1], +1)
+        if i < window or not hist:
+            out.append(None); continue
+        total = sum(hist.values())
+        poc = max(hist, key=hist.get)
+        acc, lo, hi = hist[poc], poc, poc
+        while acc < total * value_area:
+            up, dn = hist.get(hi + 1, 0.0), hist.get(lo - 1, 0.0)
+            if up == 0 and dn == 0:
+                break
+            if up >= dn:
+                hi += 1; acc += up
+            else:
+                lo -= 1; acc += dn
+        out.append({"poc": (poc + 0.5) * width, "vah": (hi + 1) * width, "val": lo * width})
+    return out
+
+
+def strat_vp_breakout(k4, k1):
+    """Thoát vùng giá trị: đóng trên VAH (từ bên trong) -> lên; đóng dưới VAL -> xuống. Thoát khi quay vào trong VA."""
+    vp = volume_profile(k4, CFG["vp_window"])
+    sig, state = [], 0
+    for i, bar in enumerate(k4):
+        p = vp[i]
+        if p is None:
+            sig.append(0); continue
+        c = bar["c"]
+        if c > p["vah"]:
+            state = 1
+        elif c < p["val"]:
+            state = -1
+        elif state == 1 and c < p["poc"]:
+            state = 0
+        elif state == -1 and c > p["poc"]:
+            state = 0
+        sig.append(state)
+    return sig
+
+
+def strat_vp_revert(k4, k1):
+    """Hồi về POC: giá rớt dưới VAL rồi đóng lại trên VAL -> lên (mục tiêu POC); ngược lại cho xuống.
+    Thoát khi chạm POC hoặc rơi lại ngoài VA."""
+    vp = volume_profile(k4, CFG["vp_window"])
+    sig, state, outside = [], 0, 0
+    for i, bar in enumerate(k4):
+        p = vp[i]
+        if p is None:
+            sig.append(0); continue
+        c = bar["c"]
+        if state == 1 and (c >= p["poc"] or c < p["val"]):
+            state = 0
+        elif state == -1 and (c <= p["poc"] or c > p["vah"]):
+            state = 0
+        if state == 0:
+            if outside == -1 and c > p["val"]:
+                state = 1
+            elif outside == 1 and c < p["vah"]:
+                state = -1
+        outside = -1 if c < p["val"] else 1 if c > p["vah"] else 0
+        sig.append(state)
+    return sig
+
+
+def strat_vp_ema(k4, k1):
+    """Cắt EMA20/50 nhưng chỉ nhận long khi giá trên POC, short khi giá dưới POC."""
+    vp = volume_profile(k4, CFG["vp_window"])
+    base = strat_ema_cross(k4, k1)
+    out = []
+    for i, bar in enumerate(k4):
+        p = vp[i]
+        if p is None or base[i] == 0:
+            out.append(0); continue
+        if base[i] == 1 and bar["c"] > p["poc"]:
+            out.append(1)
+        elif base[i] == -1 and bar["c"] < p["poc"]:
+            out.append(-1)
+        else:
+            out.append(0)
+    return out
+
+
 STRATS = {
     "trend": ("Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng)", strat_trend),
     "ema_cross": ("Cắt EMA20/50", strat_ema_cross),
     "donchian": ("Phá đỉnh/đáy 20 nến", strat_donchian),
     "squeeze": ("Nén Bollinger rồi bung", strat_squeeze),
     "combo": ("Xu hướng + phá đỉnh/đáy cùng chiều", strat_combo),
+    "vp_breakout": ("Volume profile: thoát vùng giá trị", strat_vp_breakout),
+    "vp_revert": ("Volume profile: hồi về POC", strat_vp_revert),
+    "vp_ema": ("Volume profile: cắt EMA lọc theo POC", strat_vp_ema),
 }
 
 

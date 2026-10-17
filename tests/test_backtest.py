@@ -36,3 +36,17 @@ def test_uptrend_favors_long_signals():
     assert sig.count(1) > sig.count(-1)
     t = B.trade_sim(k4, sig)
     assert t["total_return"] > 0
+
+
+def test_volume_profile_shape_and_vp_strategies():
+    k4, k1 = _data(0.001, 5)
+    B.CFG = B.TF["4h"]
+    vp = B.volume_profile(k4, 60)
+    assert len(vp) == len(k4) and vp[10] is None and vp[-1] is not None
+    p = vp[-1]
+    assert p["val"] <= p["poc"] <= p["vah"]
+    lo = min(x["l"] for x in k4[-61:-1]); hi = max(x["h"] for x in k4[-61:-1])
+    assert lo * 0.99 <= p["val"] and p["vah"] <= hi * 1.01
+    for fn in (B.strat_vp_breakout, B.strat_vp_revert, B.strat_vp_ema):
+        sig = fn(k4, k1)
+        assert len(sig) == len(k4) and set(sig) <= {-1, 0, 1} and any(sig)
