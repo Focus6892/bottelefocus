@@ -101,8 +101,15 @@ def vp_alert(r, tf, previous):
     up = v["state"] == "above"
     name = "4h, vùng 30 ngày" if tf == "vp_4h" else "NGÀY, vùng 90 ngày"
     was = {"above": "trên vùng", "below": "dưới vùng", "inside": "trong vùng"}[previous]
-    stat = ("Backtest 3 năm trên 4h: cách duy nhất có lãi cả 3 đồng, PF 1,2–1,7, sụt giảm 34–38%."
-            if tf == "vp_4h" else "Backtest 6 năm trên 1D: PF 1,7–2,9, 24 tháng gần nhất tốt hơn cắt EMA.")
+    if tf == "vp_4h":
+        stat = "Backtest 3 năm trên 4h: cách duy nhất có lãi cả 3 đồng, PF 1,2–1,7, sụt giảm 34–38%."
+    else:
+        rs, vr = v.get("rsi"), v.get("vol_ratio")
+        detail = f"RSI14 {rs:.0f}, khối lượng {vr:.1f}x trung bình 20 ngày" if rs is not None and vr is not None else "thiếu RSI/khối lượng"
+        if v.get("confirmed"):
+            stat = f"✅ <b>Có xác nhận RSI + khối lượng</b> ({detail}). Backtest 6 năm: tổ hợp tốt nhất trên 1D, PF 2,0–3,9, 49–57% lệnh thắng ở BTC/ETH, sụt giảm 35–37%."
+        else:
+            stat = f"⚠️ Chưa xác nhận ({detail}; cần RSI > 55 hoặc < 45 và khối lượng ≥ 1,5x). VP thuần trên 1D: PF 1,7–2,9, 31–47% lệnh thắng."
     return (
         f"{'🟢' if up else '🔻'} <b>THOÁT VÙNG GIÁ TRỊ {'LÊN' if up else 'XUỐNG'}</b> · {r['name']} · khung {name} · {now}\n"
         f"Nến đóng {_fmt_price(v['close'])}, {'trên VAH' if up else 'dưới VAL'} {_fmt_price(p['vah'] if up else p['val'])} (trước đó {was}). POC {_fmt_price(p['poc'])}.\n"

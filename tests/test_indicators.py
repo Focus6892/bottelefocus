@@ -91,3 +91,15 @@ def test_volume_profile_in_compute_and_alert():
     assert "VP 30 ngày" in report.hourly_digest([r]) and "VP 90 ngày" in report.hourly_digest([r])
     r["vp_4h"]["state"] = "above"
     assert "THOÁT VÙNG GIÁ TRỊ LÊN" in report.vp_alert(r, "vp_4h", "inside")
+
+
+def test_daily_vp_confirmation_fields():
+    r = I.compute("ETHUSDT", make_data(seed=6))
+    v = r["vp_1d"]
+    assert v["rsi"] is None or 0 <= v["rsi"] <= 100
+    assert v["vol_ratio"] is None or v["vol_ratio"] > 0
+    assert isinstance(v["confirmed"], bool)
+    v["state"], v["rsi"], v["vol_ratio"], v["confirmed"] = "above", 62.0, 2.1, True
+    assert "Có xác nhận RSI" in report.vp_alert(r, "vp_1d", "inside")
+    v["confirmed"] = False
+    assert "Chưa xác nhận" in report.vp_alert(r, "vp_1d", "inside")

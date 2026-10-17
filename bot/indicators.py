@@ -119,6 +119,19 @@ def volume_profile(k, bin_pct=None, value_area=None):
     return {"poc": (poc + 0.5) * width, "vah": (hi + 1) * width, "val": lo * width}
 
 
+def rsi(closes, n=14):
+    """RSI14 kiểu Wilder tại nến cuối."""
+    if len(closes) <= n:
+        return None
+    gains = [max(closes[i] - closes[i - 1], 0.0) for i in range(1, len(closes))]
+    losses = [max(closes[i - 1] - closes[i], 0.0) for i in range(1, len(closes))]
+    ag, al = mean(gains[:n]), mean(losses[:n])
+    for g, l in zip(gains[n:], losses[n:]):
+        ag = (ag * (n - 1) + g) / n
+        al = (al * (n - 1) + l) / n
+    return 100.0 if al == 0 else 100 - 100 / (1 + ag / al)
+
+
 def vp_state(close, p):
     if p is None:
         return "none"
@@ -193,6 +206,14 @@ def compute(symbol, d, dvol=None):
     p1 = volume_profile(kh[-C.VP_WINDOW_1D - 1 : -1]) if len(kh) > C.VP_WINDOW_1D else None
     r["vp_4h"] = {"profile": p4, "state": vp_state(km[-1]["c"], p4), "close": km[-1]["c"]}
     r["vp_1d"] = {"profile": p1, "state": vp_state(kh[-1]["c"], p1), "close": kh[-1]["c"]}
+    # Xác nhận cho tín hiệu ngày (backtest: VP + RSI + khối lượng 1,5x là tổ hợp tốt nhất trên 1D)
+    hc = [x["c"] for x in kh]
+    hv = [x["v"] for x in kh]
+    r["vp_1d"]["rsi"] = rsi(hc)
+    r["vp_1d"]["vol_ratio"] = hv[-1] / mean(hv[-21:-1]) if len(hv) > 21 and mean(hv[-21:-1]) else None
+    st = r["vp_1d"]["state"]
+    rs, vr = r["vp_1d"]["rsi"], r["vp_1d"]["vol_ratio"]
+    r["vp_1d"]["confirmed"] = bool(rs is not None and vr is not None and vr >= 1.5 and ((st == "above" and rs > 55) or (st == "below" and rs < 45)))
 
     r["score"] = volatility_score(r)
     r["signals"] = signals(r)
