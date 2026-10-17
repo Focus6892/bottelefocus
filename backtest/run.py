@@ -299,6 +299,128 @@ def strat_vp_ema(k4, k1):
     return out
 
 
+# ---------- RSI và các tổ hợp ----------
+def rsi_series(closes, n=14):
+    out = [None] * len(closes)
+    gains, losses = [0.0], [0.0]
+    for i in range(1, len(closes)):
+        d = closes[i] - closes[i - 1]
+        gains.append(max(d, 0.0)); losses.append(max(-d, 0.0))
+    ag, al = None, None
+    for i in range(n, len(closes)):
+        if ag is None:
+            ag, al = mean(gains[1 : n + 1]), mean(losses[1 : n + 1])
+        else:
+            ag = (ag * (n - 1) + gains[i]) / n
+            al = (al * (n - 1) + losses[i]) / n
+        out[i] = 100.0 if al == 0 else 100 - 100 / (1 + ag / al)
+    return out
+
+
+def strat_rsi50(k4, k1):
+    """Chuẩn so sánh: RSI14 trên 50 -> lên, dưới 50 -> xuống."""
+    r = rsi_series([x["c"] for x in k4])
+    return [0 if v is None else (1 if v > 50 else -1) for v in r]
+
+
+def _vp_break_core(k4, enter_ok, exit_extra=None):
+    """Khung chung: thoát vùng giá trị, vào khi enter_ok(i, hướng) đúng, thoát khi quay qua POC hoặc exit_extra."""
+    vp = volume_profile(k4, CFG["vp_window"])
+    sig, state = [], 0
+    for i, bar in enumerate(k4):
+        p = vp[i]
+        if p is None:
+            sig.append(0); continue
+        c = bar["c"]
+        if state == 1 and (c < p["poc"] or (exit_extra and exit_extra(i, 1))):
+            state = 0
+        elif state == -1 and (c > p["poc"] or (exit_extra and exit_extra(i, -1))):
+            state = 0
+        if state == 0:
+            if c > p["vah"] and enter_ok(i, 1):
+                state = 1
+            elif c < p["val"] and enter_ok(i, -1):
+                state = -1
+        sig.append(state)
+    return sig
+
+
+def strat_vp_rsi(k4, k1):
+    """Thoát vùng giá trị + RSI14 xác nhận (lên: RSI > 55, xuống: RSI < 45). Thoát thêm khi RSI về qua 50."""
+    r = rsi_series([x["c"] for x in k4])
+    ok = lambda i, d: r[i] is not None and (r[i] > 55 if d == 1 else r[i] < 45)
+    ex = lambda i, d: r[i] is not None and (r[i] < 50 if d == 1 else r[i] > 50)
+    return _vp_break_core(k4, ok, ex)
+
+
+def strat_vp_rsi_vol(k4, k1):
+    """Thoát vùng giá trị + RSI xác nhận + khối lượng nến bung >= 1,5 lần trung bình 20 nến."""
+    r = rsi_series([x["c"] for x in k4])
+    v = [x["v"] for x in k4]
+    def ok(i, d):
+        if i < 21 or r[i] is None:
+            return False
+        avg = mean(v[i - 20 : i])
+        return v[i] >= 1.5 * avg and (r[i] > 55 if d == 1 else r[i] < 45)
+    return _vp_break_core(k4, ok)
+
+
+def strat_vp_rsi_adx(k4, k1):
+    """Thoát vùng giá trị + RSI xác nhận + ADX14 >= 20 (có lực)."""
+    r = rsi_series([x["c"] for x in k4])
+    a, pdi, mdi = adx_series(k4)
+    ok = lambda i, d: r[i] is not None and a[i] is not None and a[i] >= 20 and (r[i] > 55 if d == 1 else r[i] < 45)
+    return _vp_break_core(k4, ok)
+
+
+def strat_vp_rsi_revert(k4, k1):
+    """Hồi trong vùng cân bằng: giá trong VA, gần VAL (dưới 1/3 vùng) và RSI < 30 -> lên tới POC;
+    gần VAH và RSI > 70 -> xuống tới POC. Thoát tại POC hoặc khi rơi ra ngoài VA."""
+    vp = volume_profile(k4, CFG["vp_window"])
+    r = rsi_series([x["c"] for x in k4])
+    sig, state = [], 0
+    for i, bar in enumerate(k4):
+        p = vp[i]
+        if p is None or r[i] is None:
+            sig.append(0); continue
+        c = bar["c"]
+        if state == 1 and (c >= p["poc"] or c < p["val"]):
+            state = 0
+        elif state == -1 and (c <= p["poc"] or c > p["vah"]):
+            state = 0
+        if state == 0 and p["val"] <= c <= p["vah"]:
+            third = (p["vah"] - p["val"]) / 3
+            if c <= p["val"] + third and r[i] < 30:
+                state = 1
+            elif c >= p["vah"] - third and r[i] > 70:
+                state = -1
+        sig.append(state)
+    return sig
+
+
+def strat_confluence(k4, k1):
+    """Đồng thuận 3 yếu tố: giá trên POC + EMA20 > EMA50 + RSI > 50 -> lên (ngược lại -> xuống). Mất 2/3 thì thoát."""
+    vp = volume_profile(k4, CFG["vp_window"])
+    c = [x["c"] for x in k4]
+    e20, e50 = ema(c, 20), ema(c, 50)
+    r = rsi_series(c)
+    sig, state = [], 0
+    for i in range(len(c)):
+        p = vp[i]
+        if p is None or r[i] is None or i < 50:
+            sig.append(0); continue
+        up = [c[i] > p["poc"], e20[i] > e50[i], r[i] > 50]
+        n_up = sum(up)
+        if state == 0:
+            state = 1 if n_up == 3 else -1 if n_up == 0 else 0
+        elif state == 1 and n_up <= 1:
+            state = 0
+        elif state == -1 and n_up >= 2:
+            state = 0
+        sig.append(state)
+    return sig
+
+
 STRATS = {
     "trend": ("Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng)", strat_trend),
     "ema_cross": ("Cắt EMA20/50", strat_ema_cross),
@@ -308,6 +430,12 @@ STRATS = {
     "vp_breakout": ("Volume profile: thoát vùng giá trị", strat_vp_breakout),
     "vp_revert": ("Volume profile: hồi về POC", strat_vp_revert),
     "vp_ema": ("Volume profile: cắt EMA lọc theo POC", strat_vp_ema),
+    "rsi50": ("RSI14 qua 50 (chuẩn so sánh)", strat_rsi50),
+    "vp_rsi": ("VP thoát vùng + RSI xác nhận", strat_vp_rsi),
+    "vp_rsi_vol": ("VP thoát vùng + RSI + khối lượng 1,5x", strat_vp_rsi_vol),
+    "vp_rsi_adx": ("VP thoát vùng + RSI + ADX20", strat_vp_rsi_adx),
+    "vp_rsi_revert": ("VP hồi trong vùng + RSI 30/70", strat_vp_rsi_revert),
+    "confluence": ("Đồng thuận POC + EMA + RSI", strat_confluence),
 }
 
 
