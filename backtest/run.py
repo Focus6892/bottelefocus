@@ -188,9 +188,9 @@ def strat_combo(k4, k1):
 
 
 STRATS = {
-    "trend": ("Xu hướng EMA20/50 + ADX25 + xác nhận 1D (đang dùng)", strat_trend),
-    "ema_cross": ("Cắt EMA20/50 trên 4h", strat_ema_cross),
-    "donchian": ("Phá đỉnh/đáy 20 nến 4h", strat_donchian),
+    "trend": ("Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng)", strat_trend),
+    "ema_cross": ("Cắt EMA20/50", strat_ema_cross),
+    "donchian": ("Phá đỉnh/đáy 20 nến", strat_donchian),
     "squeeze": ("Nén Bollinger rồi bung", strat_squeeze),
     "combo": ("Xu hướng + phá đỉnh/đáy cùng chiều", strat_combo),
 }
@@ -310,7 +310,7 @@ def write_md(out):
     import datetime as dt
     for sym in SYMS:
         d = out[sym]
-        a, b = (dt.datetime.utcfromtimestamp(d[k] / 1000).strftime("%Y-%m-%d") for k in ("from", "to"))
+        a, b = (dt.datetime.fromtimestamp(d[k] / 1000, dt.timezone.utc).strftime("%Y-%m-%d") for k in ("from", "to"))
         L += [f"## {sym} · {d['bars']} nến {CFG['label']} · {a} đến {b}", ""]
         L += [f"| Chiến lược | Số tín hiệu | Đúng hướng {hz[0]} | {hz[1]} | {hz[2]} | Nền {hz[2]} | LN TB {hz[2]} |", "|---|---|---|---|---|---|---|"]
         for key, (label, _) in STRATS.items():
