@@ -1,0 +1,23 @@
+[BTCUSDT] Binance lỗi (Binance /fapi/v1/klines lỗi: 451 Client Error:  for url: https://fapi.binance.com/fapi/v1/klines?symbol=BTCUSDT&interval=4h&limit=200); chuyển sang OKX
+[BTCUSDT] nguồn: okx
+[ETHUSDT] nguồn: okx
+[SOLUSDT] nguồn: okx
+[telegram] thiếu TELEGRAM_BOT_TOKEN hoặc TELEGRAM_CHAT_ID, in ra màn hình:
+📊 <b>Bản tin mỗi giờ · 10:49 17/10 (giờ VN)</b>
+
+<b>BTC</b> 81,554  ▼-0.0% 4h  -0.6% 24h
+Xu hướng: đi ngang (ADX 30) · Điểm biến động 61 (bình thường)
+ATR 1.18% · RV24h 31% · DVOL 38
+OI -0.5% 4h / +0.8% 24h · Funding +0.010% · L/S 1.79 (top 1.27) · Taker 0.77
+
+<b>ETH</b> 2,427  ▲+0.2% 4h  -0.5% 24h
+Xu hướng: đi ngang (ADX 31) · Điểm biến động 63 (bình thường)
+ATR 1.78% · RV24h 44% · DVOL 51
+OI +1.2% 4h / +0.5% 24h · Funding +0.007% · L/S 2.25 (top 1.43) · Taker 1.14
+
+<b>SOL</b> 105.06  ▲+0.6% 4h  -0.2% 24h
+Xu hướng: đi ngang (ADX 37) · Điểm biến động 57 (bình thường)
+ATR 2.08% · RV24h 57%
+OI +0.2% 4h / -1.0% 24h · Funding +0.000% · L/S 2.37 (top 1.37) · Taker 1.00
+
+Biểu đồ: <a href="https://www.tradingview.com/chart/?symbol=BINANCE%3ABTCUSDT.P">BTC</a> · <a href="https://www.tradingview.com/chart/?symbol=BINANCE%3AETHUSDT.P">ETH</a> · <a href="https://www.tradingview.com/chart/?symbol=BINANCE%3ASOLUSDT.P">SOL</a>
