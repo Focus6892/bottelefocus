@@ -22,5 +22,10 @@
   "SOLUSDT:vp_1d": "inside"
  },
  "market_regime": "risk_off_alt",
- "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC"
+ "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC",
+ "reco": {
+  "BTCUSDT": "LONG",
+  "ETHUSDT": "NGOÀI",
+  "SOLUSDT": "NGOÀI"
+ }
 }
