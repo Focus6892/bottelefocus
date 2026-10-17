@@ -13,6 +13,11 @@ import math
 import os
 from statistics import mean, pstdev
 
+try:
+    from backtest import smc
+except ImportError:  # chạy trực tiếp: python backtest/run.py
+    import smc
+
 DATA = os.path.join(os.path.dirname(__file__), "data")
 SYMS = ["BTC", "ETH", "SOL"]
 FEE = 0.0005
@@ -21,17 +26,17 @@ FEE = 0.0005
 TF = {
     "4h": dict(main="4H", high="1Dutc", main_ms=4 * 3600_000, high_ms=86_400_000,
                horizons={"1d": 6, "3d": 18, "7d": 42}, atr_stop=2.0, squeeze_lookback=180, squeeze_hold=42,
-               recent_months=12, label="4h", out="results", vp_window=180),
+               recent_months=12, label="4h", out="results", vp_window=180, smc_n=5),
     "1d": dict(main="1Dutc", high="1Wutc", main_ms=86_400_000, high_ms=7 * 86_400_000,
                horizons={"1 tuần": 7, "2 tuần": 14, "4 tuần": 28}, atr_stop=3.5, squeeze_lookback=120, squeeze_hold=28,
-               recent_months=24, label="1D", out="results_1d", vp_window=90),
+               recent_months=24, label="1D", out="results_1d", vp_window=90, smc_n=3),
     # Scalp: xác nhận bằng 4h, dừng lỗ 1,5 ATR, nén tính trong 2 ngày, giữ tối đa 1 ngày
     "15m": dict(main="15m", high="4H", main_ms=15 * 60_000, high_ms=4 * 3600_000,
                 horizons={"1 giờ": 4, "4 giờ": 16, "1 ngày": 96}, atr_stop=1.5, squeeze_lookback=192, squeeze_hold=96,
-                recent_months=3, label="15m", out="results_15m", vp_window=192),
+                recent_months=3, label="15m", out="results_15m", vp_window=192, smc_n=5),
     "30m": dict(main="30m", high="4H", main_ms=30 * 60_000, high_ms=4 * 3600_000,
                 horizons={"1 giờ": 2, "4 giờ": 8, "1 ngày": 48}, atr_stop=1.5, squeeze_lookback=96, squeeze_hold=48,
-                recent_months=3, label="30m", out="results_30m", vp_window=96),
+                recent_months=3, label="30m", out="results_30m", vp_window=96, smc_n=5),
 }
 CFG = TF["4h"]
 HORIZONS = CFG["horizons"]
@@ -468,6 +473,9 @@ STRATS = {
     "vp_rsi_vol_ema": ("VP + RSI + KL, chỉ vào cùng hướng EMA", strat_vp_rsi_vol_ema),
     "vp_rsi_vol_ema_x": ("VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi", strat_vp_rsi_vol_ema_x),
 }
+# SMC và price action (backtest/smc.py); số nến xác nhận swing lấy theo khung
+for _key, (_label, _fn) in smc.STRATS.items():
+    STRATS[_key] = (_label, (lambda f: lambda k4, k1: f(k4, CFG["smc_n"]))(_fn))
 
 
 # ---------- đánh giá ----------

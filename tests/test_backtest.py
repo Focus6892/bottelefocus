@@ -60,3 +60,17 @@ def test_rsi_and_combo_strategies():
     for key in ("rsi50", "vp_rsi", "vp_rsi_vol", "vp_rsi_adx", "vp_rsi_revert", "confluence", "vp_rsi_vol_ema", "vp_rsi_vol_ema_x"):
         sig = B.STRATS[key][1](k4, k1)
         assert len(sig) == len(k4) and set(sig) <= {-1, 0, 1}, key
+
+
+def test_smc_and_price_action_strategies():
+    from backtest import smc
+    k4, k1 = _data(0.002, 13)
+    B.CFG = B.TF["4h"]
+    lh, ll, highs, lows = smc.swings(k4, 5)
+    assert highs and lows and all(conf == j + 5 for j, _, conf in highs)
+    st, breaks = smc.structure(k4, 5)
+    assert set(st) <= {-1, 0, 1} and breaks
+    for key in smc.STRATS:
+        sig = B.STRATS[key][1](k4, k1)
+        assert len(sig) == len(k4) and set(sig) <= {-1, 0, 1} and any(sig), key
+    assert B.trade_sim(k4, B.STRATS["smc_bos"][1](k4, k1))["n"] > 0
