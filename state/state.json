@@ -10,5 +10,13 @@
   "BTCUSDT": "up",
   "ETHUSDT": "up",
   "SOLUSDT": "up"
+ },
+ "vp": {
+  "BTCUSDT:vp_4h": "below",
+  "BTCUSDT:vp_1d": "above",
+  "ETHUSDT:vp_4h": "below",
+  "ETHUSDT:vp_1d": "inside",
+  "SOLUSDT:vp_4h": "below",
+  "SOLUSDT:vp_1d": "inside"
  }
 }
