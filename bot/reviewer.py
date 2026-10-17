@@ -81,6 +81,14 @@ def review(rec, r, ana, stats=None):
         notes.append(f"biến động cực đoan (điểm {r.get('score')}, ATR {r.get('atr_ratio') or 0:.1f}x): chờ nến 4h ổn định rồi vào")
         verdict = "GIỮ LẠI" if verdict != "BÁC" else verdict
 
+    # 4b. dự báo biến động từ volume profile
+    fc = ((r.get("vp_forecast") or {}).get("forecast") or {}).get("24 giờ tới")
+    if fc and side != "NGOÀI":
+        if fc["level"] == "TĂNG":
+            notes.append(f"VP dự báo biến động 24h tăng (biên độ ~{fc['range']:.1f}%): giảm khối lượng hoặc nới dừng lỗ")
+        elif fc["level"] == "GIẢM":
+            notes.append(f"VP dự báo biến động 24h giảm (biên độ ~{fc['range']:.1f}%): chốt lời gần, tránh kỳ vọng chạy xa")
+
     # 5. đám đông
     f = r.get("funding")
     if f is not None and side == "LONG" and f >= C.FUNDING_HOT:

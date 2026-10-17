@@ -2,7 +2,7 @@
 import math
 from statistics import mean, pstdev
 
-from . import config as C
+from . import config as C, vp_forecast
 
 
 # ---------- tiện ích ----------
@@ -218,6 +218,10 @@ def compute(symbol, d, dvol=None):
     # Ichimoku ngày và Weinstein (SMA30 ngày): hai nguồn thêm cho agent đề xuất (backtest 1D: Ichimoku PF 2,2-3,0; Weinstein áp lên 4h PF 1,6-1,9)
     r["ichimoku_1d"] = ichimoku_state(kh)
     r["weinstein_1d"] = weinstein_state(hc)
+
+    # Dự báo biến động từ volume profile 1h / 4h / 1D (thống kê trong backtest/vp_vol.json)
+    k1h = d.get("k_1h")
+    r["vp_forecast"] = vp_forecast.compute(r["name"], km, kh, k1h[:-1] if k1h else None)
 
     # Inside bar 4h theo hướng EMA20/50 (backtest 3 năm: PF 1,4-1,7 cả 3 đồng). Nến mẹ km[-3], nến trong km[-2], nến bung km[-1].
     r["inside_4h"] = inside_bar(km, e20[-1], e50[-1])

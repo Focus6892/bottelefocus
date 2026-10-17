@@ -69,6 +69,7 @@ def fetch_all(symbol, main_tf, higher_tf, limit):
     return {
         "k_main": klines(symbol, main_tf, limit),
         "k_high": klines(symbol, higher_tf, 200),
+        "k_1h": klines(symbol, "1h", 200),
         "premium": premium_index(symbol),
         "oi": open_interest_hist(symbol, "1h", 30),
         "ls_accounts": long_short_accounts(symbol),

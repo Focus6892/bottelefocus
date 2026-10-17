@@ -1,6 +1,8 @@
 """Soạn nội dung tin nhắn Telegram (HTML). Bố cục: mỗi dòng một ý, biểu tượng đầu dòng, số quan trọng in đậm."""
 from datetime import datetime, timezone, timedelta
 
+from . import vp_forecast
+
 VN = timezone(timedelta(hours=7))
 TV = "https://www.tradingview.com/chart/?symbol=BINANCE%3A{sym}.P"
 TV_CAP = "https://www.tradingview.com/chart/?symbol=CRYPTOCAP%3A{sym}"
@@ -69,6 +71,7 @@ def coin_block(r):
         f"🧲 OI {_pct(r['oi_chg_4h'])} 4h / {_pct(r['oi_chg_24h'])} 24h · Funding {r['funding']*100:+.3f}% · L/S {r['ls_accounts']:.2f} · Taker {r['taker']:.2f}"
     )
     lines.append(f"📐 ATR {r['atr_pct']:.2f}% · RV24h {r['rv_24h']:.0f}%" + (f" · DVOL {r['dvol']:.0f}" if r.get("dvol") else ""))
+    lines += vp_forecast.lines(r.get("vp_forecast"))
     for code, level, text in r["signals"]:
         mark = "🔴" if level == "high" else "🟡" if level == "medium" else "⚪"
         lines.append(f"{mark} {text}")

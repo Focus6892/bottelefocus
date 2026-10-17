@@ -15,6 +15,7 @@ WEIGHTS = {
     "weinstein_1d": 1.5,   # SMA30 ngày dốc + giá cùng phía, áp lên 4h: PF 1,6-1,9
     "trend_4h": 1.0,       # pha 4h EMA+ADX: không có lợi thế, chỉ bối cảnh
     "dominance": 1.0,      # dòng tiền chung: quy tắc kinh điển, chưa backtest
+    "vp_lean": 1.0,        # thiên hướng 24h từ thống kê volume profile (chỉ khi lệch nền có ý nghĩa)
 }
 LONG_AT, SHORT_AT = 0.35, -0.35
 
@@ -52,6 +53,9 @@ def sources(r, ana):
         out.append(("inside_4h", ib["dir"], WEIGHTS["inside_4h"], f"inside bar 4h bung {'lên' if ib['dir'] == 1 else 'xuống'}"))
     if r.get("trend") in ("up", "down"):
         out.append(("trend_4h", 1 if r["trend"] == "up" else -1, WEIGHTS["trend_4h"], f"pha 4h {'tăng' if r['trend'] == 'up' else 'giảm'} (ADX {r.get('adx') or 0:.0f})"))
+    fc = ((r.get("vp_forecast") or {}).get("forecast") or {}).get("24 giờ tới")
+    if fc and fc["lean"] != "không rõ hướng":
+        out.append(("vp_lean", 1 if fc["lean"] == "nghiêng tăng" else -1, WEIGHTS["vp_lean"], f"thống kê VP 24h {fc['lean']} ({fc['d_up']*100:+.0f} điểm)"))
     if ana:
         b = DOM_BIAS.get(ana["regime"], DOM_BIAS["neutral"]).get(r["name"], 0)
         if b:

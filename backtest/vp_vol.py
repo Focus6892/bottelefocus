@@ -82,8 +82,24 @@ def profiles(k, window, bin_pct=0.002, value_area=0.70):
     return out
 
 
+def classify(c, p, a, width_bucket):
+    """Đặc trưng profile tại một nến: c = giá đóng, p = profile (trước nến), a = ATR14, width_bucket = hẹp/vừa/rộng hoặc None."""
+    return {
+        "state": "trên VAH" if c > p["vah"] else "dưới VAL" if c < p["val"] else "trong vùng",
+        "width": width_bucket,
+        "shape": "POC thấp (b)" if p["poc_pos"] < 0.35 else "POC cao (P)" if p["poc_pos"] > 0.65 else "POC giữa (D)",
+        "node": "LVN" if p["node"] < 0.5 else "HVN" if p["node"] > 1.5 else "bình thường",
+        "dist": "gần POC (<1 ATR)" if abs(c - p["poc"]) < a else "xa POC (>3 ATR)" if abs(c - p["poc"]) > 3 * a else "vừa",
+        "side": 1 if c > p["poc"] else -1,
+    }
+
+
+def width_bucket(w, q25, q75):
+    return "hẹp" if w <= q25 else "rộng" if w >= q75 else "vừa"
+
+
 def features(k, cfg):
-    """Danh sách đặc trưng theo nến (None khi chưa đủ dữ liệu)."""
+    """Danh sách đặc trưng theo nến (None khi chưa đủ dữ liệu). Độ rộng xếp hạng so với 250 profile trước (chỉ quá khứ)."""
     prof = profiles(k, cfg["window"])
     a = atr14(k)
     widths = []
@@ -92,21 +108,21 @@ def features(k, cfg):
         p = prof[i]
         if p is None or a[i] is None:
             out.append(None); widths.append(None); continue
-        hist_w = [w for w in widths[-RANK_WINDOW:] if w is not None]
-        rank = (sum(1 for w in hist_w if w < p["width"]) / len(hist_w)) if len(hist_w) >= 50 else None
+        hist_w = sorted(w for w in widths[-RANK_WINDOW:] if w is not None)
+        wb = None
+        if len(hist_w) >= 50:
+            wb = width_bucket(p["width"], hist_w[len(hist_w) // 4], hist_w[(3 * len(hist_w)) // 4])
         widths.append(p["width"])
-        c = bar["c"]
-        state = "trên VAH" if c > p["vah"] else "dưới VAL" if c < p["val"] else "trong vùng"
-        f = {
-            "state": state,
-            "width": None if rank is None else ("hẹp" if rank <= 0.25 else "rộng" if rank >= 0.75 else "vừa"),
-            "shape": "POC thấp (b)" if p["poc_pos"] < 0.35 else "POC cao (P)" if p["poc_pos"] > 0.65 else "POC giữa (D)",
-            "node": "LVN" if p["node"] < 0.5 else "HVN" if p["node"] > 1.5 else "bình thường",
-            "dist": "gần POC (<1 ATR)" if abs(c - p["poc"]) < a[i] else "xa POC (>3 ATR)" if abs(c - p["poc"]) > 3 * a[i] else "vừa",
-            "side": 1 if c > p["poc"] else -1,
-        }
-        out.append(f)
+        out.append(classify(bar["c"], p, a[i], wb))
     return out
+
+
+def width_quantiles(k, cfg):
+    """Ngưỡng độ rộng vùng giá trị (q25, q75) trên toàn bộ lịch sử, cho bot phân loại trực tiếp."""
+    ws = sorted(p["width"] for p in profiles(k, cfg["window"]) if p)
+    if len(ws) < 50:
+        return None
+    return [ws[len(ws) // 4], ws[(3 * len(ws)) // 4]]
 
 
 def targets(k, i, h, rv_bars):
@@ -182,6 +198,7 @@ def run():
             k = json.load(open(path))
             out[tf][sym] = study(k, cfg)
             out[tf][sym]["bars"] = len(k)
+            out[tf][sym]["width_q"] = width_quantiles(k, cfg)
             print(f"{tf} {sym}: {len(k)} nến", flush=True)
     with open(os.path.join(os.path.dirname(__file__), "vp_vol.json"), "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)
@@ -206,7 +223,7 @@ def write_md(out):
                 continue
             L += [f"### {sym} · {d['bars']} nến", ""]
             for hname, r in d.items():
-                if hname == "bars":
+                if hname in ("bars", "width_q"):
                     continue
                 b = r["base"]
                 L += [f"**Sau {hname}** · nền: n={b['n']}, P(mở rộng) {f(b['p_expand']*100)}%, tỷ lệ {f(b['ratio'],2)}, biên độ {f(b['range'],1)}%, P(tăng) {f(b['p_up']*100)}%", "",

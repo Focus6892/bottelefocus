@@ -1,4 +1,5 @@
 """Kiểm thử chỉ báo trên dữ liệu giả lập (không cần mạng)."""
+import json
 import math
 import random
 
@@ -171,3 +172,42 @@ def test_ichimoku_and_weinstein_states():
     assert I.ichimoku_state(up[:50]) == "flat"
     r = I.compute("BTCUSDT", make_data(), dvol=None)
     assert r["ichimoku_1d"] in ("up", "down", "flat") and r["weinstein_1d"] in ("up", "down", "flat")
+
+
+def test_vp_forecast_with_fake_study(tmp_path):
+    from bot import vp_forecast
+    k4 = make_klines(400, drift=0.002, vol=0.006, seed=31)
+    k1d = make_klines(200, drift=0.002, vol=0.01, seed=32, step=86_400_000)
+    k1h = make_klines(300, drift=0.001, vol=0.003, seed=33, step=3600_000)
+    base = {"n": 500, "p_expand": 0.50, "ratio": 1.0, "range": 5.0, "p_up": 0.52}
+    def grp(pe, pu, sig_e, sig_u, rng=5.0, cont=None):
+        return {"n": 200, "p_expand": pe, "ratio": 1.0, "range": rng, "p_up": pu, "sig_expand": sig_e, "sig_up": sig_u, "continue": cont}
+    study = {}
+    for frame in ("1h", "4h", "1d"):
+        study[frame] = {}
+        for sym in ("BTC", "ETH", "SOL"):
+            groups = {}
+            for key, vals in (("state", ("trên VAH", "trong vùng", "dưới VAL")), ("width", ("hẹp", "vừa", "rộng")), ("shape", ("POC thấp (b)", "POC giữa (D)", "POC cao (P)")), ("node", ("LVN", "HVN", "bình thường")), ("dist", ("gần POC (<1 ATR)", "vừa", "xa POC (>3 ATR)"))):
+                for v in vals:
+                    groups[f"{key}={v}"] = grp(0.62 if key == "state" and v == "trên VAH" else 0.5, 0.60 if key == "node" and v == "LVN" else 0.52, key == "state" and v == "trên VAH", key == "node" and v == "LVN", 6.0)
+            hz = {"24 giờ": {"base": base, "groups": groups}, "7 ngày": {"base": base, "groups": groups}, "3 ngày": {"base": base, "groups": groups}}
+            study[frame][sym] = {**hz, "bars": 1000, "width_q": [0.02, 0.08]}
+    path = tmp_path / "study.json"
+    path.write_text(json.dumps(study))
+    vp_forecast._cache.clear()
+    vp_forecast.STUDY_PATH = str(path)
+    st = vp_forecast.load_study(str(path))
+    frames = {"1h": vp_forecast.live_features(k1h, "1h", "BTC", st), "4h": vp_forecast.live_features(k4, "4h", "BTC", st), "1d": vp_forecast.live_features(k1d, "1d", "BTC", st)}
+    assert frames["4h"] and frames["4h"]["width"] in ("hẹp", "vừa", "rộng") and frames["1d"]
+    fc = vp_forecast.forecast("BTC", frames, st)
+    assert fc and "24 giờ tới" in fc and "7 ngày tới" in fc
+    for v in fc.values():
+        assert v["level"] in ("TĂNG", "GIẢM", "bình thường") and v["range"] > 0
+    vf = {"features": {}, "forecast": fc}
+    assert any("🔮 24 giờ tới" in x for x in vp_forecast.lines(vf))
+    assert vp_forecast.lines(None) == []
+    # không có thống kê -> không dự báo, bản tin vẫn chạy
+    vp_forecast._cache.clear()
+    vp_forecast.STUDY_PATH = str(tmp_path / "missing.json")
+    r = I.compute("BTCUSDT", make_data(), dvol=None)
+    assert r["vp_forecast"]["forecast"] is None and "🔮" not in report.hourly_digest([r])
