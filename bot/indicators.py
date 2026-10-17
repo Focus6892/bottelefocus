@@ -92,6 +92,39 @@ def pct(a, b):
     return (a / b - 1) * 100 if b else 0.0
 
 
+def volume_profile(k, bin_pct=None, value_area=None):
+    """POC, VAH, VAL của các nến k (khối lượng rải đều trên khoảng thấp-cao, bin cố định theo % giá)."""
+    bin_pct = bin_pct or C.VP_BIN_PCT
+    value_area = value_area or C.VP_VALUE_AREA
+    if not k:
+        return None
+    width = k[-1]["c"] * bin_pct
+    hist = {}
+    for bar in k:
+        lo, hi = int(bar["l"] // width), int(bar["h"] // width)
+        v = bar["v"] / (hi - lo + 1)
+        for b in range(lo, hi + 1):
+            hist[b] = hist.get(b, 0.0) + v
+    total = sum(hist.values())
+    poc = max(hist, key=hist.get)
+    acc, lo, hi = hist[poc], poc, poc
+    while acc < total * value_area:
+        up, dn = hist.get(hi + 1, 0.0), hist.get(lo - 1, 0.0)
+        if up == 0 and dn == 0:
+            break
+        if up >= dn:
+            hi += 1; acc += up
+        else:
+            lo -= 1; acc += dn
+    return {"poc": (poc + 0.5) * width, "vah": (hi + 1) * width, "val": lo * width}
+
+
+def vp_state(close, p):
+    if p is None:
+        return "none"
+    return "above" if close > p["vah"] else "below" if close < p["val"] else "inside"
+
+
 # ---------- bộ chỉ báo cho một đồng ----------
 def compute(symbol, d, dvol=None):
     km = d["k_main"][:-1]  # bỏ nến đang chạy để chỉ báo ổn định
@@ -154,6 +187,12 @@ def compute(symbol, d, dvol=None):
     r["dvol_gap"] = dvol - rv24 if dvol is not None and rv24 is not None else None
 
     r["daily"] = daily_signals(symbol, kh)
+
+    # Volume profile: tính trên nến ĐÃ ĐÓNG, trạng thái theo close của nến đóng gần nhất
+    p4 = volume_profile(km[-C.VP_WINDOW_4H - 1 : -1]) if len(km) > C.VP_WINDOW_4H else None
+    p1 = volume_profile(kh[-C.VP_WINDOW_1D - 1 : -1]) if len(kh) > C.VP_WINDOW_1D else None
+    r["vp_4h"] = {"profile": p4, "state": vp_state(km[-1]["c"], p4), "close": km[-1]["c"]}
+    r["vp_1d"] = {"profile": p1, "state": vp_state(kh[-1]["c"], p1), "close": kh[-1]["c"]}
 
     r["score"] = volatility_score(r)
     r["signals"] = signals(r)

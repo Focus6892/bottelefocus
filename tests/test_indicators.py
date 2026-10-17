@@ -80,3 +80,14 @@ def test_daily_signals_cross_and_stop():
     assert isinstance(dd["crossed"], bool) and dd["bars_in_regime"] >= 1
     assert "Xu hướng ngày" in report.hourly_digest([r])
     assert "KHUNG NGÀY" in report.daily_trend_alert(r, "down")
+
+
+def test_volume_profile_in_compute_and_alert():
+    r = I.compute("BTCUSDT", make_data(seed=4))
+    for tf in ("vp_4h", "vp_1d"):
+        p = r[tf]["profile"]
+        assert p and p["val"] <= p["poc"] <= p["vah"]
+        assert r[tf]["state"] in ("above", "below", "inside")
+    assert "VP 30 ngày" in report.hourly_digest([r]) and "VP 90 ngày" in report.hourly_digest([r])
+    r["vp_4h"]["state"] = "above"
+    assert "THOÁT VÙNG GIÁ TRỊ LÊN" in report.vp_alert(r, "vp_4h", "inside")

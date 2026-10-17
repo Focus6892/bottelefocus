@@ -40,3 +40,9 @@ ALERT_COOLDOWN_MIN = 240    # cùng một cảnh báo không lặp lại trong 4
 DAILY_ATR_STOP = 3.5            # dừng lỗ gợi ý = giá vào -/+ 3,5 ATR(14) ngày
 DAILY_SQUEEZE_LOOKBACK = 120    # nén: BBW hẹp nhất 120 ngày trong 5 nến gần
 DAILY_SQUEEZE_SYMBOLS = ["ETHUSDT", "SOLUSDT"]  # backtest thất bại ở BTC nên bỏ
+
+# Volume profile (backtest: thoát vùng giá trị là cách duy nhất có lãi cả 3 đồng trên 4h)
+VP_WINDOW_4H = 180   # 30 ngày nến 4h
+VP_WINDOW_1D = 90    # 90 ngày nến ngày
+VP_BIN_PCT = 0.002
+VP_VALUE_AREA = 0.70

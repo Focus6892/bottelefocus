@@ -67,6 +67,20 @@ def run(force_digest=False, dry=False):
             sent.append(report.daily_trend_alert(r, prev))
             st["trend_1d"][r["symbol"]] = d["regime"]
         st["trend"][r["symbol"]] = r["trend"]  # pha 4h chỉ ghi nhận, không báo riêng
+        # Thoát vùng giá trị volume profile (4h: 30 ngày, 1D: 90 ngày)
+        st.setdefault("vp", {})
+        for tf in ("vp_4h", "vp_1d"):
+            key = f"{r['symbol']}:{tf}"
+            cur = r[tf]["state"]
+            prev_vp = st["vp"].get(key)
+            if cur == "none":
+                continue
+            if prev_vp is None:
+                st["vp"][key] = cur
+            elif cur != prev_vp:
+                if cur in ("above", "below"):
+                    sent.append(report.vp_alert(r, tf, prev_vp))
+                st["vp"][key] = cur
         if d["squeeze_break"]:
             key = f"{r['symbol']}:squeeze_1d:{d['squeeze_break']}"
             if now - st["alerts"].get(key, 0) >= 7 * 86400:

@@ -4,7 +4,7 @@ Bot Telegram theo dõi biến động BTC, ETH, SOL cho giao dịch swing. Chạ
 
 ## Hoạt động
 
-- Mỗi 15 phút quét một lần. Cảnh báo ngay khi: EMA20 cắt EMA50 trên **khung ngày** (tín hiệu xu hướng chính, kèm dừng lỗ gợi ý 3,5 ATR ngày); Bollinger ngày nén rồi bung (ETH, SOL); hoặc tín hiệu khẩn 4h (giá bung, long quá nóng, short quá đông, ATR tăng vọt).
+- Mỗi 15 phút quét một lần. Cảnh báo ngay khi: EMA20 cắt EMA50 trên **khung ngày** (tín hiệu xu hướng chính, kèm dừng lỗ gợi ý 3,5 ATR ngày); Bollinger ngày nén rồi bung (ETH, SOL); nến 4h đóng ngoài vùng giá trị volume profile 30 ngày hoặc nến ngày đóng ngoài vùng 90 ngày (thoát qua VAH/VAL, thoát lệnh khi quay qua POC); hoặc tín hiệu khẩn 4h (giá bung, long quá nóng, short quá đông, ATR tăng vọt).
 - Đầu mỗi giờ gửi bản tin tổng hợp 3 đồng.
 - Cùng một cảnh báo không lặp lại trong 4 giờ.
 - Chỉ báo lưu vào `state/history/` mỗi lần chạy để sau này chỉnh ngưỡng.

@@ -33,6 +33,18 @@ def _daily_line(r):
     return f"Xu hướng ngày: <b>{word}</b> (EMA20/50, {d['bars_in_regime']} ngày) · dừng lỗ gợi ý {_fmt_price(d['stop'])}"
 
 
+def _vp_line(r):
+    out = []
+    for tf, name in (("vp_4h", "30 ngày"), ("vp_1d", "90 ngày")):
+        v = r.get(tf) or {}
+        p = v.get("profile")
+        if not p:
+            continue
+        pos = {"above": "TRÊN vùng", "below": "DƯỚI vùng", "inside": "trong vùng"}[v["state"]]
+        out.append(f"VP {name}: POC {_fmt_price(p['poc'])} · vùng {_fmt_price(p['val'])}–{_fmt_price(p['vah'])} · giá {pos}")
+    return out
+
+
 def coin_block(r):
     lines = [
         f"<b>{r['name']}</b> {_fmt_price(r['price'])}  {_arrow(r['chg_4h'])}{r['chg_4h']:+.1f}% 4h  {r['chg_24h']:+.1f}% 24h",
@@ -77,6 +89,23 @@ def daily_trend_alert(r, previous):
         f"{head} · {r['name']} · {now}\nXu hướng ngày đổi từ {was}. Theo backtest 6 năm, đây là tín hiệu swing ổn định nhất "
         f"(profit factor 2,4–3,2) nhưng chỉ 4/10 lệnh thắng, lãi đến từ các đợt dài.\n"
         f"Gợi ý {side}: vào quanh {_fmt_price(d['close'])}, dừng lỗ {_fmt_price(d['stop'])} (3,5 ATR ngày = {d['atr']/d['close']*100*3.5:.1f}%).\n\n"
+        f"{coin_block(r)}\n\n<a href=\"{TV.format(sym=r['symbol'])}\">Mở biểu đồ</a>"
+    )
+
+
+def vp_alert(r, tf, previous):
+    now = datetime.now(VN).strftime("%H:%M %d/%m")
+    v = r[tf]
+    p = v["profile"]
+    up = v["state"] == "above"
+    name = "4h, vùng 30 ngày" if tf == "vp_4h" else "NGÀY, vùng 90 ngày"
+    was = {"above": "trên vùng", "below": "dưới vùng", "inside": "trong vùng"}[previous]
+    stat = ("Backtest 3 năm trên 4h: cách duy nhất có lãi cả 3 đồng, PF 1,2–1,7, sụt giảm 34–38%."
+            if tf == "vp_4h" else "Backtest 6 năm trên 1D: PF 1,7–2,9, 24 tháng gần nhất tốt hơn cắt EMA.")
+    return (
+        f"{'🟢' if up else '🔻'} <b>THOÁT VÙNG GIÁ TRỊ {'LÊN' if up else 'XUỐNG'}</b> · {r['name']} · khung {name} · {now}\n"
+        f"Nến đóng {_fmt_price(v['close'])}, {'trên VAH' if up else 'dưới VAL'} {_fmt_price(p['vah'] if up else p['val'])} (trước đó {was}). POC {_fmt_price(p['poc'])}.\n"
+        f"{stat}\nGợi ý: theo hướng bung, thoát khi nến đóng quay qua POC {_fmt_price(p['poc'])}.\n\n"
         f"{coin_block(r)}\n\n<a href=\"{TV.format(sym=r['symbol'])}\">Mở biểu đồ</a>"
     )
 
