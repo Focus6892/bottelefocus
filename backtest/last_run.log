@@ -7,7 +7,9 @@ SOL-USDT-SWAP 1Wutc: 299 nến, từ 2021-01-18
 BTC-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
 ETH-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
 SOL-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
-/home/runner/work/bottelefocus/bottelefocus/backtest/run.py:313: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  a, b = (dt.datetime.utcfromtimestamp(d[k] / 1000).strftime("%Y-%m-%d") for k in ("from", "to"))
-/home/runner/work/bottelefocus/bottelefocus/backtest/run.py:313: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
-  a, b = (dt.datetime.utcfromtimestamp(d[k] / 1000).strftime("%Y-%m-%d") for k in ("from", "to"))
+BTC-USDT-SWAP 15m: 35039 nến, từ 2025-10-17
+BTC-USDT-SWAP 30m: 17519 nến, từ 2025-10-17
+ETH-USDT-SWAP 15m: 35039 nến, từ 2025-10-17
+ETH-USDT-SWAP 30m: 17519 nến, từ 2025-10-17
+SOL-USDT-SWAP 15m: 35039 nến, từ 2025-10-17
+SOL-USDT-SWAP 30m: 17519 nến, từ 2025-10-17

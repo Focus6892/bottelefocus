@@ -5,7 +5,7 @@
   "from": 1602201600000,
   "to": 1792108800000,
   "trend": {
-   "label": "Xu hướng EMA20/50 + ADX25 + xác nhận 1D (đang dùng)",
+   "label": "Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng)",
    "direction": {
     "1 tuần": {
      "n": 35,
@@ -48,7 +48,7 @@
    }
   },
   "ema_cross": {
-   "label": "Cắt EMA20/50 trên 4h",
+   "label": "Cắt EMA20/50",
    "direction": {
     "1 tuần": {
      "n": 35,
@@ -91,7 +91,7 @@
    }
   },
   "donchian": {
-   "label": "Phá đỉnh/đáy 20 nến 4h",
+   "label": "Phá đỉnh/đáy 20 nến",
    "direction": {
     "1 tuần": {
      "n": 60,
@@ -225,7 +225,7 @@
   "from": 1602201600000,
   "to": 1792108800000,
   "trend": {
-   "label": "Xu hướng EMA20/50 + ADX25 + xác nhận 1D (đang dùng)",
+   "label": "Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng)",
    "direction": {
     "1 tuần": {
      "n": 30,
@@ -268,7 +268,7 @@
    }
   },
   "ema_cross": {
-   "label": "Cắt EMA20/50 trên 4h",
+   "label": "Cắt EMA20/50",
    "direction": {
     "1 tuần": {
      "n": 37,
@@ -311,7 +311,7 @@
    }
   },
   "donchian": {
-   "label": "Phá đỉnh/đáy 20 nến 4h",
+   "label": "Phá đỉnh/đáy 20 nến",
    "direction": {
     "1 tuần": {
      "n": 59,
@@ -445,7 +445,7 @@
   "from": 1611360000000,
   "to": 1792108800000,
   "trend": {
-   "label": "Xu hướng EMA20/50 + ADX25 + xác nhận 1D (đang dùng)",
+   "label": "Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng)",
    "direction": {
     "1 tuần": {
      "n": 31,
@@ -488,7 +488,7 @@
    }
   },
   "ema_cross": {
-   "label": "Cắt EMA20/50 trên 4h",
+   "label": "Cắt EMA20/50",
    "direction": {
     "1 tuần": {
      "n": 41,
@@ -531,7 +531,7 @@
    }
   },
   "donchian": {
-   "label": "Phá đỉnh/đáy 20 nến 4h",
+   "label": "Phá đỉnh/đáy 20 nến",
    "direction": {
     "1 tuần": {
      "n": 59,
