@@ -29,6 +29,26 @@
 | PA: pin bar tại đỉnh/đáy swing | 31 | 53% | 44% | 42% | 55% | -5.66% |
 | PA: phá đỉnh/đáy rồi retest | 54 | 44% | 46% | 46% | 55% | -2.91% |
 | PA: inside bar theo xu hướng EMA | 35 | 60% | 51% | 49% | 55% | 3.46% |
+| CK: Connors RSI(2) hồi về trung bình + SMA200 | 88 | 53% | 51% | 43% | 55% | 0.75% |
+| CK: cắt SMA50/200 (golden/death cross) | 13 | 46% | 62% | 62% | 55% | 2.70% |
+| CK: MACD histogram + lọc EMA200 | 110 | 43% | 42% | 53% | 55% | 0.18% |
+| CK: Supertrend 10/3 | 55 | 42% | 44% | 49% | 55% | 0.83% |
+| CK: Parabolic SAR | 185 | 49% | 49% | 48% | 55% | 0.40% |
+| CK: Ichimoku (mây + Tenkan/Kijun) | 69 | 54% | 48% | 46% | 55% | -0.21% |
+| CK: bung kênh Keltner EMA20 ± 2 ATR | 41 | 57% | 64% | 63% | 55% | 6.01% |
+| CK: Bollinger hồi về trung bình + SMA200 | 36 | 64% | 64% | 50% | 55% | 0.48% |
+| CK: Minervini trend template | 40 | 52% | 50% | 52% | 55% | 1.70% |
+| CK: nền co biên rồi bung với khối lượng (O'Neil/VCP) | 4 | 50% | 50% | 50% | 55% | 3.59% |
+| CK: Elder Triple Screen (khung cao + Force Index) | 27 | 48% | 56% | 56% | 55% | 4.29% |
+| CK: Weinstein giai đoạn 2/4 (SMA30 khung cao) | 22 | 59% | 59% | 50% | 55% | -2.08% |
+| CK: Turtle Donchian 55/20 | 30 | 61% | 68% | 67% | 55% | 6.40% |
+| CK: bung biên độ 60 phút đầu ngày (chỉ khung < 4h) | 0 | - | - | - | 55% | - |
+| CK: VWAP ngày hồi về trung bình (chỉ khung < 4h) | 0 | - | - | - | 55% | - |
+| CK: hộp Darvas (đỉnh mới + khối lượng) | 28 | 46% | 43% | 50% | 55% | -0.17% |
+| CK: Bollinger %b < 0,2 ba nến + SMA200 (Connors) | 33 | 64% | 61% | 42% | 55% | -0.66% |
+| CK: động lượng tuyệt đối 90 nến (Antonacci) | 75 | 56% | 52% | 53% | 55% | 0.77% |
+| Đồng thuận 2/3: Supertrend + Keltner + Weinstein | 41 | 63% | 71% | 63% | 55% | 6.20% |
+| Đồng thuận 2/3 bắt buộc cùng chiều khung cao | 31 | 68% | 65% | 61% | 55% | 3.23% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 24 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -57,6 +77,26 @@
 | PA: pin bar tại đỉnh/đáy swing | 33 | 30% | -0.82% | 0.81 | -35% | 51% | 638% | -3% |
 | PA: phá đỉnh/đáy rồi retest | 56 | 18% | 4.85% | 3.23 | 254% | 34% | 638% | 11% |
 | PA: inside bar theo xu hướng EMA | 36 | 14% | 0.89% | 1.14 | -41% | 77% | 638% | -23% |
+| CK: Connors RSI(2) hồi về trung bình + SMA200 | 99 | 64% | 0.23% | 1.12 | 3% | 54% | 638% | -3% |
+| CK: cắt SMA50/200 (golden/death cross) | 22 | 27% | -0.35% | 0.96 | -44% | 57% | 638% | -31% |
+| CK: MACD histogram + lọc EMA200 | 111 | 27% | 0.47% | 1.18 | 20% | 48% | 638% | 5% |
+| CK: Supertrend 10/3 | 57 | 32% | 1.46% | 1.19 | -44% | 83% | 638% | -27% |
+| CK: Parabolic SAR | 186 | 36% | 0.28% | 1.07 | -44% | 91% | 638% | -4% |
+| CK: Ichimoku (mây + Tenkan/Kijun) | 69 | 30% | 3.87% | 2.45 | 537% | 49% | 638% | 69% |
+| CK: bung kênh Keltner EMA20 ± 2 ATR | 42 | 48% | 4.43% | 2.37 | 327% | 25% | 638% | 52% |
+| CK: Bollinger hồi về trung bình + SMA200 | 46 | 76% | 1.29% | 1.41 | 45% | 54% | 638% | 42% |
+| CK: Minervini trend template | 40 | 22% | 1.85% | 1.87 | 66% | 28% | 638% | -21% |
+| CK: nền co biên rồi bung với khối lượng (O'Neil/VCP) | 4 | 50% | 3.50% | 2.12 | 12% | 7% | 638% | -1% |
+| CK: Elder Triple Screen (khung cao + Force Index) | 37 | 30% | 1.80% | 1.30 | -0% | 61% | 638% | 1% |
+| CK: Weinstein giai đoạn 2/4 (SMA30 khung cao) | 25 | 48% | 1.38% | 1.26 | -4% | 49% | 638% | 5% |
+| CK: Turtle Donchian 55/20 | 33 | 42% | 4.39% | 1.98 | 137% | 44% | 638% | 14% |
+| CK: bung biên độ 60 phút đầu ngày (chỉ khung < 4h) | 0 | | | | | | | |
+| CK: VWAP ngày hồi về trung bình (chỉ khung < 4h) | 0 | | | | | | | |
+| CK: hộp Darvas (đỉnh mới + khối lượng) | 33 | 30% | -1.06% | 0.87 | -58% | 74% | 638% | -21% |
+| CK: Bollinger %b < 0,2 ba nến + SMA200 (Connors) | 48 | 62% | 0.03% | 1.01 | -22% | 46% | 638% | -1% |
+| CK: động lượng tuyệt đối 90 nến (Antonacci) | 78 | 37% | 1.79% | 1.67 | 81% | 42% | 638% | 30% |
+| Đồng thuận 2/3: Supertrend + Keltner + Weinstein | 41 | 51% | 3.00% | 1.67 | 113% | 46% | 638% | 17% |
+| Đồng thuận 2/3 bắt buộc cùng chiều khung cao | 31 | 45% | 0.63% | 1.14 | -7% | 45% | 638% | -16% |
 
 ## ETH · 2199 nến 1D · 2020-10-09 đến 2026-10-16
 
@@ -87,6 +127,26 @@
 | PA: pin bar tại đỉnh/đáy swing | 35 | 47% | 50% | 51% | 53% | 3.25% |
 | PA: phá đỉnh/đáy rồi retest | 65 | 41% | 38% | 55% | 53% | -0.37% |
 | PA: inside bar theo xu hướng EMA | 29 | 45% | 69% | 66% | 53% | 5.57% |
+| CK: Connors RSI(2) hồi về trung bình + SMA200 | 85 | 45% | 45% | 45% | 53% | -3.33% |
+| CK: cắt SMA50/200 (golden/death cross) | 13 | 69% | 62% | 62% | 53% | 7.32% |
+| CK: MACD histogram + lọc EMA200 | 92 | 46% | 46% | 42% | 53% | -3.13% |
+| CK: Supertrend 10/3 | 47 | 48% | 51% | 62% | 53% | 2.20% |
+| CK: Parabolic SAR | 174 | 48% | 46% | 45% | 53% | -0.52% |
+| CK: Ichimoku (mây + Tenkan/Kijun) | 62 | 53% | 58% | 61% | 53% | 7.00% |
+| CK: bung kênh Keltner EMA20 ± 2 ATR | 45 | 48% | 54% | 62% | 53% | 5.56% |
+| CK: Bollinger hồi về trung bình + SMA200 | 35 | 44% | 60% | 29% | 53% | -3.96% |
+| CK: Minervini trend template | 37 | 32% | 27% | 27% | 53% | -5.68% |
+| CK: nền co biên rồi bung với khối lượng (O'Neil/VCP) | 7 | 43% | 43% | 86% | 53% | 6.34% |
+| CK: Elder Triple Screen (khung cao + Force Index) | 33 | 55% | 48% | 55% | 53% | 3.18% |
+| CK: Weinstein giai đoạn 2/4 (SMA30 khung cao) | 21 | 67% | 52% | 67% | 53% | 3.33% |
+| CK: Turtle Donchian 55/20 | 26 | 62% | 77% | 73% | 53% | 11.47% |
+| CK: bung biên độ 60 phút đầu ngày (chỉ khung < 4h) | 0 | - | - | - | 53% | - |
+| CK: VWAP ngày hồi về trung bình (chỉ khung < 4h) | 0 | - | - | - | 53% | - |
+| CK: hộp Darvas (đỉnh mới + khối lượng) | 19 | 26% | 37% | 42% | 53% | 2.16% |
+| CK: Bollinger %b < 0,2 ba nến + SMA200 (Connors) | 33 | 53% | 64% | 36% | 53% | -2.56% |
+| CK: động lượng tuyệt đối 90 nến (Antonacci) | 67 | 46% | 52% | 52% | 53% | 1.01% |
+| Đồng thuận 2/3: Supertrend + Keltner + Weinstein | 41 | 54% | 61% | 56% | 53% | 3.38% |
+| Đồng thuận 2/3 bắt buộc cùng chiều khung cao | 28 | 64% | 61% | 64% | 53% | 2.52% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 24 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -115,6 +175,26 @@
 | PA: pin bar tại đỉnh/đáy swing | 37 | 32% | -0.17% | 0.97 | -30% | 60% | 564% | -41% |
 | PA: phá đỉnh/đáy rồi retest | 66 | 15% | -0.97% | 0.73 | -61% | 72% | 564% | -35% |
 | PA: inside bar theo xu hướng EMA | 30 | 27% | 6.30% | 1.87 | 28% | 76% | 564% | 7% |
+| CK: Connors RSI(2) hồi về trung bình + SMA200 | 98 | 56% | -1.02% | 0.66 | -73% | 77% | 564% | -2% |
+| CK: cắt SMA50/200 (golden/death cross) | 23 | 43% | -3.64% | 0.66 | -75% | 83% | 564% | -55% |
+| CK: MACD histogram + lọc EMA200 | 94 | 35% | 1.49% | 1.36 | 72% | 49% | 564% | 12% |
+| CK: Supertrend 10/3 | 50 | 48% | 7.26% | 2.10 | 339% | 63% | 564% | 114% |
+| CK: Parabolic SAR | 176 | 32% | -0.47% | 0.92 | -92% | 99% | 564% | -76% |
+| CK: Ichimoku (mây + Tenkan/Kijun) | 62 | 34% | 5.27% | 2.21 | 555% | 50% | 564% | 295% |
+| CK: bung kênh Keltner EMA20 ± 2 ATR | 46 | 48% | 2.31% | 1.46 | 64% | 48% | 564% | -2% |
+| CK: Bollinger hồi về trung bình + SMA200 | 47 | 72% | 1.72% | 1.44 | 65% | 33% | 564% | -15% |
+| CK: Minervini trend template | 37 | 14% | -0.10% | 0.97 | -25% | 53% | 564% | -3% |
+| CK: nền co biên rồi bung với khối lượng (O'Neil/VCP) | 7 | 43% | -1.12% | 0.85 | -14% | 32% | 564% | 11% |
+| CK: Elder Triple Screen (khung cao + Force Index) | 43 | 35% | -0.18% | 0.98 | -62% | 85% | 564% | 45% |
+| CK: Weinstein giai đoạn 2/4 (SMA30 khung cao) | 26 | 31% | -1.29% | 0.83 | -56% | 69% | 564% | -42% |
+| CK: Turtle Donchian 55/20 | 27 | 48% | 13.95% | 3.98 | 567% | 59% | 564% | 122% |
+| CK: bung biên độ 60 phút đầu ngày (chỉ khung < 4h) | 0 | | | | | | | |
+| CK: VWAP ngày hồi về trung bình (chỉ khung < 4h) | 0 | | | | | | | |
+| CK: hộp Darvas (đỉnh mới + khối lượng) | 21 | 33% | 11.79% | 2.32 | 224% | 49% | 564% | 70% |
+| CK: Bollinger %b < 0,2 ba nến + SMA200 (Connors) | 50 | 58% | 0.08% | 1.01 | -35% | 56% | 564% | -53% |
+| CK: động lượng tuyệt đối 90 nến (Antonacci) | 73 | 30% | 1.89% | 1.47 | 48% | 72% | 564% | 7% |
+| Đồng thuận 2/3: Supertrend + Keltner + Weinstein | 41 | 44% | 2.82% | 1.52 | 75% | 66% | 564% | 13% |
+| Đồng thuận 2/3 bắt buộc cùng chiều khung cao | 28 | 50% | 2.17% | 1.42 | 27% | 54% | 564% | -5% |
 
 ## SOL · 2093 nến 1D · 2021-01-23 đến 2026-10-16
 
@@ -145,6 +225,26 @@
 | PA: pin bar tại đỉnh/đáy swing | 33 | 39% | 39% | 36% | 51% | -9.86% |
 | PA: phá đỉnh/đáy rồi retest | 58 | 49% | 60% | 59% | 51% | 5.32% |
 | PA: inside bar theo xu hướng EMA | 22 | 50% | 55% | 45% | 51% | 13.01% |
+| CK: Connors RSI(2) hồi về trung bình + SMA200 | 85 | 47% | 49% | 44% | 51% | -2.13% |
+| CK: cắt SMA50/200 (golden/death cross) | 13 | 46% | 38% | 62% | 51% | 29.21% |
+| CK: MACD histogram + lọc EMA200 | 88 | 48% | 49% | 58% | 51% | 4.41% |
+| CK: Supertrend 10/3 | 41 | 51% | 56% | 66% | 51% | 14.96% |
+| CK: Parabolic SAR | 159 | 58% | 52% | 53% | 51% | 3.76% |
+| CK: Ichimoku (mây + Tenkan/Kijun) | 73 | 59% | 51% | 62% | 51% | 11.37% |
+| CK: bung kênh Keltner EMA20 ± 2 ATR | 40 | 57% | 52% | 55% | 51% | 9.31% |
+| CK: Bollinger hồi về trung bình + SMA200 | 29 | 47% | 52% | 41% | 51% | -0.26% |
+| CK: Minervini trend template | 32 | 61% | 52% | 44% | 51% | 4.36% |
+| CK: nền co biên rồi bung với khối lượng (O'Neil/VCP) | 11 | 36% | 45% | 36% | 51% | -7.13% |
+| CK: Elder Triple Screen (khung cao + Force Index) | 33 | 36% | 42% | 48% | 51% | 4.48% |
+| CK: Weinstein giai đoạn 2/4 (SMA30 khung cao) | 21 | 48% | 67% | 71% | 51% | 8.98% |
+| CK: Turtle Donchian 55/20 | 25 | 60% | 60% | 56% | 51% | 22.37% |
+| CK: bung biên độ 60 phút đầu ngày (chỉ khung < 4h) | 0 | - | - | - | 51% | - |
+| CK: VWAP ngày hồi về trung bình (chỉ khung < 4h) | 0 | - | - | - | 51% | - |
+| CK: hộp Darvas (đỉnh mới + khối lượng) | 18 | 61% | 67% | 72% | 51% | 17.90% |
+| CK: Bollinger %b < 0,2 ba nến + SMA200 (Connors) | 24 | 46% | 38% | 33% | 51% | -3.75% |
+| CK: động lượng tuyệt đối 90 nến (Antonacci) | 93 | 47% | 54% | 52% | 51% | 2.15% |
+| Đồng thuận 2/3: Supertrend + Keltner + Weinstein | 38 | 47% | 58% | 63% | 51% | 12.96% |
+| Đồng thuận 2/3 bắt buộc cùng chiều khung cao | 27 | 44% | 59% | 67% | 51% | 9.97% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 24 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -173,3 +273,23 @@
 | PA: pin bar tại đỉnh/đáy swing | 33 | 30% | -2.40% | 0.65 | -67% | 71% | 2876% | -12% |
 | PA: phá đỉnh/đáy rồi retest | 59 | 19% | 2.55% | 1.56 | 10% | 54% | 2876% | -18% |
 | PA: inside bar theo xu hướng EMA | 22 | 27% | 17.83% | 2.27 | -54% | 95% | 2876% | 1% |
+| CK: Connors RSI(2) hồi về trung bình + SMA200 | 91 | 60% | 0.38% | 1.16 | 7% | 43% | 2876% | 32% |
+| CK: cắt SMA50/200 (golden/death cross) | 24 | 38% | 13.77% | 2.08 | 1% | 84% | 2876% | -68% |
+| CK: MACD histogram + lọc EMA200 | 89 | 37% | 5.74% | 2.40 | 1132% | 56% | 2876% | 9% |
+| CK: Supertrend 10/3 | 43 | 51% | 31.02% | 6.18 | 28864% | 40% | 2876% | 15% |
+| CK: Parabolic SAR | 160 | 46% | 4.12% | 1.73 | 1879% | 81% | 2876% | -38% |
+| CK: Ichimoku (mây + Tenkan/Kijun) | 73 | 27% | 9.60% | 2.97 | 1312% | 67% | 2876% | 35% |
+| CK: bung kênh Keltner EMA20 ± 2 ATR | 40 | 50% | 16.68% | 3.62 | 1934% | 72% | 2876% | -32% |
+| CK: Bollinger hồi về trung bình + SMA200 | 37 | 59% | 0.01% | 1.00 | -33% | 75% | 2876% | 41% |
+| CK: Minervini trend template | 33 | 27% | 7.46% | 2.88 | 310% | 56% | 2876% | -49% |
+| CK: nền co biên rồi bung với khối lượng (O'Neil/VCP) | 11 | 27% | -7.20% | 0.45 | -67% | 71% | 2876% | 7% |
+| CK: Elder Triple Screen (khung cao + Force Index) | 40 | 32% | 9.07% | 1.95 | -27% | 85% | 2876% | -63% |
+| CK: Weinstein giai đoạn 2/4 (SMA30 khung cao) | 24 | 17% | 13.83% | 2.40 | -17% | 90% | 2876% | -79% |
+| CK: Turtle Donchian 55/20 | 30 | 43% | 24.49% | 4.16 | 1282% | 64% | 2876% | -53% |
+| CK: bung biên độ 60 phút đầu ngày (chỉ khung < 4h) | 0 | | | | | | | |
+| CK: VWAP ngày hồi về trung bình (chỉ khung < 4h) | 0 | | | | | | | |
+| CK: hộp Darvas (đỉnh mới + khối lượng) | 24 | 42% | 6.79% | 1.59 | 22% | 70% | 2876% | -14% |
+| CK: Bollinger %b < 0,2 ba nến + SMA200 (Connors) | 37 | 54% | -2.82% | 0.70 | -84% | 89% | 2876% | -51% |
+| CK: động lượng tuyệt đối 90 nến (Antonacci) | 98 | 29% | 4.80% | 1.86 | -34% | 77% | 2876% | -31% |
+| Đồng thuận 2/3: Supertrend + Keltner + Weinstein | 39 | 44% | 20.61% | 4.15 | 2107% | 77% | 2876% | -39% |
+| Đồng thuận 2/3 bắt buộc cùng chiều khung cao | 28 | 39% | 12.81% | 3.21 | 438% | 69% | 2876% | -47% |
