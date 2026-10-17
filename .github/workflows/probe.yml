@@ -1,0 +1,40 @@
+name: Thử nguồn dữ liệu dominance
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Gọi thử TradingView scanner và CoinGecko
+        run: |
+          mkdir -p state
+          {
+            echo "== TradingView scanner =="
+            curl -sS -m 20 -H 'User-Agent: Mozilla/5.0' -H 'Content-Type: application/json' \
+              -d '{"symbols":{"tickers":["CRYPTOCAP:BTC.D","CRYPTOCAP:USDT.D","CRYPTOCAP:OTHERS.D"],"query":{"types":[]}},"columns":["close","change","Perf.W","Perf.1M","EMA20","EMA50","RSI","ADX","Recommend.All"]}' \
+              https://scanner.tradingview.com/crypto/scan | head -c 2000; echo
+            echo "== CoinGecko global =="
+            curl -sS -m 20 https://api.coingecko.com/api/v3/global | head -c 1500; echo
+            echo "== bot.dominance =="
+            DOMINANCE_HISTORY=/tmp/dom.jsonl python -m bot.dominance
+          } 2>&1 | tee state/probe.log
+      - name: Lưu log
+        if: always()
+        run: |
+          git config user.name "bottelefocus"
+          git config user.email "bot@users.noreply.github.com"
+          git add state/probe.log
+          git diff --cached --quiet || git commit -m "probe: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin ${{ github.ref_name }} || true
+          git push
