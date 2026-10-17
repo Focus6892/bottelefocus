@@ -1,0 +1,10 @@
+BTC-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
+ETH-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
+SOL-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
+Traceback (most recent call last):
+  File "/home/runner/work/bottelefocus/bottelefocus/backtest/run.py", line 333, in <module>
+    run(sys.argv[1] if len(sys.argv) > 1 else "4h")
+  File "/home/runner/work/bottelefocus/bottelefocus/backtest/run.py", line 284, in run
+    k1 = json.load(open(os.path.join(DATA, f"{sym}_{CFG['high']}.json")))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/bottelefocus/bottelefocus/backtest/data/BTC_1Dutc.json'
