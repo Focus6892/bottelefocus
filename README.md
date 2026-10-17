@@ -11,6 +11,12 @@ Bot Telegram theo dõi biến động BTC, ETH, SOL cho giao dịch swing. Chạ
 
 Vì sao chọn khung ngày: backtest 6 năm (`backtest/results_1d.md`) cho thấy cắt EMA20/50 ngày có profit factor 2,4–3,2 ở cả ba đồng, trong khi mọi tín hiệu trên 4h (`backtest/results.md`) không vượt được mức nền. Pha 4h (EMA20/50 + ADX) chỉ hiển thị để tham khảo. Các chiến lược SMC (BOS/CHoCH, order block, fair value gap, quét thanh khoản) và price action (nhấn chìm, pin bar, phá rồi retest, inside bar) nằm ở `backtest/smc.py`, kết quả trong cùng bảng. Chạy lại backtest bằng workflow "Backtest xu hướng" (bỏ chọn `scalp` nếu chỉ cần 4h và 1D).
 
+## Cơ chế nhiều agent (0 đồng, chạy bằng quy tắc)
+
+- `bot/advisor.py` (agent đề xuất): gom hướng của từng biểu đồ (EMA20/50 ngày, VP 90 ngày, VP 30 ngày 4h, inside bar 4h, pha 4h, dòng tiền dominance) với trọng số theo profit factor backtest, ra khuyến nghị LONG / SHORT / ĐỨNG NGOÀI, độ tin cậy và dừng lỗ.
+- `bot/reviewer.py` (agent review): soát lại trước khi gửi: bỏ nguồn có backtest yếu ở đồng đó (PF < 1,2 trong `backtest/results*.json`), bác khuyến nghị ngược khung ngày, giữ lại khi long alt lúc tiền rút về stablecoin hoặc biến động cực đoan, cảnh báo funding quá nóng và dừng lỗ quá xa, gợi ý khối lượng theo rủi ro 1% vốn.
+- Kết quả hiện ở hai dòng 🤖 / 🧑‍⚖️ cuối mỗi đồng trong bản tin; khi khuyến nghị đã duyệt đổi, bot báo riêng. Backtest (`backtest/stock.py`, `smc.py`, `run.py`) là agent đánh giá: mọi trọng số phải có số liệu từ đó.
+
 ## Cài đặt (một lần)
 
 1. Tạo bot với [@BotFather](https://t.me/BotFather), lấy token.
