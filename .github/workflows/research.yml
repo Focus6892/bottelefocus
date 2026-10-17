@@ -1,0 +1,41 @@
+name: Nghiên cứu VP biến động và scalp
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Số ngày lịch sử 1h và 15m"
+        default: "1095"
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Tải lịch sử, nghiên cứu VP, backtest scalp
+        run: |
+          set -o pipefail
+          {
+            python backtest/fetch_history.py 2200 1Dutc &&
+            python backtest/fetch_history.py ${{ inputs.days }} 4H,1H,15m &&
+            python backtest/vp_vol.py &&
+            python backtest/scalp.py 1h &&
+            python backtest/scalp.py 15m
+          } 2>&1 | tee backtest/research_log.txt
+      - name: Lưu kết quả
+        if: always()
+        run: |
+          git config user.name "bottelefocus"
+          git config user.email "bot@users.noreply.github.com"
+          git add backtest/vp_vol.md backtest/vp_vol.json backtest/scalp_*.md backtest/scalp_*.json backtest/research_log.txt
+          git diff --cached --quiet || git commit -m "research: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin ${{ github.ref_name }} || true
+          git push

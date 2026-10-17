@@ -35,20 +35,26 @@ def fetch(inst, bar, days):
         after = data[-1][0]
         if int(after) < stop:
             break
-        time.sleep(0.15)  # giới hạn 20 lượt / 2s
+        time.sleep(0.2)  # 3 luồng x 5 lượt/s < giới hạn 20 lượt / 2s
     rows = sorted({r["t"]: r for r in rows}.values(), key=lambda x: x["t"])
     return [r for r in rows if r["t"] >= stop]
 
 
+def _one(inst, bar, days):
+    rows = fetch(inst, bar, days)
+    path = os.path.join(OUT, f"{inst.split('-')[0]}_{bar}.json")
+    with open(path, "w") as f:
+        json.dump(rows, f)
+    print(f"{inst} {bar}: {len(rows)} nến, từ {time.strftime('%Y-%m-%d', time.gmtime(rows[0]['t']/1000)) if rows else '-'}", flush=True)
+
+
 def main(days=1095, bars=None):
+    """Tải song song 3 đồng (3 luồng, vẫn dưới giới hạn 20 lượt / 2 giây của OKX)."""
+    from concurrent.futures import ThreadPoolExecutor
     os.makedirs(OUT, exist_ok=True)
-    for inst in SYMBOLS:
-        for bar in (bars or BARS):
-            rows = fetch(inst, bar, days)
-            path = os.path.join(OUT, f"{inst.split('-')[0]}_{bar}.json")
-            with open(path, "w") as f:
-                json.dump(rows, f)
-            print(f"{inst} {bar}: {len(rows)} nến, từ {time.strftime('%Y-%m-%d', time.gmtime(rows[0]['t']/1000)) if rows else '-'}", flush=True)
+    jobs = [(inst, bar) for bar in (bars or BARS) for inst in SYMBOLS]
+    with ThreadPoolExecutor(max_workers=3) as ex:
+        list(ex.map(lambda j: _one(j[0], j[1], days), jobs))
 
 
 if __name__ == "__main__":

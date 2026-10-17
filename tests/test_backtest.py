@@ -106,3 +106,45 @@ def test_trade_sim_no_reentry_on_stop_bar_and_gap_fill():
     assert t["max_drawdown"] > 25
     from backtest import stock
     assert abs(stock.wilder(list(range(1, 15)) + [100], 14)[13] - 7.5) < 1e-9
+
+
+def test_scalp_simulator_semantics():
+    from backtest import scalp
+    k = [{"t": i * 900_000, "o": 100.0, "h": 100.5, "l": 99.5, "c": 100.0, "v": 1.0} for i in range(60)]
+    atr = [1.0] * 60
+    # 1. cùng nến chạm cả TP (102) lẫn SL (99): tính là SL
+    k2 = [dict(x) for x in k]; k2[11].update(h=103.0, l=98.0)
+    tr = scalp.simulate(k2, atr, [(10, 1, None, None, None)], 2.0, 1.0, 16, scalp.TAKER)
+    assert len(tr) == 1 and abs(tr[0][3] - (99.0 / 100.0 - 1 - 0.001)) < 1e-9
+    # 2. nến mở qua SL: khớp ở giá mở
+    k3 = [dict(x) for x in k]; k3[12].update(o=97.0, h=97.5, l=96.0, c=97.0)
+    tr = scalp.simulate(k3, atr, [(10, 1, None, None, None)], 2.0, 1.0, 16, scalp.TAKER)
+    assert abs(tr[0][3] - (97.0 / 100.0 - 1 - 0.001)) < 1e-9 and tr[0][2] == 12
+    # 3. hết thời gian: đóng ở close nến thứ hold sau khi vào
+    tr = scalp.simulate(k, atr, [(10, 1, None, None, None)], 2.0, 1.0, 16, scalp.TAKER)
+    assert tr[0][1] == 11 and tr[0][2] == 27 and abs(tr[0][3] + 0.001) < 1e-9
+    # 4. lệnh chờ: không chạm trong 4 nến thì bỏ; chạm thì khớp tại mức, phí maker
+    tr = scalp.simulate(k, atr, [(10, 1, 99.0, None, None)], 2.0, 1.0, 16, scalp.MAKER)
+    assert tr == []
+    k4 = [dict(x) for x in k]; k4[13].update(l=98.8); k4[20].update(h=101.2)
+    tr = scalp.simulate(k4, atr, [(10, 1, 99.0, None, None)], 2.0, 1.0, 16, scalp.MAKER)
+    assert tr[0][1] == 13 and tr[0][2] == 20 and abs(tr[0][3] - (101.0 / 99.0 - 1 - 0.0007)) < 1e-9
+    # 5. một lệnh một lúc: tín hiệu trong lúc đang giữ bị bỏ qua
+    tr = scalp.simulate(k, atr, [(10, 1, None, None, None), (12, 1, None, None, None)], 2.0, 1.0, 16, scalp.TAKER)
+    assert len(tr) == 1
+    m = scalp.metrics(tr, 60, 96)
+    assert m["n"] == 1 and m["per_day"] > 0
+
+
+def test_vp_vol_profiles_and_features():
+    from backtest import vp_vol
+    k4, _ = _data(0.001, 8)
+    prof = vp_vol.profiles(k4, 180)
+    p = prof[-1]
+    assert prof[100] is None and p["val"] <= p["poc"] <= p["vah"] and 0 <= p["poc_pos"] <= 1 and p["node"] >= 0
+    feats = vp_vol.features(k4, vp_vol.FRAMES["4h"])
+    f = feats[-1]
+    assert f["state"] in ("trên VAH", "trong vùng", "dưới VAL") and f["shape"].startswith("POC")
+    assert vp_vol.targets(k4, len(k4) - 1, 6, 42) is None  # không đủ nến tới
+    t = vp_vol.targets(k4, 1000, 6, 42)
+    assert t and t["ratio"] > 0 and t["range"] > 0
