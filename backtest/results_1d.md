@@ -18,6 +18,8 @@
 | VP thoát vùng + RSI + ADX20 | 40 | 50% | 57% | 55% | 55% | 1.89% |
 | VP hồi trong vùng + RSI 30/70 | 6 | 67% | 33% | 50% | 55% | 1.45% |
 | Đồng thuận POC + EMA + RSI | 60 | 67% | 48% | 45% | 55% | -0.22% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 34 | 47% | 62% | 56% | 55% | 2.64% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 34 | 47% | 62% | 56% | 55% | 2.64% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 24 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -35,6 +37,8 @@
 | VP thoát vùng + RSI + ADX20 | 42 | 43% | 3.50% | 1.79 | 156% | 48% | 638% | 72% |
 | VP hồi trong vùng + RSI 30/70 | 6 | 33% | -1.63% | 0.70 | -12% | 20% | 638% | 9% |
 | Đồng thuận POC + EMA + RSI | 61 | 36% | 3.45% | 1.95 | 308% | 36% | 638% | 49% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 35 | 46% | 4.08% | 1.87 | 149% | 37% | 638% | 38% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 35 | 46% | 4.08% | 1.87 | 149% | 37% | 638% | 38% |
 
 ## ETH · 2199 nến 1D · 2020-10-09 đến 2026-10-16
 
@@ -54,6 +58,8 @@
 | VP thoát vùng + RSI + ADX20 | 35 | 57% | 54% | 60% | 53% | 5.70% |
 | VP hồi trong vùng + RSI 30/70 | 7 | 57% | 29% | 57% | 53% | 0.28% |
 | Đồng thuận POC + EMA + RSI | 62 | 56% | 56% | 56% | 53% | 5.35% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 26 | 65% | 73% | 65% | 53% | 11.50% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 26 | 65% | 73% | 65% | 53% | 11.50% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 24 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -71,6 +77,8 @@
 | VP thoát vùng + RSI + ADX20 | 36 | 50% | 6.76% | 2.27 | 365% | 58% | 564% | 160% |
 | VP hồi trong vùng + RSI 30/70 | 7 | 29% | -5.41% | 0.09 | -33% | 33% | 564% | -16% |
 | Đồng thuận POC + EMA + RSI | 63 | 33% | 4.81% | 2.11 | 568% | 57% | 564% | 267% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 26 | 62% | 12.04% | 5.23 | 996% | 18% | 564% | 168% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 26 | 62% | 12.37% | 5.91 | 1108% | 18% | 564% | 168% |
 
 ## SOL · 2093 nến 1D · 2021-01-23 đến 2026-10-16
 
@@ -90,6 +98,8 @@
 | VP thoát vùng + RSI + ADX20 | 37 | 38% | 35% | 46% | 51% | 4.72% |
 | VP hồi trong vùng + RSI 30/70 | 10 | 80% | 50% | 40% | 51% | 1.98% |
 | Đồng thuận POC + EMA + RSI | 73 | 51% | 52% | 45% | 51% | 2.38% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 30 | 47% | 47% | 53% | 51% | 9.58% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 30 | 47% | 47% | 53% | 51% | 9.58% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 24 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -107,3 +117,5 @@
 | VP thoát vùng + RSI + ADX20 | 41 | 32% | 17.44% | 2.70 | 169% | 83% | 2876% | -21% |
 | VP hồi trong vùng + RSI 30/70 | 10 | 50% | 5.58% | 2.25 | 47% | 35% | 2876% | - |
 | Đồng thuận POC + EMA + RSI | 75 | 25% | 10.23% | 2.63 | 246% | 71% | 2876% | -10% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 34 | 38% | 22.10% | 3.33 | 787% | 62% | 2876% | 10% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 33 | 36% | 20.98% | 3.13 | 457% | 67% | 2876% | 10% |
