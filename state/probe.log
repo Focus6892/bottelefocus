@@ -1,0 +1,21 @@
+== TradingView scanner ==
+{"totalCount":0,"data":[]}
+== CoinGecko global ==
+{"data":{"active_cryptocurrencies":22317,"upcoming_icos":0,"ongoing_icos":49,"ended_icos":3376,"markets":1508,"total_market_cap":{"btc":33812808.389706545,"eth":1140809660.5185022,"ltc":46749031874.86339,"bch":10072230320.468569,"bnb":3849136638.3290753,"eos":24910894255234.664,"xrp":2125840057399.8267,"xlm":15532998723876.686,"link":230572146724.32468,"dot":2455693556156.12,"yfi":1238548035.8147242,"sol":26524303236.243782,"usd":2746860227013.01,"aed":10087844183705.277,"ars":4.169047109548996e+15,"aud":3951748490710.4487,"bdt":338400288952957.25,"bhd":1040441982486.8527,"bmd":2746860227013.01,"brl":13905979899253.363,"cad":3888867366393.6675,"chf":2268719761017.3096,"clp":2.702306154130859e+15,"cny":18378692406898.65,"czk":59456613671764.68,"dkk":18269916741908.934,"eur":2444804489009.7515,"gbp":2060892316241.5054,"gel":7114367987963.694,"hkd":21557771090632.156,"huf":888087379995576.2,"idr":4.958906767826586e+16,"ils":8500708344537.161,"inr":260843220587268.94,"jpy":434045118771460.5,"krw":3665987127573830.5,"kwd":849164370578.802,"lkr":909760925751056.5,"mmk":5.768269133715967e+15,"mxn":50797411492128.87,"myr":11215979678939.52,"ngn":3656647802801988.5,"nok":25896574162210.555,"nzd":4857402041857.775,"php":173038438025802.75,"pkr":761532664933379.5,"pln":10670766379920.615,"rub":226976722122767.62,"sar":10308518693762.824,"sek":27228801372311.86,"sgd":3519810213733.1074,"thb":91374673530858.19,"try":136007487908276.78,"twd":89145503063389.4,"uah":123391353912682.14,"vef":
+== bot.dominance ==
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/bottelefocus/bottelefocus/bot/dominance.py", line 169, in <module>
+    print(json.dumps(analyze(d), indent=1, ensure_ascii=False))
+                     ^^^^^^^^^^
+  File "/home/runner/work/bottelefocus/bottelefocus/bot/dominance.py", line 135, in analyze
+    b, u, o = (_dir(dom[k]) for k in ("BTC.D", "USDT.D", "OTHERS.D"))
+    ^^^^^^^
+  File "/home/runner/work/bottelefocus/bottelefocus/bot/dominance.py", line 135, in <genexpr>
+    b, u, o = (_dir(dom[k]) for k in ("BTC.D", "USDT.D", "OTHERS.D"))
+                    ~~~^^^
+KeyError: 'BTC.D'
+{
+ "source": "tradingview"
+}
