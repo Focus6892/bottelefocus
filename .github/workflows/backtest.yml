@@ -6,6 +6,10 @@ on:
       days:
         description: "Số ngày lịch sử"
         default: "1095"
+      scalp:
+        description: "Chạy cả 15m và 30m"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -28,9 +32,11 @@ jobs:
             python backtest/fetch_history.py ${{ inputs.days }} 4H &&
             python backtest/run.py 4h &&
             python backtest/run.py 1d &&
-            python backtest/fetch_history.py 365 15m,30m &&
-            python backtest/run.py 15m &&
-            python backtest/run.py 30m
+            if [ "${{ inputs.scalp }}" != "false" ]; then
+              python backtest/fetch_history.py 365 15m,30m &&
+              python backtest/run.py 15m &&
+              python backtest/run.py 30m
+            fi
           } 2>&1 | tee backtest/last_run.log
       - name: Lưu kết quả
         if: always()

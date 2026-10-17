@@ -421,6 +421,35 @@ def strat_confluence(k4, k1):
     return sig
 
 
+def _vp_rsi_vol_ok(k4):
+    r = rsi_series([x["c"] for x in k4])
+    v = [x["v"] for x in k4]
+    def ok(i, d):
+        if i < 21 or r[i] is None:
+            return False
+        return v[i] >= 1.5 * mean(v[i - 20 : i]) and (r[i] > 55 if d == 1 else r[i] < 45)
+    return ok
+
+
+def strat_vp_rsi_vol_ema(k4, k1):
+    """Phương án 1 lọc bởi 2: VP + RSI + khối lượng, chỉ vào cùng hướng EMA20/50; thoát khi quay qua POC."""
+    c = [x["c"] for x in k4]
+    e20, e50 = ema(c, 20), ema(c, 50)
+    base = _vp_rsi_vol_ok(k4)
+    ok = lambda i, d: i >= 50 and base(i, d) and ((e20[i] > e50[i]) if d == 1 else (e20[i] < e50[i]))
+    return _vp_break_core(k4, ok)
+
+
+def strat_vp_rsi_vol_ema_x(k4, k1):
+    """Như trên nhưng thoát thêm khi EMA20/50 đổi chiều ngược với lệnh."""
+    c = [x["c"] for x in k4]
+    e20, e50 = ema(c, 20), ema(c, 50)
+    base = _vp_rsi_vol_ok(k4)
+    ok = lambda i, d: i >= 50 and base(i, d) and ((e20[i] > e50[i]) if d == 1 else (e20[i] < e50[i]))
+    ex = lambda i, d: (e20[i] < e50[i]) if d == 1 else (e20[i] > e50[i])
+    return _vp_break_core(k4, ok, ex)
+
+
 STRATS = {
     "trend": ("Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng)", strat_trend),
     "ema_cross": ("Cắt EMA20/50", strat_ema_cross),
@@ -436,6 +465,8 @@ STRATS = {
     "vp_rsi_adx": ("VP thoát vùng + RSI + ADX20", strat_vp_rsi_adx),
     "vp_rsi_revert": ("VP hồi trong vùng + RSI 30/70", strat_vp_rsi_revert),
     "confluence": ("Đồng thuận POC + EMA + RSI", strat_confluence),
+    "vp_rsi_vol_ema": ("VP + RSI + KL, chỉ vào cùng hướng EMA", strat_vp_rsi_vol_ema),
+    "vp_rsi_vol_ema_x": ("VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi", strat_vp_rsi_vol_ema_x),
 }
 
 

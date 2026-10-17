@@ -57,6 +57,6 @@ def test_rsi_and_combo_strategies():
     B.CFG = B.TF["4h"]
     r = B.rsi_series([x["c"] for x in k4])
     assert r[13] is None and all(0 <= v <= 100 for v in r[14:])
-    for key in ("rsi50", "vp_rsi", "vp_rsi_vol", "vp_rsi_adx", "vp_rsi_revert", "confluence"):
+    for key in ("rsi50", "vp_rsi", "vp_rsi_vol", "vp_rsi_adx", "vp_rsi_revert", "confluence", "vp_rsi_vol_ema", "vp_rsi_vol_ema_x"):
         sig = B.STRATS[key][1](k4, k1)
         assert len(sig) == len(k4) and set(sig) <= {-1, 0, 1}, key
