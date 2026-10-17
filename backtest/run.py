@@ -14,9 +14,9 @@ import os
 from statistics import mean, pstdev
 
 try:
-    from backtest import smc
+    from backtest import smc, stock
 except ImportError:  # chạy trực tiếp: python backtest/run.py
-    import smc
+    import smc, stock
 
 DATA = os.path.join(os.path.dirname(__file__), "data")
 SYMS = ["BTC", "ETH", "SOL"]
@@ -480,6 +480,9 @@ STRATS = {
 # SMC và price action (backtest/smc.py); số nến xác nhận swing lấy theo khung
 for _key, (_label, _fn) in smc.STRATS.items():
     STRATS[_key] = (_label, (lambda f: lambda k4, k1: f(k4, CFG["smc_n"]))(_fn))
+# Phương pháp từ chứng khoán (backtest/stock.py)
+for _key, (_label, _fn) in stock.STRATS.items():
+    STRATS[_key] = (_label, (lambda f: lambda k4, k1: f(k4, k1, CFG))(_fn))
 
 
 # ---------- đánh giá ----------

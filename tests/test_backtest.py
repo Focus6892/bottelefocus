@@ -74,3 +74,24 @@ def test_smc_and_price_action_strategies():
         sig = B.STRATS[key][1](k4, k1)
         assert len(sig) == len(k4) and set(sig) <= {-1, 0, 1} and any(sig), key
     assert B.trade_sim(k4, B.STRATS["smc_bos"][1](k4, k1))["n"] > 0
+
+
+def test_stock_market_strategies():
+    from backtest import stock
+    k4, k1 = _data(0.002, 17)
+    B.CFG = B.TF["4h"]
+    hi = stock.high_index(k4, k1, B.CFG)
+    assert all(hi[i] < 0 or k1[hi[i]]["t"] + B.CFG["high_ms"] <= k4[i]["t"] for i in range(len(k4)))
+    for key in stock.STRATS:
+        sig = B.STRATS[key][1](k4, k1)
+        assert len(sig) == len(k4) and set(sig) <= {-1, 0, 1}, key
+        if key not in ("st_orb", "st_vwap", "st_base"):  # st_base cần co biên + khối lượng, dữ liệu giả lập hiếm có
+            assert any(sig), key
+    B.CFG = B.TF["1h"]
+    k1h = make_klines(2000, drift=0.001, vol=0.004, seed=3)
+    for i, x in enumerate(k1h):
+        x["t"] = 1_700_000_000_000 + i * 3600_000
+    for key in ("st_orb", "st_vwap"):
+        sig = stock.STRATS[key][1](k1h, k1, B.CFG)
+        assert len(sig) == len(k1h) and any(sig), key
+    B.CFG = B.TF["4h"]
