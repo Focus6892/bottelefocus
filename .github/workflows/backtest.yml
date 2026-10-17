@@ -24,9 +24,9 @@ jobs:
         run: |
           set -o pipefail
           {
+            python backtest/fetch_history.py 2200 1Dutc,1Wutc &&
             python backtest/fetch_history.py ${{ inputs.days }} 4H &&
             python backtest/run.py 4h &&
-            python backtest/fetch_history.py 2200 1Dutc,1Wutc &&
             python backtest/run.py 1d
           } 2>&1 | tee backtest/last_run.log
       - name: Lưu kết quả
