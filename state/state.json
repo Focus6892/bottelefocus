@@ -18,5 +18,7 @@
   "ETHUSDT:vp_1d": "inside",
   "SOLUSDT:vp_4h": "below",
   "SOLUSDT:vp_1d": "inside"
- }
+ },
+ "market_regime": "risk_off_alt",
+ "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC"
 }
