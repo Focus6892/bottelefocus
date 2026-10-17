@@ -1,0 +1,3587 @@
+{
+ "1h": {
+  "BTC": {
+   "24 giờ": {
+    "base": {
+     "n": 1087,
+     "p_expand": 0.49402023919043236,
+     "ratio": 1.158535766771855,
+     "range": 3.662172356199521,
+     "p_up": 0.5216191352345906
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 202,
+      "p_expand": 0.4405940594059406,
+      "ratio": 1.0830835921257262,
+      "range": 4.30900053030614,
+      "p_up": 0.5693069306930693,
+      "continue": 0.4306930693069307,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 627,
+      "p_expand": 0.5311004784688995,
+      "ratio": 1.2074648559102814,
+      "range": 3.468752624766584,
+      "p_up": 0.5215311004784688,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 258,
+      "p_expand": 0.44573643410852715,
+      "ratio": 1.0987016597514077,
+      "range": 3.625795923792212,
+      "p_up": 0.4844961240310077,
+      "continue": 0.4844961240310077,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 372,
+      "p_expand": 0.5268817204301075,
+      "ratio": 1.180745869885476,
+      "range": 3.4057909009885954,
+      "p_up": 0.5161290322580645,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 297,
+      "p_expand": 0.4713804713804714,
+      "ratio": 1.1018391020711633,
+      "range": 4.068500253395435,
+      "p_up": 0.468013468013468,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 415,
+      "p_expand": 0.4819277108433735,
+      "ratio": 1.1820305801522035,
+      "range": 3.607055493128553,
+      "p_up": 0.5662650602409639,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 350,
+      "p_expand": 0.4742857142857143,
+      "ratio": 1.1321423683184881,
+      "range": 3.877310680315424,
+      "p_up": 0.4942857142857143,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 466,
+      "p_expand": 0.4957081545064378,
+      "ratio": 1.1855009407817347,
+      "range": 3.594077538538399,
+      "p_up": 0.5085836909871244,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 271,
+      "p_expand": 0.5166051660516605,
+      "ratio": 1.1462550227499895,
+      "range": 3.501411365754933,
+      "p_up": 0.5793357933579336,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 131,
+      "p_expand": 0.5648854961832062,
+      "ratio": 1.3512433927945982,
+      "range": 3.7596450334221148,
+      "p_up": 0.5343511450381679,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 301,
+      "p_expand": 0.4186046511627907,
+      "ratio": 1.0648250759539741,
+      "range": 3.9902822305551138,
+      "p_up": 0.5415282392026578,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 655,
+      "p_expand": 0.5145038167938931,
+      "ratio": 1.1630582384164394,
+      "range": 3.4918975578831954,
+      "p_up": 0.5099236641221374,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 233,
+      "p_expand": 0.48497854077253216,
+      "ratio": 1.2046527638429647,
+      "range": 3.4326323360649145,
+      "p_up": 0.5064377682403434,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 333,
+      "p_expand": 0.4954954954954955,
+      "ratio": 1.1127761946700394,
+      "range": 3.399693215447515,
+      "p_up": 0.5255255255255256,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 521,
+      "p_expand": 0.4971209213051823,
+      "ratio": 1.1671589475632869,
+      "range": 3.932591508909274,
+      "p_up": 0.525911708253359,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "3 ngày": {
+    "base": {
+     "n": 361,
+     "p_expand": 0.5373961218836565,
+     "ratio": 1.282732615850861,
+     "range": 6.46812874092382,
+     "p_up": 0.5373961218836565
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 65,
+      "p_expand": 0.4,
+      "ratio": 1.0391988718848697,
+      "range": 6.5297555641210545,
+      "p_up": 0.6,
+      "continue": 0.4,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 206,
+      "p_expand": 0.5728155339805825,
+      "ratio": 1.3338116999500387,
+      "range": 6.297798246153272,
+      "p_up": 0.5339805825242718,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 90,
+      "p_expand": 0.5555555555555556,
+      "ratio": 1.341703749554848,
+      "range": 6.8134880566450695,
+      "p_up": 0.5,
+      "continue": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 121,
+      "p_expand": 0.5867768595041323,
+      "ratio": 1.2979090781762486,
+      "range": 5.958051027947214,
+      "p_up": 0.5289256198347108,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 102,
+      "p_expand": 0.5196078431372549,
+      "ratio": 1.2183004469357854,
+      "range": 7.233576412013023,
+      "p_up": 0.45098039215686275,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 137,
+      "p_expand": 0.5109489051094891,
+      "ratio": 1.3219645121066155,
+      "range": 6.369864293118558,
+      "p_up": 0.6058394160583942,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 110,
+      "p_expand": 0.43636363636363634,
+      "ratio": 1.203390963471906,
+      "range": 6.457676609906401,
+      "p_up": 0.5363636363636364,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 158,
+      "p_expand": 0.5949367088607594,
+      "ratio": 1.3482219381278817,
+      "range": 6.647955133314192,
+      "p_up": 0.5443037974683544,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 93,
+      "p_expand": 0.5591397849462365,
+      "ratio": 1.2653161517854392,
+      "range": 6.174979971184435,
+      "p_up": 0.5268817204301075,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 39,
+      "p_expand": 0.6153846153846154,
+      "ratio": 1.4873492385933171,
+      "range": 6.367614424748505,
+      "p_up": 0.5128205128205128,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 110,
+      "p_expand": 0.4727272727272727,
+      "ratio": 1.1661551300516353,
+      "range": 6.698878981328473,
+      "p_up": 0.5363636363636364,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 212,
+      "p_expand": 0.5566037735849056,
+      "ratio": 1.305579196751611,
+      "range": 6.366890683783845,
+      "p_up": 0.5424528301886793,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 68,
+      "p_expand": 0.5441176470588235,
+      "ratio": 1.244328047037933,
+      "range": 5.789391999886929,
+      "p_up": 0.5882352941176471,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 113,
+      "p_expand": 0.5132743362831859,
+      "ratio": 1.235713902372782,
+      "range": 6.013375429080726,
+      "p_up": 0.504424778761062,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 180,
+      "p_expand": 0.55,
+      "ratio": 1.326758311974761,
+      "range": 7.010024422194809,
+      "p_up": 0.5388888888888889,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 26279
+  },
+  "ETH": {
+   "24 giờ": {
+    "base": {
+     "n": 1087,
+     "p_expand": 0.49770009199632015,
+     "ratio": 1.1420617946637417,
+     "range": 5.15800873250373,
+     "p_up": 0.515179392824287
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 194,
+      "p_expand": 0.4845360824742268,
+      "ratio": 1.1148057445821233,
+      "range": 6.563966574198947,
+      "p_up": 0.5567010309278351,
+      "continue": 0.44329896907216493,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 637,
+      "p_expand": 0.5102040816326531,
+      "ratio": 1.1658850552269358,
+      "range": 4.779576827228809,
+      "p_up": 0.5227629513343799,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 256,
+      "p_expand": 0.4765625,
+      "ratio": 1.103437797542958,
+      "range": 5.034201319891437,
+      "p_up": 0.46484375,
+      "continue": 0.46484375,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 384,
+      "p_expand": 0.5286458333333334,
+      "ratio": 1.2129829230330724,
+      "range": 4.866053943698571,
+      "p_up": 0.5182291666666666,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 288,
+      "p_expand": 0.4965277777777778,
+      "ratio": 1.1004900200680805,
+      "range": 5.617356026297286,
+      "p_up": 0.5034722222222222,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 412,
+      "p_expand": 0.470873786407767,
+      "ratio": 1.107213949816936,
+      "range": 5.118006187274709,
+      "p_up": 0.5194174757281553,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 316,
+      "p_expand": 0.5158227848101266,
+      "ratio": 1.1468879685760085,
+      "range": 5.153755001750622,
+      "p_up": 0.509493670886076,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 453,
+      "p_expand": 0.5033112582781457,
+      "ratio": 1.1653764241275284,
+      "range": 5.1178353473019556,
+      "p_up": 0.48344370860927155,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 318,
+      "p_expand": 0.4716981132075472,
+      "ratio": 1.1040536245273527,
+      "range": 5.219463834435761,
+      "p_up": 0.5660377358490566,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 145,
+      "p_expand": 0.5586206896551724,
+      "ratio": 1.2144069985031523,
+      "range": 4.931930505859727,
+      "p_up": 0.5241379310344828,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 294,
+      "p_expand": 0.4489795918367347,
+      "ratio": 1.0549088262686117,
+      "range": 5.6370838593573165,
+      "p_up": 0.48299319727891155,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 648,
+      "p_expand": 0.5061728395061729,
+      "ratio": 1.1654150634159848,
+      "range": 4.991239065171054,
+      "p_up": 0.5277777777777778,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 259,
+      "p_expand": 0.4980694980694981,
+      "ratio": 1.1385454077601933,
+      "range": 4.599681089026571,
+      "p_up": 0.5328185328185329,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 315,
+      "p_expand": 0.5015873015873016,
+      "ratio": 1.1698690553463997,
+      "range": 4.906847239998977,
+      "p_up": 0.5047619047619047,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 513,
+      "p_expand": 0.4951267056530214,
+      "ratio": 1.1267624907514253,
+      "range": 5.594115418272894,
+      "p_up": 0.5126705653021443,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "3 ngày": {
+    "base": {
+     "n": 361,
+     "p_expand": 0.5623268698060941,
+     "ratio": 1.2656713678793432,
+     "range": 9.136905114264177,
+     "p_up": 0.5373961218836565
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 60,
+      "p_expand": 0.5,
+      "ratio": 1.0756294680758025,
+      "range": 10.77053833079016,
+      "p_up": 0.5166666666666667,
+      "continue": 0.48333333333333334,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 219,
+      "p_expand": 0.589041095890411,
+      "ratio": 1.332151217071135,
+      "range": 8.515046775447482,
+      "p_up": 0.5570776255707762,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 82,
+      "p_expand": 0.5365853658536586,
+      "ratio": 1.2271765753819046,
+      "range": 9.602380519255611,
+      "p_up": 0.5,
+      "continue": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 121,
+      "p_expand": 0.5950413223140496,
+      "ratio": 1.403403424312712,
+      "range": 8.527680900418853,
+      "p_up": 0.5371900826446281,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 94,
+      "p_expand": 0.43617021276595747,
+      "ratio": 1.0841562102568045,
+      "range": 9.41051210974225,
+      "p_up": 0.5,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 145,
+      "p_expand": 0.6206896551724138,
+      "ratio": 1.272527246662029,
+      "range": 9.503449385090617,
+      "p_up": 0.5586206896551724,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 101,
+      "p_expand": 0.5148514851485149,
+      "ratio": 1.209142474833638,
+      "range": 8.409767485913758,
+      "p_up": 0.6237623762376238,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 156,
+      "p_expand": 0.5769230769230769,
+      "ratio": 1.2568000546035212,
+      "range": 9.40876480829048,
+      "p_up": 0.46153846153846156,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 104,
+      "p_expand": 0.5865384615384616,
+      "ratio": 1.3338765896932325,
+      "range": 9.435278077680422,
+      "p_up": 0.5673076923076923,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 46,
+      "p_expand": 0.6086956521739131,
+      "ratio": 1.519576692584427,
+      "range": 8.629510092835055,
+      "p_up": 0.6521739130434783,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 103,
+      "p_expand": 0.49514563106796117,
+      "ratio": 1.064791990644622,
+      "range": 9.433875181782868,
+      "p_up": 0.46601941747572817,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 212,
+      "p_expand": 0.5849056603773585,
+      "ratio": 1.3081757590054868,
+      "range": 9.102717633279813,
+      "p_up": 0.5471698113207547,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 85,
+      "p_expand": 0.6,
+      "ratio": 1.4204033760179071,
+      "range": 8.642873589292199,
+      "p_up": 0.5411764705882353,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 111,
+      "p_expand": 0.5765765765765766,
+      "ratio": 1.2891592541034114,
+      "range": 8.7999092639824,
+      "p_up": 0.5585585585585585,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 165,
+      "p_expand": 0.5333333333333333,
+      "ratio": 1.1701599978026795,
+      "range": 9.618112502166575,
+      "p_up": 0.5212121212121212,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 26279
+  },
+  "SOL": {
+   "24 giờ": {
+    "base": {
+     "n": 1087,
+     "p_expand": 0.49862005519779207,
+     "ratio": 1.0957320156284842,
+     "range": 6.723332191523339,
+     "p_up": 0.5114995400183993
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 204,
+      "p_expand": 0.5098039215686274,
+      "ratio": 1.0896152831807104,
+      "range": 7.3321190110116214,
+      "p_up": 0.5588235294117647,
+      "continue": 0.4411764705882353,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 634,
+      "p_expand": 0.501577287066246,
+      "ratio": 1.108228959045241,
+      "range": 6.494727400283896,
+      "p_up": 0.49842271293375395,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 249,
+      "p_expand": 0.4819277108433735,
+      "ratio": 1.0689237878900193,
+      "range": 6.806637117106461,
+      "p_up": 0.5060240963855421,
+      "continue": 0.5060240963855421,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 358,
+      "p_expand": 0.4972067039106145,
+      "ratio": 1.1245381242689036,
+      "range": 6.154708561034002,
+      "p_up": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 289,
+      "p_expand": 0.48788927335640137,
+      "ratio": 1.0441920880866495,
+      "range": 7.341828885213989,
+      "p_up": 0.49480968858131485,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 437,
+      "p_expand": 0.5080091533180778,
+      "ratio": 1.108408718429162,
+      "range": 6.78431702286033,
+      "p_up": 0.5331807780320366,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 290,
+      "p_expand": 0.503448275862069,
+      "ratio": 1.1037574816289093,
+      "range": 6.621676950650881,
+      "p_up": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 503,
+      "p_expand": 0.48906560636182905,
+      "ratio": 1.0814802973543876,
+      "range": 6.695405944560249,
+      "p_up": 0.5009940357852882,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 294,
+      "p_expand": 0.5102040816326531,
+      "ratio": 1.1121987814507546,
+      "range": 6.8713829468820045,
+      "p_up": 0.5408163265306123,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 122,
+      "p_expand": 0.5409836065573771,
+      "ratio": 1.13105512799669,
+      "range": 6.679948274050582,
+      "p_up": 0.48360655737704916,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 292,
+      "p_expand": 0.4897260273972603,
+      "ratio": 1.0689160100878026,
+      "range": 7.190027919885072,
+      "p_up": 0.541095890410959,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 673,
+      "p_expand": 0.4947994056463596,
+      "ratio": 1.10096359647389,
+      "range": 6.528707652518956,
+      "p_up": 0.5037147102526003,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 231,
+      "p_expand": 0.48917748917748916,
+      "ratio": 1.1275740808902637,
+      "range": 6.388928006178695,
+      "p_up": 0.47619047619047616,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 350,
+      "p_expand": 0.5,
+      "ratio": 1.0748256963763538,
+      "range": 6.650967050161588,
+      "p_up": 0.54,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 506,
+      "p_expand": 0.5019762845849802,
+      "ratio": 1.0956563133810033,
+      "range": 6.926049911466473,
+      "p_up": 0.5079051383399209,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "3 ngày": {
+    "base": {
+     "n": 361,
+     "p_expand": 0.5761772853185596,
+     "ratio": 1.173951498436612,
+     "range": 11.870637812986793,
+     "p_up": 0.48753462603878117
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 66,
+      "p_expand": 0.5151515151515151,
+      "ratio": 1.091566840255295,
+      "range": 11.809973896671968,
+      "p_up": 0.5606060606060606,
+      "continue": 0.4393939393939394,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 209,
+      "p_expand": 0.583732057416268,
+      "ratio": 1.2051313093418932,
+      "range": 11.777806469528322,
+      "p_up": 0.48325358851674644,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 86,
+      "p_expand": 0.6046511627906976,
+      "ratio": 1.1614027421664155,
+      "range": 12.142795595075155,
+      "p_up": 0.4418604651162791,
+      "continue": 0.4418604651162791,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 118,
+      "p_expand": 0.652542372881356,
+      "ratio": 1.2573487628030628,
+      "range": 11.720345465516377,
+      "p_up": 0.5254237288135594,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 90,
+      "p_expand": 0.4666666666666667,
+      "ratio": 1.044195424911336,
+      "range": 12.400374640441878,
+      "p_up": 0.4888888888888889,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 152,
+      "p_expand": 0.5855263157894737,
+      "ratio": 1.1890223605683508,
+      "range": 11.665894899852455,
+      "p_up": 0.45394736842105265,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 90,
+      "p_expand": 0.5222222222222223,
+      "ratio": 1.147070529374469,
+      "range": 11.480989795201797,
+      "p_up": 0.5444444444444444,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 178,
+      "p_expand": 0.5955056179775281,
+      "ratio": 1.1934781080013646,
+      "range": 11.89574527055575,
+      "p_up": 0.43258426966292135,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 93,
+      "p_expand": 0.5913978494623656,
+      "ratio": 1.162591828684643,
+      "range": 12.19966140603384,
+      "p_up": 0.5376344086021505,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 43,
+      "p_expand": 0.5813953488372093,
+      "ratio": 1.2500679832356907,
+      "range": 12.346446815179474,
+      "p_up": 0.37209302325581395,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 104,
+      "p_expand": 0.6153846153846154,
+      "ratio": 1.1918281096657937,
+      "range": 12.84248405514997,
+      "p_up": 0.47115384615384615,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 214,
+      "p_expand": 0.5560747663551402,
+      "ratio": 1.1499693656599983,
+      "range": 11.302732222896813,
+      "p_up": 0.5186915887850467,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 71,
+      "p_expand": 0.5774647887323944,
+      "ratio": 1.2112931284988353,
+      "range": 11.40061717437296,
+      "p_up": 0.352112676056338,
+      "sig_expand": false,
+      "sig_up": true
+     },
+     "dist=vừa": {
+      "n": 119,
+      "p_expand": 0.5798319327731093,
+      "ratio": 1.1824873535497995,
+      "range": 12.030387084672173,
+      "p_up": 0.5882352941176471,
+      "sig_expand": false,
+      "sig_up": true
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 171,
+      "p_expand": 0.5730994152046783,
+      "ratio": 1.1525069224548155,
+      "range": 11.954622035273472,
+      "p_up": 0.47368421052631576,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 26279
+  }
+ },
+ "4h": {
+  "BTC": {
+   "24 giờ": {
+    "base": {
+     "n": 1064,
+     "p_expand": 0.3007518796992481,
+     "ratio": 0.8674926649840177,
+     "range": 3.695020790654112,
+     "p_up": 0.5103383458646616
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 168,
+      "p_expand": 0.35119047619047616,
+      "ratio": 0.915512140337765,
+      "range": 4.645676512652001,
+      "p_up": 0.5476190476190477,
+      "continue": 0.4523809523809524,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 578,
+      "p_expand": 0.2958477508650519,
+      "ratio": 0.8673333673920356,
+      "range": 3.4514362651651216,
+      "p_up": 0.49480968858131485,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 318,
+      "p_expand": 0.2830188679245283,
+      "ratio": 0.8424134264580307,
+      "range": 3.6355292637264105,
+      "p_up": 0.5188679245283019,
+      "continue": 0.5188679245283019,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 336,
+      "p_expand": 0.2916666666666667,
+      "ratio": 0.8840447011217102,
+      "range": 3.519013411909289,
+      "p_up": 0.5297619047619048,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 314,
+      "p_expand": 0.2929936305732484,
+      "ratio": 0.837645636004704,
+      "range": 4.081827662358408,
+      "p_up": 0.48089171974522293,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 405,
+      "p_expand": 0.31851851851851853,
+      "ratio": 0.8819153526556331,
+      "range": 3.5550127270312926,
+      "p_up": 0.5160493827160494,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 303,
+      "p_expand": 0.3234323432343234,
+      "ratio": 0.8740310052904081,
+      "range": 3.8181944240235737,
+      "p_up": 0.49834983498349833,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 481,
+      "p_expand": 0.2806652806652807,
+      "ratio": 0.8510662487047634,
+      "range": 3.6658894100471433,
+      "p_up": 0.5176715176715176,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 280,
+      "p_expand": 0.3107142857142857,
+      "ratio": 0.8886354832607499,
+      "range": 3.6117728733719856,
+      "p_up": 0.5107142857142857,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 157,
+      "p_expand": 0.2802547770700637,
+      "ratio": 0.832526639815351,
+      "range": 3.378674599683201,
+      "p_up": 0.49044585987261147,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 296,
+      "p_expand": 0.34459459459459457,
+      "ratio": 0.9196345121077157,
+      "range": 4.055604907407943,
+      "p_up": 0.5472972972972973,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 611,
+      "p_expand": 0.28477905073649756,
+      "ratio": 0.8512171808643222,
+      "range": 3.6016221874189216,
+      "p_up": 0.49754500818330605,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 240,
+      "p_expand": 0.2875,
+      "ratio": 0.8506541418429345,
+      "range": 3.356545604847023,
+      "p_up": 0.5166666666666667,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 299,
+      "p_expand": 0.2709030100334448,
+      "ratio": 0.8552069211870388,
+      "range": 3.50502752202738,
+      "p_up": 0.5150501672240803,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 525,
+      "p_expand": 0.3238095238095238,
+      "ratio": 0.8821872991728875,
+      "range": 3.9579579942981002,
+      "p_up": 0.5047619047619047,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "3 ngày": {
+    "base": {
+     "n": 354,
+     "p_expand": 0.4124293785310734,
+     "ratio": 1.0074415843096265,
+     "range": 6.465927061336643,
+     "p_up": 0.5480225988700564
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 56,
+      "p_expand": 0.4107142857142857,
+      "ratio": 1.0427329215080343,
+      "range": 7.535398965488514,
+      "p_up": 0.6428571428571429,
+      "continue": 0.35714285714285715,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 191,
+      "p_expand": 0.43455497382198954,
+      "ratio": 1.0068150704871033,
+      "range": 6.240939925535301,
+      "p_up": 0.5287958115183246,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 107,
+      "p_expand": 0.37383177570093457,
+      "ratio": 0.9900897082067391,
+      "range": 6.307815998771704,
+      "p_up": 0.5327102803738317,
+      "continue": 0.5327102803738317,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 112,
+      "p_expand": 0.4375,
+      "ratio": 1.027074408939139,
+      "range": 6.204824829001734,
+      "p_up": 0.5982142857142857,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 107,
+      "p_expand": 0.3644859813084112,
+      "ratio": 0.9799248669865008,
+      "range": 6.970533392043863,
+      "p_up": 0.5607476635514018,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 132,
+      "p_expand": 0.4318181818181818,
+      "ratio": 1.0185412009266757,
+      "range": 6.319902206888296,
+      "p_up": 0.49242424242424243,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 97,
+      "p_expand": 0.41237113402061853,
+      "ratio": 0.9852218677133627,
+      "range": 6.925201290107173,
+      "p_up": 0.5154639175257731,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 161,
+      "p_expand": 0.40993788819875776,
+      "ratio": 1.0014175646793078,
+      "range": 6.046678644454308,
+      "p_up": 0.5714285714285714,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 96,
+      "p_expand": 0.4166666666666667,
+      "ratio": 1.0399955392087812,
+      "range": 6.70498325849617,
+      "p_up": 0.5416666666666666,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 59,
+      "p_expand": 0.3389830508474576,
+      "ratio": 0.9557784802051064,
+      "range": 5.819400879731272,
+      "p_up": 0.559322033898305,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 94,
+      "p_expand": 0.43617021276595747,
+      "ratio": 1.0678127532053516,
+      "range": 7.164183724143643,
+      "p_up": 0.5425531914893617,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 201,
+      "p_expand": 0.4228855721393035,
+      "ratio": 0.9943730930955395,
+      "range": 6.329155511141911,
+      "p_up": 0.5472636815920398,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 90,
+      "p_expand": 0.4222222222222222,
+      "ratio": 0.9859621848683301,
+      "range": 6.148191044901283,
+      "p_up": 0.5333333333333333,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 91,
+      "p_expand": 0.43956043956043955,
+      "ratio": 1.0419473050723147,
+      "range": 6.391571713982568,
+      "p_up": 0.6043956043956044,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 173,
+      "p_expand": 0.3930635838150289,
+      "ratio": 1.0004654303229907,
+      "range": 6.670335027165564,
+      "p_up": 0.5260115606936416,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "7 ngày": {
+    "base": {
+     "n": 151,
+     "p_expand": 0.45695364238410596,
+     "ratio": 1.063441942984142,
+     "range": 10.06756671063738,
+     "p_up": 0.5364238410596026
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 23,
+      "p_expand": 0.43478260869565216,
+      "ratio": 1.0389058217810143,
+      "range": 11.774091029281818,
+      "p_up": 0.5652173913043478,
+      "continue": 0.43478260869565216,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 79,
+      "p_expand": 0.4810126582278481,
+      "ratio": 1.0902274168743042,
+      "range": 9.674178962267515,
+      "p_up": 0.4936708860759494,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 49,
+      "p_expand": 0.42857142857142855,
+      "ratio": 1.031774154215757,
+      "range": 9.900782481910792,
+      "p_up": 0.5918367346938775,
+      "continue": 0.5918367346938775,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 42,
+      "p_expand": 0.40476190476190477,
+      "ratio": 1.0299925951282976,
+      "range": 9.388551649197648,
+      "p_up": 0.5714285714285714,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 43,
+      "p_expand": 0.4186046511627907,
+      "ratio": 1.019874564683392,
+      "range": 10.735319800349206,
+      "p_up": 0.5813953488372093,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 65,
+      "p_expand": 0.5230769230769231,
+      "ratio": 1.120990175863492,
+      "range": 10.145761845068593,
+      "p_up": 0.47692307692307695,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 47,
+      "p_expand": 0.5531914893617021,
+      "ratio": 1.1037032288455861,
+      "range": 10.67871677566827,
+      "p_up": 0.5319148936170213,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 68,
+      "p_expand": 0.35294117647058826,
+      "ratio": 0.9883646982398124,
+      "range": 9.399711070800949,
+      "p_up": 0.5735294117647058,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 36,
+      "p_expand": 0.5277777777777778,
+      "ratio": 1.1526911709598795,
+      "range": 10.531181445426972,
+      "p_up": 0.4722222222222222,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 21,
+      "p_expand": 0.42857142857142855,
+      "ratio": 1.0641700116209507,
+      "range": 11.495171643388252,
+      "p_up": 0.5238095238095238,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 46,
+      "p_expand": 0.45652173913043476,
+      "ratio": 1.0655076705653277,
+      "range": 10.531176534931411,
+      "p_up": 0.5217391304347826,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 84,
+      "p_expand": 0.4642857142857143,
+      "ratio": 1.0621286940542907,
+      "range": 9.45678390700293,
+      "p_up": 0.5476190476190477,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 27,
+      "p_expand": 0.5185185185185185,
+      "ratio": 1.1210126033168175,
+      "range": 10.263934205244466,
+      "p_up": 0.5185185185185185,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 48,
+      "p_expand": 0.3958333333333333,
+      "ratio": 1.0650597660751127,
+      "range": 9.685236193125506,
+      "p_up": 0.5208333333333334,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 76,
+      "p_expand": 0.47368421052631576,
+      "ratio": 1.041967425387447,
+      "range": 10.239276480192359,
+      "p_up": 0.5526315789473685,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 6569
+  },
+  "ETH": {
+   "24 giờ": {
+    "base": {
+     "n": 1064,
+     "p_expand": 0.29605263157894735,
+     "ratio": 0.8695482421239354,
+     "range": 5.231174153207506,
+     "p_up": 0.5122180451127819
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 187,
+      "p_expand": 0.3155080213903743,
+      "ratio": 0.9211665308681629,
+      "range": 6.833719948001501,
+      "p_up": 0.4919786096256685,
+      "continue": 0.5080213903743316,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 603,
+      "p_expand": 0.28524046434494194,
+      "ratio": 0.8595220330856197,
+      "range": 4.837614206298118,
+      "p_up": 0.5140961857379768,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 274,
+      "p_expand": 0.30656934306569344,
+      "ratio": 0.8563846802806285,
+      "range": 5.0035850450318975,
+      "p_up": 0.5218978102189781,
+      "continue": 0.5218978102189781,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 350,
+      "p_expand": 0.32,
+      "ratio": 0.9116948097816782,
+      "range": 5.134754391268929,
+      "p_up": 0.5142857142857142,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 291,
+      "p_expand": 0.2508591065292096,
+      "ratio": 0.8200532700011861,
+      "range": 5.477289492499663,
+      "p_up": 0.5120274914089347,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 414,
+      "p_expand": 0.3140096618357488,
+      "ratio": 0.873782536053862,
+      "range": 5.16918966166341,
+      "p_up": 0.5072463768115942,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 205,
+      "p_expand": 0.2634146341463415,
+      "ratio": 0.8366192074316281,
+      "range": 5.469313713974316,
+      "p_up": 0.4926829268292683,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 465,
+      "p_expand": 0.32903225806451614,
+      "ratio": 0.8963481849634288,
+      "range": 5.398730581631566,
+      "p_up": 0.5053763440860215,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 394,
+      "p_expand": 0.27411167512690354,
+      "ratio": 0.8550519951481959,
+      "range": 4.909518444643078,
+      "p_up": 0.5304568527918782,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 193,
+      "p_expand": 0.2849740932642487,
+      "ratio": 0.8374384666391915,
+      "range": 4.666131472960012,
+      "p_up": 0.5751295336787565,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 283,
+      "p_expand": 0.3498233215547703,
+      "ratio": 0.9192621553744245,
+      "range": 6.133721313178541,
+      "p_up": 0.5229681978798587,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 588,
+      "p_expand": 0.27380952380952384,
+      "ratio": 0.8561607407951382,
+      "range": 4.982249648132612,
+      "p_up": 0.48639455782312924,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 241,
+      "p_expand": 0.27800829875518673,
+      "ratio": 0.8288793741239907,
+      "range": 4.581661806344242,
+      "p_up": 0.5767634854771784,
+      "sig_expand": false,
+      "sig_up": true
+     },
+     "dist=vừa": {
+      "n": 257,
+      "p_expand": 0.31906614785992216,
+      "ratio": 0.9149419760782374,
+      "range": 5.151745262227436,
+      "p_up": 0.4474708171206226,
+      "sig_expand": false,
+      "sig_up": true
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 566,
+      "p_expand": 0.29328621908127206,
+      "ratio": 0.8662532024803508,
+      "range": 5.543799065885817,
+      "p_up": 0.5141342756183745,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "3 ngày": {
+    "base": {
+     "n": 354,
+     "p_expand": 0.3898305084745763,
+     "ratio": 1.0165743197258115,
+     "range": 9.208412694853108,
+     "p_up": 0.5338983050847458
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 61,
+      "p_expand": 0.36065573770491804,
+      "ratio": 0.9597281257352901,
+      "range": 10.378138771074019,
+      "p_up": 0.4918032786885246,
+      "continue": 0.5081967213114754,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 204,
+      "p_expand": 0.4068627450980392,
+      "ratio": 1.0545452209327952,
+      "range": 9.188815968706688,
+      "p_up": 0.5098039215686274,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 89,
+      "p_expand": 0.3707865168539326,
+      "ratio": 0.9685018926156669,
+      "range": 8.451608666587873,
+      "p_up": 0.6179775280898876,
+      "continue": 0.6179775280898876,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 117,
+      "p_expand": 0.4188034188034188,
+      "ratio": 1.0806260418390732,
+      "range": 9.416329672597053,
+      "p_up": 0.5213675213675214,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 99,
+      "p_expand": 0.29292929292929293,
+      "ratio": 0.927049571713191,
+      "range": 9.181568842771236,
+      "p_up": 0.5252525252525253,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 135,
+      "p_expand": 0.43703703703703706,
+      "ratio": 1.0328932968366666,
+      "range": 9.099898650891495,
+      "p_up": 0.5407407407407407,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 66,
+      "p_expand": 0.36363636363636365,
+      "ratio": 1.034251275949609,
+      "range": 10.07228185796903,
+      "p_up": 0.45454545454545453,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 157,
+      "p_expand": 0.40764331210191085,
+      "ratio": 1.004691141728885,
+      "range": 9.30196124452697,
+      "p_up": 0.5222929936305732,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 131,
+      "p_expand": 0.3816793893129771,
+      "ratio": 1.0219100436551767,
+      "range": 8.661065465353511,
+      "p_up": 0.5877862595419847,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 65,
+      "p_expand": 0.4307692307692308,
+      "ratio": 1.0570415708676477,
+      "range": 9.002855008429508,
+      "p_up": 0.6461538461538462,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 93,
+      "p_expand": 0.3870967741935484,
+      "ratio": 1.0193803537948216,
+      "range": 9.764014483184724,
+      "p_up": 0.5483870967741935,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 196,
+      "p_expand": 0.37755102040816324,
+      "ratio": 1.0018226233348049,
+      "range": 9.012954956601545,
+      "p_up": 0.4897959183673469,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 89,
+      "p_expand": 0.4044943820224719,
+      "ratio": 1.065952130578122,
+      "range": 9.60554255021531,
+      "p_up": 0.5617977528089888,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 84,
+      "p_expand": 0.39285714285714285,
+      "ratio": 1.0495728611261326,
+      "range": 9.028311117810013,
+      "p_up": 0.47619047619047616,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 181,
+      "p_expand": 0.3812154696132597,
+      "ratio": 0.9769803824690015,
+      "range": 9.096721950899429,
+      "p_up": 0.5469613259668509,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "7 ngày": {
+    "base": {
+     "n": 151,
+     "p_expand": 0.4370860927152318,
+     "ratio": 1.0736272026190825,
+     "range": 14.242505898980033,
+     "p_up": 0.4768211920529801
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 28,
+      "p_expand": 0.2857142857142857,
+      "ratio": 0.9544594514547949,
+      "range": 15.073570785871587,
+      "p_up": 0.39285714285714285,
+      "continue": 0.6071428571428571,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 80,
+      "p_expand": 0.5375,
+      "ratio": 1.1557102299376008,
+      "range": 14.763581176177672,
+      "p_up": 0.5125,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 43,
+      "p_expand": 0.3488372093023256,
+      "ratio": 0.9985121990637009,
+      "range": 12.731904991799231,
+      "p_up": 0.46511627906976744,
+      "continue": 0.46511627906976744,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 48,
+      "p_expand": 0.4791666666666667,
+      "ratio": 1.1416668428863093,
+      "range": 14.762649054420988,
+      "p_up": 0.5625,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 39,
+      "p_expand": 0.3333333333333333,
+      "ratio": 1.0375008071023377,
+      "range": 14.10965083229942,
+      "p_up": 0.48717948717948717,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 63,
+      "p_expand": 0.47619047619047616,
+      "ratio": 1.0520045760380345,
+      "range": 14.04005920574699,
+      "p_up": 0.4126984126984127,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 27,
+      "p_expand": 0.5555555555555556,
+      "ratio": 1.1406358887431332,
+      "range": 16.618886209896296,
+      "p_up": 0.5555555555555556,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 71,
+      "p_expand": 0.4084507042253521,
+      "ratio": 1.0555690503078468,
+      "range": 13.863550284899803,
+      "p_up": 0.38028169014084506,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 53,
+      "p_expand": 0.41509433962264153,
+      "ratio": 1.0636818118407498,
+      "range": 13.539554582092434,
+      "p_up": 0.5660377358490566,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 27,
+      "p_expand": 0.48148148148148145,
+      "ratio": 1.075083147778785,
+      "range": 14.950478468569633,
+      "p_up": 0.5185185185185185,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 39,
+      "p_expand": 0.48717948717948717,
+      "ratio": 1.0848234200513365,
+      "range": 15.029615374274533,
+      "p_up": 0.46153846153846156,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 85,
+      "p_expand": 0.4,
+      "ratio": 1.0680276379229663,
+      "range": 13.656476147034097,
+      "p_up": 0.47058823529411764,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 30,
+      "p_expand": 0.6333333333333333,
+      "ratio": 1.2743595360875464,
+      "range": 17.334297816366483,
+      "p_up": 0.5666666666666667,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 40,
+      "p_expand": 0.425,
+      "ratio": 1.0294857946452554,
+      "range": 13.941844933344498,
+      "p_up": 0.55,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 81,
+      "p_expand": 0.37037037037037035,
+      "ratio": 1.0210801200869735,
+      "range": 13.245872332360625,
+      "p_up": 0.4074074074074074,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 6569
+  },
+  "SOL": {
+   "24 giờ": {
+    "base": {
+     "n": 1064,
+     "p_expand": 0.32894736842105265,
+     "ratio": 0.8828750059173427,
+     "range": 6.624416233237273,
+     "p_up": 0.5028195488721805
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 158,
+      "p_expand": 0.3987341772151899,
+      "ratio": 0.9476366945103597,
+      "range": 7.917162146224973,
+      "p_up": 0.5,
+      "continue": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 605,
+      "p_expand": 0.31074380165289256,
+      "ratio": 0.8669155917742798,
+      "range": 6.128261463775972,
+      "p_up": 0.484297520661157,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 301,
+      "p_expand": 0.3289036544850498,
+      "ratio": 0.8809583904982609,
+      "range": 6.943086602911793,
+      "p_up": 0.5415282392026578,
+      "continue": 0.5415282392026578,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 328,
+      "p_expand": 0.35365853658536583,
+      "ratio": 0.9218563751272613,
+      "range": 6.05521188903449,
+      "p_up": 0.5579268292682927,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 276,
+      "p_expand": 0.31521739130434784,
+      "ratio": 0.8789427267152563,
+      "range": 7.319832309404237,
+      "p_up": 0.4492753623188406,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 451,
+      "p_expand": 0.3259423503325942,
+      "ratio": 0.8639486516786018,
+      "range": 6.5770758108779255,
+      "p_up": 0.49445676274944567,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 195,
+      "p_expand": 0.3333333333333333,
+      "ratio": 0.8683469969168287,
+      "range": 5.890297559212541,
+      "p_up": 0.5333333333333333,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 490,
+      "p_expand": 0.336734693877551,
+      "ratio": 0.8841137711370187,
+      "range": 6.782333802193558,
+      "p_up": 0.49183673469387756,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 379,
+      "p_expand": 0.316622691292876,
+      "ratio": 0.8887482692351765,
+      "range": 6.797961174256383,
+      "p_up": 0.5013192612137203,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 149,
+      "p_expand": 0.348993288590604,
+      "ratio": 0.914193132857958,
+      "range": 6.470074897068125,
+      "p_up": 0.4563758389261745,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 295,
+      "p_expand": 0.4101694915254237,
+      "ratio": 0.9658209805489089,
+      "range": 7.73494397119546,
+      "p_up": 0.5423728813559322,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 620,
+      "p_expand": 0.2854838709677419,
+      "ratio": 0.8358823229649819,
+      "range": 6.133111679030075,
+      "p_up": 0.49516129032258066,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 209,
+      "p_expand": 0.33014354066985646,
+      "ratio": 0.9003751296209088,
+      "range": 6.285355239946418,
+      "p_up": 0.5263157894736842,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 296,
+      "p_expand": 0.2668918918918919,
+      "ratio": 0.829663151629704,
+      "range": 5.911415116933798,
+      "p_up": 0.4594594594594595,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 559,
+      "p_expand": 0.3613595706618962,
+      "ratio": 0.9045086070176929,
+      "range": 7.12873122075716,
+      "p_up": 0.516994633273703,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "3 ngày": {
+    "base": {
+     "n": 354,
+     "p_expand": 0.4180790960451977,
+     "ratio": 1.0014032262722612,
+     "range": 11.709442506024072,
+     "p_up": 0.5112994350282486
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 56,
+      "p_expand": 0.5535714285714286,
+      "ratio": 1.0441063823949512,
+      "range": 12.312113560799858,
+      "p_up": 0.5,
+      "continue": 0.5,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 196,
+      "p_expand": 0.3979591836734694,
+      "ratio": 1.0050411438184699,
+      "range": 11.314266237989422,
+      "p_up": 0.5153061224489796,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 102,
+      "p_expand": 0.38235294117647056,
+      "ratio": 0.9709678480180691,
+      "range": 12.137922598841206,
+      "p_up": 0.5098039215686274,
+      "continue": 0.5098039215686274,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 110,
+      "p_expand": 0.45454545454545453,
+      "ratio": 1.0513595279018118,
+      "range": 10.924012910945294,
+      "p_up": 0.5454545454545454,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 96,
+      "p_expand": 0.3958333333333333,
+      "ratio": 0.9910215685539551,
+      "range": 12.748035126278207,
+      "p_up": 0.4791666666666667,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 145,
+      "p_expand": 0.41379310344827586,
+      "ratio": 0.9789779611112286,
+      "range": 11.615790873594149,
+      "p_up": 0.5103448275862069,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 63,
+      "p_expand": 0.3968253968253968,
+      "ratio": 1.0149053819364449,
+      "range": 10.932397712414726,
+      "p_up": 0.5396825396825397,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 163,
+      "p_expand": 0.4723926380368098,
+      "ratio": 1.0156261036260976,
+      "range": 12.164761379782554,
+      "p_up": 0.49693251533742333,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 128,
+      "p_expand": 0.359375,
+      "ratio": 0.9766456886510194,
+      "range": 11.512074112076855,
+      "p_up": 0.515625,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 50,
+      "p_expand": 0.42,
+      "ratio": 1.1018011010933835,
+      "range": 12.701386032531792,
+      "p_up": 0.48,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 101,
+      "p_expand": 0.504950495049505,
+      "ratio": 1.0568239543357656,
+      "range": 12.630725954490828,
+      "p_up": 0.5346534653465347,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 203,
+      "p_expand": 0.37438423645320196,
+      "ratio": 0.9491008259004874,
+      "range": 11.006748887203736,
+      "p_up": 0.5073891625615764,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 62,
+      "p_expand": 0.41935483870967744,
+      "ratio": 1.0319256999418929,
+      "range": 11.541284490024603,
+      "p_up": 0.5645161290322581,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 106,
+      "p_expand": 0.3867924528301887,
+      "ratio": 0.9939259427512299,
+      "range": 10.953878279584838,
+      "p_up": 0.5566037735849056,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 186,
+      "p_expand": 0.43548387096774194,
+      "ratio": 0.9954903159803908,
+      "range": 12.196085543629051,
+      "p_up": 0.46774193548387094,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "7 ngày": {
+    "base": {
+     "n": 151,
+     "p_expand": 0.4768211920529801,
+     "ratio": 1.0537025842815164,
+     "range": 17.40111949908745,
+     "p_up": 0.5562913907284768
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 21,
+      "p_expand": 0.38095238095238093,
+      "ratio": 1.0429660819107183,
+      "range": 17.885724011696436,
+      "p_up": 0.47619047619047616,
+      "continue": 0.5238095238095238,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 87,
+      "p_expand": 0.5287356321839081,
+      "ratio": 1.0708502630427204,
+      "range": 16.818561763642705,
+      "p_up": 0.5862068965517241,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 43,
+      "p_expand": 0.4186046511627907,
+      "ratio": 1.02425185166668,
+      "range": 18.343115504178243,
+      "p_up": 0.5348837209302325,
+      "continue": 0.5348837209302325,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 45,
+      "p_expand": 0.5555555555555556,
+      "ratio": 1.1584192399489548,
+      "range": 16.889838123978933,
+      "p_up": 0.6444444444444445,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 39,
+      "p_expand": 0.46153846153846156,
+      "ratio": 1.0110558768919282,
+      "range": 17.9085849238083,
+      "p_up": 0.4358974358974359,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 66,
+      "p_expand": 0.4393939393939394,
+      "ratio": 1.0157529880802971,
+      "range": 17.49273462343079,
+      "p_up": 0.5606060606060606,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 31,
+      "p_expand": 0.45161290322580644,
+      "ratio": 1.0952526362060004,
+      "range": 15.93345374657924,
+      "p_up": 0.5161290322580645,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 66,
+      "p_expand": 0.45454545454545453,
+      "ratio": 1.0713370463741823,
+      "range": 18.771026269193307,
+      "p_up": 0.5757575757575758,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 54,
+      "p_expand": 0.5185185185185185,
+      "ratio": 1.0082965452486474,
+      "range": 16.569337860212784,
+      "p_up": 0.5555555555555556,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 22,
+      "p_expand": 0.5454545454545454,
+      "ratio": 1.039109407199917,
+      "range": 15.710848151125049,
+      "p_up": 0.45454545454545453,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 40,
+      "p_expand": 0.4,
+      "ratio": 1.0660746419091716,
+      "range": 18.26669017775844,
+      "p_up": 0.475,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 89,
+      "p_expand": 0.4943820224719101,
+      "ratio": 1.0517494111431904,
+      "range": 17.429918853113666,
+      "p_up": 0.6179775280898876,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 24,
+      "p_expand": 0.4583333333333333,
+      "ratio": 1.0223652572104915,
+      "range": 17.155132008821113,
+      "p_up": 0.5416666666666666,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 57,
+      "p_expand": 0.543859649122807,
+      "ratio": 1.0875962026027757,
+      "range": 16.70229986357082,
+      "p_up": 0.5789473684210527,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 70,
+      "p_expand": 0.42857142857142855,
+      "ratio": 1.036847721501414,
+      "range": 18.054496913242307,
+      "p_up": 0.5428571428571428,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 6569
+  }
+ },
+ "1d": {
+  "BTC": {
+   "3 ngày": {
+    "base": {
+     "n": 702,
+     "p_expand": 0.28205128205128205,
+     "ratio": 0.812537869648211,
+     "range": 7.6307088721789915,
+     "p_up": 0.5284900284900285
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 119,
+      "p_expand": 0.25210084033613445,
+      "ratio": 0.7851677255077955,
+      "range": 8.209175603589868,
+      "p_up": 0.5798319327731093,
+      "continue": 0.42016806722689076,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 329,
+      "p_expand": 0.2917933130699088,
+      "ratio": 0.8359928499618193,
+      "range": 7.5279823721283465,
+      "p_up": 0.5015197568389058,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 254,
+      "p_expand": 0.28346456692913385,
+      "ratio": 0.7949802264573934,
+      "range": 7.492754059103276,
+      "p_up": 0.5393700787401575,
+      "continue": 0.5393700787401575,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 222,
+      "p_expand": 0.3108108108108108,
+      "ratio": 0.8511638093994532,
+      "range": 7.8485432098735775,
+      "p_up": 0.5315315315315315,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 155,
+      "p_expand": 0.2645161290322581,
+      "ratio": 0.7705463941095283,
+      "range": 7.51576404231887,
+      "p_up": 0.5741935483870968,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 308,
+      "p_expand": 0.2727272727272727,
+      "ratio": 0.8049270376375441,
+      "range": 7.077685906903592,
+      "p_up": 0.5064935064935064,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 127,
+      "p_expand": 0.2992125984251969,
+      "ratio": 0.8361393599044203,
+      "range": 8.108393636161424,
+      "p_up": 0.5118110236220472,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 254,
+      "p_expand": 0.2992125984251969,
+      "ratio": 0.8078116669727637,
+      "range": 7.525046102102637,
+      "p_up": 0.515748031496063,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 321,
+      "p_expand": 0.2616822429906542,
+      "ratio": 0.8069399450906565,
+      "range": 7.525326873965986,
+      "p_up": 0.5451713395638629,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 126,
+      "p_expand": 0.2619047619047619,
+      "ratio": 0.7644736067657649,
+      "range": 6.8068340332287836,
+      "p_up": 0.5714285714285714,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 218,
+      "p_expand": 0.2981651376146789,
+      "ratio": 0.8441564895125485,
+      "range": 8.692922640881344,
+      "p_up": 0.5137614678899083,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 358,
+      "p_expand": 0.27932960893854747,
+      "ratio": 0.8102005456056485,
+      "range": 7.273853084834337,
+      "p_up": 0.5223463687150838,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 166,
+      "p_expand": 0.28313253012048195,
+      "ratio": 0.8035692042368004,
+      "range": 7.372146153188642,
+      "p_up": 0.5060240963855421,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 192,
+      "p_expand": 0.28125,
+      "ratio": 0.8466238789519942,
+      "range": 7.879119581606625,
+      "p_up": 0.53125,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 344,
+      "p_expand": 0.2819767441860465,
+      "ratio": 0.7978410227643964,
+      "range": 7.616832578987981,
+      "p_up": 0.5377906976744186,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "7 ngày": {
+    "base": {
+     "n": 301,
+     "p_expand": 0.40863787375415284,
+     "ratio": 1.011410191653934,
+     "range": 11.805315372802864,
+     "p_up": 0.5049833887043189
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 55,
+      "p_expand": 0.32727272727272727,
+      "ratio": 0.9420299952462103,
+      "range": 12.756526068063316,
+      "p_up": 0.5454545454545454,
+      "continue": 0.45454545454545453,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 138,
+      "p_expand": 0.39855072463768115,
+      "ratio": 1.0290135003605285,
+      "range": 11.402167723085482,
+      "p_up": 0.4492753623188406,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 108,
+      "p_expand": 0.46296296296296297,
+      "ratio": 1.024249582403145,
+      "range": 11.836035626707252,
+      "p_up": 0.5555555555555556,
+      "continue": 0.5555555555555556,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 94,
+      "p_expand": 0.425531914893617,
+      "ratio": 1.1173942084754234,
+      "range": 12.60850665776854,
+      "p_up": 0.4574468085106383,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 67,
+      "p_expand": 0.40298507462686567,
+      "ratio": 0.931433391439796,
+      "range": 11.342937491370702,
+      "p_up": 0.5373134328358209,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 133,
+      "p_expand": 0.39849624060150374,
+      "ratio": 0.9761088787241864,
+      "range": 10.743779600528313,
+      "p_up": 0.518796992481203,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 53,
+      "p_expand": 0.37735849056603776,
+      "ratio": 1.1077204614796774,
+      "range": 13.268446055895106,
+      "p_up": 0.49056603773584906,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 108,
+      "p_expand": 0.4074074074074074,
+      "ratio": 0.9457811498097528,
+      "range": 11.389389561413813,
+      "p_up": 0.5185185185185185,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 140,
+      "p_expand": 0.42142857142857143,
+      "ratio": 1.0255779932139855,
+      "range": 11.57227295441807,
+      "p_up": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 52,
+      "p_expand": 0.40384615384615385,
+      "ratio": 0.9689021767098828,
+      "range": 10.184408778010885,
+      "p_up": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 97,
+      "p_expand": 0.4020618556701031,
+      "ratio": 1.033153117779083,
+      "range": 12.707974765218509,
+      "p_up": 0.5360824742268041,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 152,
+      "p_expand": 0.4144736842105263,
+      "ratio": 1.012076987331245,
+      "range": 11.783796832440135,
+      "p_up": 0.4868421052631579,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 71,
+      "p_expand": 0.4225352112676056,
+      "ratio": 1.0596541342011723,
+      "range": 10.756837430334738,
+      "p_up": 0.38028169014084506,
+      "sig_expand": false,
+      "sig_up": true
+     },
+     "dist=vừa": {
+      "n": 80,
+      "p_expand": 0.425,
+      "ratio": 1.071664440692883,
+      "range": 13.196653556875106,
+      "p_up": 0.5375,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 150,
+      "p_expand": 0.3933333333333333,
+      "ratio": 0.9564391260274685,
+      "range": 11.559547900732582,
+      "p_up": 0.5466666666666666,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "14 ngày": {
+    "base": {
+     "n": 150,
+     "p_expand": 0.4666666666666667,
+     "ratio": 1.0905730511649758,
+     "range": 16.89306679952537,
+     "p_up": 0.5266666666666666
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 25,
+      "p_expand": 0.32,
+      "ratio": 0.9258174292280443,
+      "range": 17.335536111677232,
+      "p_up": 0.44,
+      "continue": 0.56,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 69,
+      "p_expand": 0.4927536231884058,
+      "ratio": 1.1491238908592374,
+      "range": 16.76634144266994,
+      "p_up": 0.4927536231884058,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 56,
+      "p_expand": 0.5,
+      "ratio": 1.0919816691921052,
+      "range": 16.85167959986873,
+      "p_up": 0.6071428571428571,
+      "continue": 0.6071428571428571,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 45,
+      "p_expand": 0.5777777777777777,
+      "ratio": 1.2366005796483983,
+      "range": 17.545247554850565,
+      "p_up": 0.4888888888888889,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 34,
+      "p_expand": 0.38235294117647056,
+      "ratio": 0.9812707096516667,
+      "range": 15.897753801344136,
+      "p_up": 0.6176470588235294,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 68,
+      "p_expand": 0.4411764705882353,
+      "ratio": 1.0557703555050788,
+      "range": 16.142121808951014,
+      "p_up": 0.5147058823529411,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 27,
+      "p_expand": 0.5185185185185185,
+      "ratio": 1.1783540969818425,
+      "range": 18.837638727659893,
+      "p_up": 0.5555555555555556,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 57,
+      "p_expand": 0.45614035087719296,
+      "ratio": 1.0486890412966905,
+      "range": 16.788120391425302,
+      "p_up": 0.49122807017543857,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 66,
+      "p_expand": 0.45454545454545453,
+      "ratio": 1.0908351773079588,
+      "range": 16.1881956359204,
+      "p_up": 0.5454545454545454,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 29,
+      "p_expand": 0.41379310344827586,
+      "ratio": 1.031277816620258,
+      "range": 15.57579014062471,
+      "p_up": 0.4827586206896552,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 48,
+      "p_expand": 0.4583333333333333,
+      "ratio": 1.0700008711388818,
+      "range": 18.062598252428163,
+      "p_up": 0.625,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 73,
+      "p_expand": 0.4931506849315068,
+      "ratio": 1.1276556051793503,
+      "range": 16.64736150320736,
+      "p_up": 0.4794520547945205,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 35,
+      "p_expand": 0.5142857142857142,
+      "ratio": 1.2229431747259984,
+      "range": 15.70072621614207,
+      "p_up": 0.4857142857142857,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 42,
+      "p_expand": 0.5238095238095238,
+      "ratio": 1.1028431663781746,
+      "range": 18.118882868393815,
+      "p_up": 0.4523809523809524,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 73,
+      "p_expand": 0.410958904109589,
+      "ratio": 1.0200484050883987,
+      "range": 16.759472902620452,
+      "p_up": 0.589041095890411,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 2199
+  },
+  "ETH": {
+   "3 ngày": {
+    "base": {
+     "n": 702,
+     "p_expand": 0.28774928774928776,
+     "ratio": 0.8215434902480006,
+     "range": 10.180490749516133,
+     "p_up": 0.5242165242165242
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 111,
+      "p_expand": 0.25225225225225223,
+      "ratio": 0.8573341292053399,
+      "range": 10.575828661520246,
+      "p_up": 0.44144144144144143,
+      "continue": 0.5585585585585585,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 350,
+      "p_expand": 0.29714285714285715,
+      "ratio": 0.8046215910935954,
+      "range": 9.755697160200423,
+      "p_up": 0.54,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 241,
+      "p_expand": 0.29045643153526973,
+      "ratio": 0.8296343773010177,
+      "range": 10.615325803574398,
+      "p_up": 0.5394190871369294,
+      "continue": 0.5394190871369294,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 246,
+      "p_expand": 0.2886178861788618,
+      "ratio": 0.8444714417957289,
+      "range": 9.786610134449772,
+      "p_up": 0.5040650406504065,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 167,
+      "p_expand": 0.2994011976047904,
+      "ratio": 0.7933979381700015,
+      "range": 10.569567123007133,
+      "p_up": 0.5089820359281437,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 272,
+      "p_expand": 0.2867647058823529,
+      "ratio": 0.8207745195950913,
+      "range": 9.731296723304187,
+      "p_up": 0.5477941176470589,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 145,
+      "p_expand": 0.22758620689655173,
+      "ratio": 0.7849222592666593,
+      "range": 9.623054817469063,
+      "p_up": 0.45517241379310347,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 297,
+      "p_expand": 0.3063973063973064,
+      "ratio": 0.8347528887056992,
+      "range": 9.541485361246345,
+      "p_up": 0.531986531986532,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 260,
+      "p_expand": 0.3,
+      "ratio": 0.8268776715955314,
+      "range": 11.221309251296722,
+      "p_up": 0.5538461538461539,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 111,
+      "p_expand": 0.3063063063063063,
+      "ratio": 0.854190085877223,
+      "range": 10.268159280441836,
+      "p_up": 0.5585585585585585,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 240,
+      "p_expand": 0.275,
+      "ratio": 0.8686644210050365,
+      "range": 11.480372708747227,
+      "p_up": 0.5291666666666667,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 351,
+      "p_expand": 0.2905982905982906,
+      "ratio": 0.7789999133348031,
+      "range": 9.263958335988455,
+      "p_up": 0.50997150997151,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 170,
+      "p_expand": 0.3,
+      "ratio": 0.8378472486335854,
+      "range": 9.68768862122231,
+      "p_up": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 203,
+      "p_expand": 0.270935960591133,
+      "ratio": 0.7705095847042701,
+      "range": 9.827267188298837,
+      "p_up": 0.5763546798029556,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 329,
+      "p_expand": 0.2917933130699088,
+      "ratio": 0.8446080613720974,
+      "range": 10.653076599780757,
+      "p_up": 0.5045592705167173,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "7 ngày": {
+    "base": {
+     "n": 301,
+     "p_expand": 0.4186046511627907,
+     "ratio": 1.0163866644729238,
+     "range": 15.795340475321114,
+     "p_up": 0.5149501661129569
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 49,
+      "p_expand": 0.3469387755102041,
+      "ratio": 0.9704131300221,
+      "range": 16.38586618636197,
+      "p_up": 0.4489795918367347,
+      "continue": 0.5510204081632653,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 148,
+      "p_expand": 0.44594594594594594,
+      "ratio": 1.0455701533211348,
+      "range": 15.511797954337187,
+      "p_up": 0.527027027027027,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 104,
+      "p_expand": 0.41346153846153844,
+      "ratio": 0.9965169225359544,
+      "range": 15.920614833634762,
+      "p_up": 0.5288461538461539,
+      "continue": 0.5288461538461539,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 108,
+      "p_expand": 0.4444444444444444,
+      "ratio": 1.0621575712511637,
+      "range": 15.579293765424959,
+      "p_up": 0.4722222222222222,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 74,
+      "p_expand": 0.4189189189189189,
+      "ratio": 0.9728278429952698,
+      "range": 16.127783222078644,
+      "p_up": 0.47297297297297297,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 112,
+      "p_expand": 0.39285714285714285,
+      "ratio": 1.0062071888701316,
+      "range": 14.948521682732434,
+      "p_up": 0.5714285714285714,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 62,
+      "p_expand": 0.3225806451612903,
+      "ratio": 0.9890834426166892,
+      "range": 14.620090802921629,
+      "p_up": 0.5483870967741935,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 126,
+      "p_expand": 0.4603174603174603,
+      "ratio": 1.0381091313062885,
+      "range": 15.428624374812594,
+      "p_up": 0.47619047619047616,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 113,
+      "p_expand": 0.4247787610619469,
+      "ratio": 1.0071456815886994,
+      "range": 16.849072407647146,
+      "p_up": 0.5398230088495575,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 45,
+      "p_expand": 0.4444444444444444,
+      "ratio": 1.0337473689834817,
+      "range": 15.386205414408687,
+      "p_up": 0.5777777777777777,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 110,
+      "p_expand": 0.4,
+      "ratio": 0.9879038139563158,
+      "range": 16.92682254488735,
+      "p_up": 0.5181818181818182,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 146,
+      "p_expand": 0.4246575342465753,
+      "ratio": 1.0324954442938266,
+      "range": 15.06895725675107,
+      "p_up": 0.4931506849315068,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 64,
+      "p_expand": 0.4375,
+      "ratio": 1.0780370956746665,
+      "range": 15.056332711904275,
+      "p_up": 0.484375,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 93,
+      "p_expand": 0.3978494623655914,
+      "ratio": 0.9701075595298245,
+      "range": 15.49124083462453,
+      "p_up": 0.5591397849462365,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 144,
+      "p_expand": 0.4236111111111111,
+      "ratio": 1.01887506143679,
+      "range": 16.320186054789588,
+      "p_up": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "14 ngày": {
+    "base": {
+     "n": 150,
+     "p_expand": 0.47333333333333333,
+     "ratio": 1.1036592246569386,
+     "range": 22.72703089952265,
+     "p_up": 0.49333333333333335
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 27,
+      "p_expand": 0.2962962962962963,
+      "ratio": 1.0184885745784031,
+      "range": 19.577309765903323,
+      "p_up": 0.4444444444444444,
+      "continue": 0.5555555555555556,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 71,
+      "p_expand": 0.5633802816901409,
+      "ratio": 1.1682767949853263,
+      "range": 24.03346816739905,
+      "p_up": 0.5211267605633803,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 52,
+      "p_expand": 0.4423076923076923,
+      "ratio": 1.059654610403187,
+      "range": 22.578673680070672,
+      "p_up": 0.4807692307692308,
+      "continue": 0.4807692307692308,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 53,
+      "p_expand": 0.4716981132075472,
+      "ratio": 1.136617897370251,
+      "range": 23.19915766186303,
+      "p_up": 0.4339622641509434,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 37,
+      "p_expand": 0.35135135135135137,
+      "ratio": 1.009869928467731,
+      "range": 23.559057681920656,
+      "p_up": 0.43243243243243246,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 57,
+      "p_expand": 0.5614035087719298,
+      "ratio": 1.1473884995838655,
+      "range": 20.856416976148015,
+      "p_up": 0.5789473684210527,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 30,
+      "p_expand": 0.43333333333333335,
+      "ratio": 1.0497216237359872,
+      "range": 21.4696147283408,
+      "p_up": 0.6333333333333333,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 62,
+      "p_expand": 0.5,
+      "ratio": 1.102825739367122,
+      "range": 21.425062039540723,
+      "p_up": 0.41935483870967744,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 58,
+      "p_expand": 0.46551724137931033,
+      "ratio": 1.132448950787924,
+      "range": 24.769178390114625,
+      "p_up": 0.5,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 26,
+      "p_expand": 0.4230769230769231,
+      "ratio": 1.0952545309947141,
+      "range": 22.31898989647408,
+      "p_up": 0.5384615384615384,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 52,
+      "p_expand": 0.38461538461538464,
+      "ratio": 0.9783789072708962,
+      "range": 22.875424965712316,
+      "p_up": 0.5576923076923077,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 72,
+      "p_expand": 0.5555555555555556,
+      "ratio": 1.1971744821471055,
+      "range": 22.767205547264314,
+      "p_up": 0.4305555555555556,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 33,
+      "p_expand": 0.6363636363636364,
+      "ratio": 1.2431407784082051,
+      "range": 22.22506324493267,
+      "p_up": 0.5454545454545454,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 45,
+      "p_expand": 0.4222222222222222,
+      "ratio": 1.04918579408044,
+      "range": 24.588608015864526,
+      "p_up": 0.5777777777777777,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 72,
+      "p_expand": 0.4305555555555556,
+      "ratio": 1.0737760732979194,
+      "range": 21.793613710162713,
+      "p_up": 0.4166666666666667,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 2199
+  },
+  "SOL": {
+   "3 ngày": {
+    "base": {
+     "n": 667,
+     "p_expand": 0.26686656671664166,
+     "ratio": 0.8113562617862272,
+     "range": 14.052021198640862,
+     "p_up": 0.4917541229385307
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 81,
+      "p_expand": 0.345679012345679,
+      "ratio": 0.9155764246983837,
+      "range": 15.98788322309405,
+      "p_up": 0.4691358024691358,
+      "continue": 0.5308641975308642,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 396,
+      "p_expand": 0.23484848484848486,
+      "ratio": 0.7704372936522544,
+      "range": 12.675260778101645,
+      "p_up": 0.5025252525252525,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 190,
+      "p_expand": 0.3,
+      "ratio": 0.8522093048660616,
+      "range": 16.096191212076764,
+      "p_up": 0.4789473684210526,
+      "continue": 0.4789473684210526,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 223,
+      "p_expand": 0.31390134529147984,
+      "ratio": 0.863613656738798,
+      "range": 13.716417278832203,
+      "p_up": 0.4439461883408072,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 150,
+      "p_expand": 0.24666666666666667,
+      "ratio": 0.7634860615564412,
+      "range": 15.001815070226433,
+      "p_up": 0.4666666666666667,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 277,
+      "p_expand": 0.2490974729241877,
+      "ratio": 0.7864503703341772,
+      "range": 12.83223265512837,
+      "p_up": 0.5415162454873647,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 106,
+      "p_expand": 0.25471698113207547,
+      "ratio": 0.7946210849871322,
+      "range": 13.589437631163783,
+      "p_up": 0.44339622641509435,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 297,
+      "p_expand": 0.26936026936026936,
+      "ratio": 0.809131823063239,
+      "range": 13.250564782177861,
+      "p_up": 0.5050505050505051,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 264,
+      "p_expand": 0.2689393939393939,
+      "ratio": 0.8205781823977104,
+      "range": 15.139393978345717,
+      "p_up": 0.4962121212121212,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 98,
+      "p_expand": 0.20408163265306123,
+      "ratio": 0.7214154839269936,
+      "range": 12.88040711544593,
+      "p_up": 0.46938775510204084,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 192,
+      "p_expand": 0.3333333333333333,
+      "ratio": 0.8768266825341948,
+      "range": 16.169233676936575,
+      "p_up": 0.5416666666666666,
+      "sig_expand": true,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 377,
+      "p_expand": 0.2493368700265252,
+      "ratio": 0.8013930666843575,
+      "range": 13.278316647766397,
+      "p_up": 0.47214854111405835,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 195,
+      "p_expand": 0.2512820512820513,
+      "ratio": 0.7854384065627432,
+      "range": 11.966343309768991,
+      "p_up": 0.5025641025641026,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 229,
+      "p_expand": 0.26200873362445415,
+      "ratio": 0.8141849537055061,
+      "range": 13.557063012623436,
+      "p_up": 0.4759825327510917,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 243,
+      "p_expand": 0.2839506172839506,
+      "ratio": 0.8294888186548055,
+      "range": 16.192155408221133,
+      "p_up": 0.49794238683127573,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "7 ngày": {
+    "base": {
+     "n": 285,
+     "p_expand": 0.38596491228070173,
+     "ratio": 1.011412390527182,
+     "range": 21.972373971797722,
+     "p_up": 0.4631578947368421
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 32,
+      "p_expand": 0.40625,
+      "ratio": 1.1028634274535334,
+      "range": 22.130940015607422,
+      "p_up": 0.40625,
+      "continue": 0.59375,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 170,
+      "p_expand": 0.4,
+      "ratio": 0.9511836978678919,
+      "range": 20.414084257318866,
+      "p_up": 0.4823529411764706,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 83,
+      "p_expand": 0.3493975903614458,
+      "ratio": 1.099514132339664,
+      "range": 25.102917803839837,
+      "p_up": 0.4457831325301205,
+      "continue": 0.4457831325301205,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 96,
+      "p_expand": 0.4375,
+      "ratio": 1.111145655430716,
+      "range": 21.948651005028477,
+      "p_up": 0.4895833333333333,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 65,
+      "p_expand": 0.3230769230769231,
+      "ratio": 0.932665110530958,
+      "range": 22.337398579964383,
+      "p_up": 0.46153846153846156,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 117,
+      "p_expand": 0.39316239316239315,
+      "ratio": 0.9551660887146803,
+      "range": 20.700121106765028,
+      "p_up": 0.452991452991453,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 40,
+      "p_expand": 0.35,
+      "ratio": 0.9729541740312123,
+      "range": 21.802974221418282,
+      "p_up": 0.275,
+      "sig_expand": false,
+      "sig_up": true
+     },
+     "shape=POC giữa (D)": {
+      "n": 135,
+      "p_expand": 0.3925925925925926,
+      "ratio": 1.0237041237129572,
+      "range": 21.195262843176504,
+      "p_up": 0.4962962962962963,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 110,
+      "p_expand": 0.39090909090909093,
+      "ratio": 1.010311887615901,
+      "range": 22.98770117524356,
+      "p_up": 0.4909090909090909,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 40,
+      "p_expand": 0.325,
+      "ratio": 0.8781595053990184,
+      "range": 20.118135524055436,
+      "p_up": 0.575,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 75,
+      "p_expand": 0.3466666666666667,
+      "ratio": 1.0843988356440184,
+      "range": 25.587445354406164,
+      "p_up": 0.49333333333333335,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 170,
+      "p_expand": 0.4176470588235294,
+      "ratio": 1.01056610829991,
+      "range": 20.813780937762772,
+      "p_up": 0.4235294117647059,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 82,
+      "p_expand": 0.3780487804878049,
+      "ratio": 0.9452333012419099,
+      "range": 18.57391516884081,
+      "p_up": 0.4634146341463415,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 101,
+      "p_expand": 0.45544554455445546,
+      "ratio": 1.0615289212062757,
+      "range": 22.402337418534046,
+      "p_up": 0.45544554455445546,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 102,
+      "p_expand": 0.3235294117647059,
+      "ratio": 1.0149899956527093,
+      "range": 24.27872018475947,
+      "p_up": 0.47058823529411764,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "14 ngày": {
+    "base": {
+     "n": 142,
+     "p_expand": 0.5070422535211268,
+     "ratio": 1.1030914414260438,
+     "range": 32.95167077068557,
+     "p_up": 0.4859154929577465
+    },
+    "groups": {
+     "state=dưới VAL": {
+      "n": 17,
+      "p_expand": 0.5294117647058824,
+      "ratio": 1.0718462560135578,
+      "range": 32.22771459745611,
+      "p_up": 0.5294117647058824,
+      "continue": 0.47058823529411764,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trong vùng": {
+      "n": 87,
+      "p_expand": 0.4942528735632184,
+      "ratio": 1.1088630414591465,
+      "range": 31.896034558693785,
+      "p_up": 0.5287356321839081,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "state=trên VAH": {
+      "n": 38,
+      "p_expand": 0.5263157894736842,
+      "ratio": 1.1038556242979467,
+      "range": 35.6923972282694,
+      "p_up": 0.3684210526315789,
+      "continue": 0.3684210526315789,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=hẹp": {
+      "n": 48,
+      "p_expand": 0.5833333333333334,
+      "ratio": 1.1096495258188341,
+      "range": 34.209057975811604,
+      "p_up": 0.4583333333333333,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=rộng": {
+      "n": 30,
+      "p_expand": 0.43333333333333335,
+      "ratio": 0.9747111416940017,
+      "range": 29.923242054622794,
+      "p_up": 0.4666666666666667,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "width=vừa": {
+      "n": 61,
+      "p_expand": 0.4918032786885246,
+      "ratio": 1.1255232913943307,
+      "range": 32.06241472791124,
+      "p_up": 0.5245901639344263,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC cao (P)": {
+      "n": 23,
+      "p_expand": 0.5652173913043478,
+      "ratio": 1.125027956394418,
+      "range": 35.54875295372825,
+      "p_up": 0.21739130434782608,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC giữa (D)": {
+      "n": 65,
+      "p_expand": 0.5230769230769231,
+      "ratio": 1.1178372256328166,
+      "range": 31.133097931420423,
+      "p_up": 0.5384615384615384,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "shape=POC thấp (b)": {
+      "n": 54,
+      "p_expand": 0.46296296296296297,
+      "ratio": 1.0759985559128427,
+      "range": 34.034528999245794,
+      "p_up": 0.5370370370370371,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=HVN": {
+      "n": 22,
+      "p_expand": 0.45454545454545453,
+      "ratio": 1.1180726724733252,
+      "range": 31.831300631994516,
+      "p_up": 0.5909090909090909,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=LVN": {
+      "n": 38,
+      "p_expand": 0.5526315789473685,
+      "ratio": 1.0242618173527565,
+      "range": 35.03457738456741,
+      "p_up": 0.47368421052631576,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "node=bình thường": {
+      "n": 82,
+      "p_expand": 0.5,
+      "ratio": 1.1356028881546378,
+      "range": 32.28700847463304,
+      "p_up": 0.4634146341463415,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=gần POC (<1 ATR)": {
+      "n": 45,
+      "p_expand": 0.4888888888888889,
+      "ratio": 1.1168893774649287,
+      "range": 31.269317751945366,
+      "p_up": 0.4666666666666667,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=vừa": {
+      "n": 48,
+      "p_expand": 0.5,
+      "ratio": 1.0986899757984345,
+      "range": 31.707196915066937,
+      "p_up": 0.5625,
+      "sig_expand": false,
+      "sig_up": false
+     },
+     "dist=xa POC (>3 ATR)": {
+      "n": 49,
+      "p_expand": 0.5306122448979592,
+      "ratio": 1.0947315073112562,
+      "range": 35.7157652791142,
+      "p_up": 0.42857142857142855,
+      "sig_expand": false,
+      "sig_up": false
+     }
+    }
+   },
+   "bars": 2093
+  }
+ }
+}
