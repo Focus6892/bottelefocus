@@ -11,6 +11,8 @@ WEIGHTS = {
     "vp_1d": 2.0,          # thoát vùng giá trị 90 ngày: PF 1,7-2,9; có xác nhận RSI+KL: 2,0-3,9 (x1,5)
     "vp_4h": 1.5,          # thoát vùng 30 ngày trên 4h: PF 1,2-1,7
     "inside_4h": 1.5,      # inside bar 4h theo EMA: PF 1,4-1,7
+    "ichimoku_1d": 2.0,    # Ichimoku ngày: PF 2,2-3,0 cả 3 đồng, 24 tháng gần nhất dương
+    "weinstein_1d": 1.5,   # SMA30 ngày dốc + giá cùng phía, áp lên 4h: PF 1,6-1,9
     "trend_4h": 1.0,       # pha 4h EMA+ADX: không có lợi thế, chỉ bối cảnh
     "dominance": 1.0,      # dòng tiền chung: quy tắc kinh điển, chưa backtest
 }
@@ -41,6 +43,10 @@ def sources(r, ana):
     v4 = r.get("vp_4h") or {}
     if v4.get("state") in ("above", "below"):
         out.append(("vp_4h", 1 if v4["state"] == "above" else -1, WEIGHTS["vp_4h"], f"giá {'trên' if v4['state'] == 'above' else 'dưới'} vùng giá trị 30 ngày (4h)"))
+    for code, label in (("ichimoku_1d", "Ichimoku ngày"), ("weinstein_1d", "SMA30 ngày (Weinstein)")):
+        st = r.get(code)
+        if st in ("up", "down"):
+            out.append((code, 1 if st == "up" else -1, WEIGHTS[code], f"{label} {'tăng' if st == 'up' else 'giảm'}"))
     ib = r.get("inside_4h")
     if ib:
         out.append(("inside_4h", ib["dir"], WEIGHTS["inside_4h"], f"inside bar 4h bung {'lên' if ib['dir'] == 1 else 'xuống'}"))

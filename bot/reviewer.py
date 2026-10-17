@@ -16,7 +16,8 @@ from . import advisor, config as C
 
 RESULTS = {"1d": "backtest/results_1d.json", "4h": "backtest/results.json"}
 # nguồn -> (khung backtest, mã chiến lược trong results)
-EVIDENCE = {"daily_regime": ("1d", "ema_cross"), "vp_1d": ("1d", "vp_rsi_vol"), "vp_4h": ("4h", "vp_breakout"), "inside_4h": ("4h", "pa_inside")}
+EVIDENCE = {"daily_regime": ("1d", "ema_cross"), "vp_1d": ("1d", "vp_rsi_vol"), "vp_4h": ("4h", "vp_breakout"), "inside_4h": ("4h", "pa_inside"),
+            "ichimoku_1d": ("1d", "st_ichimoku"), "weinstein_1d": ("4h", "st_weinstein")}
 MIN_PF = 1.2
 
 

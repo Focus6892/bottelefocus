@@ -215,12 +215,47 @@ def compute(symbol, d, dvol=None):
     rs, vr = r["vp_1d"]["rsi"], r["vp_1d"]["vol_ratio"]
     r["vp_1d"]["confirmed"] = bool(rs is not None and vr is not None and vr >= 1.5 and ((st == "above" and rs > 55) or (st == "below" and rs < 45)))
 
+    # Ichimoku ngày và Weinstein (SMA30 ngày): hai nguồn thêm cho agent đề xuất (backtest 1D: Ichimoku PF 2,2-3,0; Weinstein áp lên 4h PF 1,6-1,9)
+    r["ichimoku_1d"] = ichimoku_state(kh)
+    r["weinstein_1d"] = weinstein_state(hc)
+
     # Inside bar 4h theo hướng EMA20/50 (backtest 3 năm: PF 1,4-1,7 cả 3 đồng). Nến mẹ km[-3], nến trong km[-2], nến bung km[-1].
     r["inside_4h"] = inside_bar(km, e20[-1], e50[-1])
 
     r["score"] = volatility_score(r)
     r["signals"] = signals(r)
     return r
+
+
+def ichimoku_state(k):
+    """'up' khi giá trên mây và Tenkan > Kijun, 'down' ngược lại, 'flat' khi trong mây hoặc lệch nhau. Mây dịch 26 nến."""
+    if len(k) < 52 + 26:
+        return "flat"
+    h = [x["h"] for x in k]; l = [x["l"] for x in k]
+    def mid(n, i):
+        return (max(h[i - n + 1 : i + 1]) + min(l[i - n + 1 : i + 1])) / 2
+    i = len(k) - 1; j = i - 26
+    tenkan, kijun = mid(9, i), mid(26, i)
+    sa, sb = (mid(9, j) + mid(26, j)) / 2, mid(52, j)
+    c = k[i]["c"]
+    if c > max(sa, sb) and tenkan > kijun:
+        return "up"
+    if c < min(sa, sb) and tenkan < kijun:
+        return "down"
+    return "flat"
+
+
+def weinstein_state(closes, n=30):
+    """Giai đoạn 2 ('up'): giá trên SMA30 và SMA30 dốc lên; giai đoạn 4 ('down'): dưới và dốc xuống; còn lại 'flat'."""
+    if len(closes) < n + 2:
+        return "flat"
+    s_now = mean(closes[-n:]); s_prev = mean(closes[-n - 1 : -1])
+    c = closes[-1]
+    if c > s_now and s_now > s_prev:
+        return "up"
+    if c < s_now and s_now < s_prev:
+        return "down"
+    return "flat"
 
 
 def inside_bar(km, e20, e50):

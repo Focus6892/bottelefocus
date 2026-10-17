@@ -139,7 +139,7 @@ def test_advisor_and_reviewer():
     r["daily"].update(regime="up", stop=r["price"] * 0.9, bars_in_regime=10)
     r["vp_1d"].update(state="above", confirmed=True)
     r["vp_4h"].update(state="above")
-    r["trend"] = "up"
+    r["trend"] = "up"; r["ichimoku_1d"] = "up"; r["weinstein_1d"] = "up"
     rec = advisor.recommend(r, None)
     assert rec["side"] == "LONG" and rec["stop"] == r["daily"]["stop"] and rec["confidence"] > 0.9
     stats = {"1d": {"ETH": {"ema_cross": {"trades": {"profit_factor": 3.0}}, "vp_rsi_vol": {"trades": {"profit_factor": 0.9}}}}}
@@ -161,3 +161,13 @@ def test_advisor_and_reviewer():
     text = report.hourly_digest([r])
     assert "🤖 Đề xuất" in text and "🧑‍⚖️ Review" in text
     assert "KHUYẾN NGHỊ MỚI" in report.reco_alert(r, "NGOÀI")
+
+
+def test_ichimoku_and_weinstein_states():
+    up = make_klines(120, drift=0.01, vol=0.002, seed=4)
+    assert I.ichimoku_state(up) == "up" and I.weinstein_state([x["c"] for x in up]) == "up"
+    dn = make_klines(120, drift=-0.01, vol=0.002, seed=4)
+    assert I.ichimoku_state(dn) == "down" and I.weinstein_state([x["c"] for x in dn]) == "down"
+    assert I.ichimoku_state(up[:50]) == "flat"
+    r = I.compute("BTCUSDT", make_data(), dvol=None)
+    assert r["ichimoku_1d"] in ("up", "down", "flat") and r["weinstein_1d"] in ("up", "down", "flat")

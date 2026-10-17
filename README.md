@@ -13,7 +13,7 @@ Vì sao chọn khung ngày: backtest 6 năm (`backtest/results_1d.md`) cho thấ
 
 ## Cơ chế nhiều agent (0 đồng, chạy bằng quy tắc)
 
-- `bot/advisor.py` (agent đề xuất): gom hướng của từng biểu đồ (EMA20/50 ngày, VP 90 ngày, VP 30 ngày 4h, inside bar 4h, pha 4h, dòng tiền dominance) với trọng số theo profit factor backtest, ra khuyến nghị LONG / SHORT / ĐỨNG NGOÀI, độ tin cậy và dừng lỗ.
+- `bot/advisor.py` (agent đề xuất): gom hướng của từng biểu đồ (EMA20/50 ngày, Ichimoku ngày, SMA30 ngày theo Weinstein, VP 90 ngày, VP 30 ngày 4h, inside bar 4h, pha 4h, dòng tiền dominance) với trọng số theo profit factor backtest, ra khuyến nghị LONG / SHORT / ĐỨNG NGOÀI, độ tin cậy và dừng lỗ.
 - `bot/reviewer.py` (agent review): soát lại trước khi gửi: bỏ nguồn có backtest yếu ở đồng đó (PF < 1,2 trong `backtest/results*.json`), bác khuyến nghị ngược khung ngày, giữ lại khi long alt lúc tiền rút về stablecoin hoặc biến động cực đoan, cảnh báo funding quá nóng và dừng lỗ quá xa, gợi ý khối lượng theo rủi ro 1% vốn.
 - Kết quả hiện ở hai dòng 🤖 / 🧑‍⚖️ cuối mỗi đồng trong bản tin; khi khuyến nghị đã duyệt đổi, bot báo riêng. Backtest (`backtest/stock.py`, `smc.py`, `run.py`) là agent đánh giá: mọi trọng số phải có số liệu từ đó.
 
