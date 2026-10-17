@@ -153,9 +153,51 @@ def compute(symbol, d, dvol=None):
     r["dvol"] = dvol
     r["dvol_gap"] = dvol - rv24 if dvol is not None and rv24 is not None else None
 
+    r["daily"] = daily_signals(symbol, kh)
+
     r["score"] = volatility_score(r)
     r["signals"] = signals(r)
     return r
+
+
+def daily_signals(symbol, kh):
+    """Khung ngày: cắt EMA20/50 (tín hiệu chính), nén rồi bung, dừng lỗ gợi ý theo ATR."""
+    c = [x["c"] for x in kh]
+    if len(c) < 60:
+        return {"regime": "flat", "crossed": False, "stop": None, "squeeze_break": 0}
+    e20, e50 = ema(c, 20), ema(c, 50)
+    regime = "up" if e20[-1] > e50[-1] else "down"
+    prev = "up" if e20[-2] > e50[-2] else "down"
+    atr = wilder(true_ranges(kh), 14)[-1]
+    stop = c[-1] - atr * C.DAILY_ATR_STOP if regime == "up" else c[-1] + atr * C.DAILY_ATR_STOP
+    # nén rồi bung
+    sq = 0
+    if symbol in C.DAILY_SQUEEZE_SYMBOLS and len(c) > C.DAILY_SQUEEZE_LOOKBACK + 25:
+        n, m = 20, 2.0
+        bbw, up, lo = [], [], []
+        for i in range(len(c)):
+            if i < n - 1:
+                bbw.append(None); up.append(None); lo.append(None); continue
+            w = c[i - n + 1 : i + 1]
+            mu, sd = mean(w), pstdev(w)
+            bbw.append(2 * m * sd / mu * 100); up.append(mu + m * sd); lo.append(mu - m * sd)
+        recent = [x for x in bbw[-C.DAILY_SQUEEZE_LOOKBACK - 1 : -1] if x is not None]
+        squeezed = any(bbw[j] is not None and bbw[j] <= min(recent) * 1.05 for j in range(len(c) - 6, len(c) - 1))
+        if squeezed and c[-1] > up[-1]:
+            sq = 1
+        elif squeezed and c[-1] < lo[-1]:
+            sq = -1
+    return {
+        "regime": regime,
+        "crossed": regime != prev,
+        "ema20": e20[-1],
+        "ema50": e50[-1],
+        "atr": atr,
+        "stop": stop,
+        "close": c[-1],
+        "squeeze_break": sq,
+        "bars_in_regime": next((k for k in range(1, len(c)) if (e20[-1 - k] > e50[-1 - k]) != (regime == "up")), len(c)),
+    }
 
 
 def _clip(x, lo, hi):
@@ -223,5 +265,5 @@ def signals(r):
     if r.get("dvol_gap") is not None and abs(r["dvol_gap"]) >= C.DVOL_RV_GAP:
         s.append(("dvol_gap", "low", f"DVOL {r['dvol']:.0f} so với biến động thực {r['rv_24h']:.0f}: thị trường quyền chọn {'kỳ vọng biến động lớn hơn' if r['dvol_gap'] > 0 else 'đang bình thản hơn'} thực tế"))
     if r["trend"] != "flat":
-        s.append(("trend", "high" if r["trend_strong"] else "medium", f"Xu hướng {'TĂNG' if r['trend'] == 'up' else 'GIẢM'} rõ trên 4h và 1D (ADX {r['adx']:.0f})"))
+        s.append(("trend", "high" if r["trend_strong"] else "medium", f"Pha 4h đang có xu hướng {'tăng' if r['trend'] == 'up' else 'giảm'} (ADX {r['adx']:.0f}), chỉ để tham khảo"))
     return s

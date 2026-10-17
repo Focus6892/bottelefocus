@@ -25,10 +25,19 @@ def _score_word(s):
     return "cao" if s >= 70 else "thấp" if s <= 30 else "bình thường"
 
 
+def _daily_line(r):
+    d = r.get("daily") or {}
+    if not d.get("stop"):
+        return "Xu hướng ngày: chưa đủ dữ liệu"
+    word = "TĂNG" if d["regime"] == "up" else "GIẢM"
+    return f"Xu hướng ngày: <b>{word}</b> (EMA20/50, {d['bars_in_regime']} ngày) · dừng lỗ gợi ý {_fmt_price(d['stop'])}"
+
+
 def coin_block(r):
     lines = [
         f"<b>{r['name']}</b> {_fmt_price(r['price'])}  {_arrow(r['chg_4h'])}{r['chg_4h']:+.1f}% 4h  {r['chg_24h']:+.1f}% 24h",
-        f"Xu hướng: {_trend_word(r)} (ADX {r['adx']:.0f}) · Điểm biến động {r['score']} ({_score_word(r['score'])})",
+        _daily_line(r),
+        f"Pha 4h: {_trend_word(r)} (ADX {r['adx']:.0f}) · Điểm biến động {r['score']} ({_score_word(r['score'])})",
         f"ATR {r['atr_pct']:.2f}% · RV24h {r['rv_24h']:.0f}%" + (f" · DVOL {r['dvol']:.0f}" if r.get("dvol") else "") + (" · <b>nén</b>" if r.get("bbw_squeeze") else ""),
         f"OI {r['oi_chg_4h']:+.1f}% 4h / {r['oi_chg_24h']:+.1f}% 24h · Funding {r['funding']*100:+.3f}% · L/S {r['ls_accounts']:.2f} (top {r['ls_top']:.2f}) · Taker {r['taker']:.2f}",
     ]
@@ -56,6 +65,31 @@ def trend_alert(r, previous):
     }[r["trend"]]
     was = {"up": "tăng", "down": "giảm", "flat": "đi ngang"}[previous]
     return f"{head} · {r['name']} · {now}\nTrước đó: {was}\n\n{coin_block(r)}\n\n<a href=\"{TV.format(sym=r['symbol'])}\">Mở biểu đồ</a>"
+
+
+def daily_trend_alert(r, previous):
+    now = datetime.now(VN).strftime("%H:%M %d/%m")
+    d = r["daily"]
+    head = "🟢 <b>EMA20 CẮT LÊN EMA50 KHUNG NGÀY</b>" if d["regime"] == "up" else "🔻 <b>EMA20 CẮT XUỐNG EMA50 KHUNG NGÀY</b>"
+    was = "tăng" if previous == "up" else "giảm"
+    side = "long" if d["regime"] == "up" else "short"
+    return (
+        f"{head} · {r['name']} · {now}\nXu hướng ngày đổi từ {was}. Theo backtest 6 năm, đây là tín hiệu swing ổn định nhất "
+        f"(profit factor 2,4–3,2) nhưng chỉ 4/10 lệnh thắng, lãi đến từ các đợt dài.\n"
+        f"Gợi ý {side}: vào quanh {_fmt_price(d['close'])}, dừng lỗ {_fmt_price(d['stop'])} (3,5 ATR ngày = {d['atr']/d['close']*100*3.5:.1f}%).\n\n"
+        f"{coin_block(r)}\n\n<a href=\"{TV.format(sym=r['symbol'])}\">Mở biểu đồ</a>"
+    )
+
+
+def daily_squeeze_alert(r):
+    now = datetime.now(VN).strftime("%H:%M %d/%m")
+    d = r["daily"]
+    up = d["squeeze_break"] > 0
+    return (
+        f"{'🟢' if up else '🔻'} <b>NÉN NGÀY RỒI BUNG {'LÊN' if up else 'XUỐNG'}</b> · {r['name']} · {now}\n"
+        f"Bollinger ngày hẹp nhất 120 ngày và nến vừa đóng ngoài dải. Backtest: đúng hướng sau 4 tuần 62–75% ở ETH, SOL, hiếm (3 lần/năm).\n"
+        f"Gợi ý giữ 4 tuần, dừng lỗ {_fmt_price(d['stop'])}.\n\n{coin_block(r)}\n\n<a href=\"{TV.format(sym=r['symbol'])}\">Mở biểu đồ</a>"
+    )
 
 
 def urgent_alert(r, sigs):

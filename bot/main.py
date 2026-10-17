@@ -56,12 +56,22 @@ def run(force_digest=False, dry=False):
     hour_key = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H")
     sent = []
 
-    # 1. Cảnh báo xu hướng đổi và tín hiệu khẩn
+    # 1. Cảnh báo xu hướng khung ngày đổi (cắt EMA20/50), nén ngày rồi bung, và tín hiệu khẩn
+    st.setdefault("trend_1d", {})
     for r in results:
-        prev = st["trend"].get(r["symbol"], "flat")
-        if r["trend"] != prev:
-            sent.append(report.trend_alert(r, prev))
-            st["trend"][r["symbol"]] = r["trend"]
+        d = r["daily"]
+        prev = st["trend_1d"].get(r["symbol"])
+        if prev is None:
+            st["trend_1d"][r["symbol"]] = d["regime"]  # lần đầu: ghi nhận, không báo
+        elif d["regime"] != prev:
+            sent.append(report.daily_trend_alert(r, prev))
+            st["trend_1d"][r["symbol"]] = d["regime"]
+        st["trend"][r["symbol"]] = r["trend"]  # pha 4h chỉ ghi nhận, không báo riêng
+        if d["squeeze_break"]:
+            key = f"{r['symbol']}:squeeze_1d:{d['squeeze_break']}"
+            if now - st["alerts"].get(key, 0) >= 7 * 86400:
+                sent.append(report.daily_squeeze_alert(r))
+                st["alerts"][key] = now
         urgent = []
         for code, level, text in r["signals"]:
             if level != "high" or code == "trend":

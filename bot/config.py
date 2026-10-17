@@ -7,6 +7,7 @@ DVOL_CURRENCIES = {"BTCUSDT": "BTC", "ETHUSDT": "ETH"}  # Deribit chỉ có BTC,
 MAIN_TF = "4h"        # khung chính cho swing
 HIGHER_TF = "1d"      # khung xác nhận xu hướng
 KLINE_LIMIT = 200     # đủ cho EMA50, ADX14, BBW 30 ngày (180 nến 4h)
+DAILY_LIMIT = 200     # nến ngày: EMA50, nén 120 ngày
 
 # Ngưỡng cảnh báo theo từng đồng (% thay đổi giá 4h)
 PRICE_MOVE_4H = {"BTCUSDT": 3.0, "ETHUSDT": 4.0, "SOLUSDT": 6.0}
@@ -34,3 +35,8 @@ SCORE_HIGH = 70
 SCORE_LOW = 30
 
 ALERT_COOLDOWN_MIN = 240    # cùng một cảnh báo không lặp lại trong 4 giờ
+
+# Tín hiệu khung ngày (theo backtest 6 năm: cắt EMA20/50 ngày có lãi ổn định cả 3 đồng)
+DAILY_ATR_STOP = 3.5            # dừng lỗ gợi ý = giá vào -/+ 3,5 ATR(14) ngày
+DAILY_SQUEEZE_LOOKBACK = 120    # nén: BBW hẹp nhất 120 ngày trong 5 nến gần
+DAILY_SQUEEZE_SYMBOLS = ["ETHUSDT", "SOLUSDT"]  # backtest thất bại ở BTC nên bỏ

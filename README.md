@@ -4,12 +4,12 @@ Bot Telegram theo dõi biến động BTC, ETH, SOL cho giao dịch swing. Chạ
 
 ## Hoạt động
 
-- Mỗi 15 phút quét một lần. Nếu xu hướng đổi (đi ngang sang tăng/giảm rõ, hoặc ngược lại) hay có tín hiệu mức cao (giá bung, long quá nóng, short quá đông, ATR tăng vọt) thì gửi cảnh báo ngay.
+- Mỗi 15 phút quét một lần. Cảnh báo ngay khi: EMA20 cắt EMA50 trên **khung ngày** (tín hiệu xu hướng chính, kèm dừng lỗ gợi ý 3,5 ATR ngày); Bollinger ngày nén rồi bung (ETH, SOL); hoặc tín hiệu khẩn 4h (giá bung, long quá nóng, short quá đông, ATR tăng vọt).
 - Đầu mỗi giờ gửi bản tin tổng hợp 3 đồng.
 - Cùng một cảnh báo không lặp lại trong 4 giờ.
 - Chỉ báo lưu vào `state/history/` mỗi lần chạy để sau này chỉnh ngưỡng.
 
-Xu hướng rõ = EMA20 và EMA50 cùng chiều trên cả 4h lẫn 1D, giá cùng phía EMA20, ADX14 trên 25. ADX trên 35 là xu hướng mạnh.
+Vì sao chọn khung ngày: backtest 6 năm (`backtest/results_1d.md`) cho thấy cắt EMA20/50 ngày có profit factor 2,4–3,2 ở cả ba đồng, trong khi mọi tín hiệu trên 4h (`backtest/results.md`) không vượt được mức nền. Pha 4h (EMA20/50 + ADX) chỉ hiển thị để tham khảo. Chạy lại backtest bằng workflow "Backtest xu hướng".
 
 ## Cài đặt (một lần)
 

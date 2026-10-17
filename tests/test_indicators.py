@@ -70,3 +70,13 @@ def test_report_renders():
     assert "BTC" in text and "Điểm biến động" in text
     assert "DVOL 55" in text
     assert "Mở biểu đồ" in report.trend_alert(r, "up")
+
+
+def test_daily_signals_cross_and_stop():
+    d = make_data(drift=0.004, vol=0.004, seed=3)
+    r = I.compute("ETHUSDT", d)
+    dd = r["daily"]
+    assert dd["regime"] in ("up", "down") and dd["stop"] is not None
+    assert isinstance(dd["crossed"], bool) and dd["bars_in_regime"] >= 1
+    assert "Xu hướng ngày" in report.hourly_digest([r])
+    assert "KHUNG NGÀY" in report.daily_trend_alert(r, "down")
