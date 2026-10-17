@@ -9,6 +9,9 @@
 | Phá đỉnh/đáy 20 nến | 179 | 52% | 54% | 50% | 54% | 0.34% |
 | Nén Bollinger rồi bung | 27 | 48% | 44% | 56% | 54% | 0.15% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 134 | 51% | 51% | 45% | 54% | 0.39% |
+| Volume profile: thoát vùng giá trị | 73 | 58% | 55% | 49% | 54% | 0.82% |
+| Volume profile: hồi về POC | 211 | 49% | 49% | 52% | 54% | -0.13% |
+| Volume profile: cắt EMA lọc theo POC | 231 | 56% | 57% | 56% | 54% | 0.93% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 12 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -17,6 +20,9 @@
 | Phá đỉnh/đáy 20 nến | 227 | 30% | 0.03% | 1.02 | -14% | 58% | 188% | -29% |
 | Nén Bollinger rồi bung | 68 | 34% | 0.00% | 1.00 | -5% | 36% | 188% | 39% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 140 | 31% | 0.21% | 1.19 | 21% | 21% | 188% | -4% |
+| Volume profile: thoát vùng giá trị | 112 | 26% | 0.32% | 1.19 | 19% | 38% | 188% | 16% |
+| Volume profile: hồi về POC | 218 | 30% | -0.11% | 0.87 | -26% | 34% | 188% | -3% |
+| Volume profile: cắt EMA lọc theo POC | 252 | 20% | -0.01% | 0.99 | -22% | 49% | 188% | 3% |
 
 ## ETH · 6569 nến 4h · 2023-10-18 đến 2026-10-17
 
@@ -27,6 +33,9 @@
 | Phá đỉnh/đáy 20 nến | 170 | 47% | 45% | 48% | 52% | -0.03% |
 | Nén Bollinger rồi bung | 30 | 47% | 60% | 67% | 52% | 0.38% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 141 | 52% | 49% | 60% | 52% | 2.61% |
+| Volume profile: thoát vùng giá trị | 68 | 44% | 43% | 56% | 52% | 2.57% |
+| Volume profile: hồi về POC | 195 | 42% | 47% | 46% | 52% | -1.05% |
+| Volume profile: cắt EMA lọc theo POC | 255 | 40% | 44% | 46% | 52% | -0.71% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 12 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -35,6 +44,9 @@
 | Phá đỉnh/đáy 20 nến | 214 | 28% | 0.31% | 1.15 | 17% | 63% | 54% | 2% |
 | Nén Bollinger rồi bung | 69 | 35% | -0.08% | 0.97 | -16% | 50% | 54% | 33% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 147 | 29% | 0.34% | 1.23 | 35% | 46% | 54% | 22% |
+| Volume profile: thoát vùng giá trị | 106 | 27% | 1.21% | 1.55 | 134% | 34% | 54% | 19% |
+| Volume profile: hồi về POC | 204 | 30% | -0.11% | 0.91 | -29% | 43% | 54% | -9% |
+| Volume profile: cắt EMA lọc theo POC | 284 | 19% | 0.13% | 1.08 | -19% | 46% | 54% | -22% |
 
 ## SOL · 6569 nến 4h · 2023-10-18 đến 2026-10-17
 
@@ -45,6 +57,9 @@
 | Phá đỉnh/đáy 20 nến | 180 | 50% | 49% | 48% | 51% | 0.42% |
 | Nén Bollinger rồi bung | 33 | 48% | 39% | 45% | 51% | -0.12% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 141 | 56% | 53% | 49% | 51% | 1.51% |
+| Volume profile: thoát vùng giá trị | 65 | 55% | 53% | 57% | 51% | 1.88% |
+| Volume profile: hồi về POC | 182 | 51% | 51% | 50% | 51% | -1.26% |
+| Volume profile: cắt EMA lọc theo POC | 228 | 53% | 50% | 51% | 51% | 0.03% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 12 tháng |
 |---|---|---|---|---|---|---|---|---|
@@ -53,3 +68,6 @@
 | Phá đỉnh/đáy 20 nến | 223 | 35% | 0.20% | 1.08 | -16% | 66% | 341% | 15% |
 | Nén Bollinger rồi bung | 84 | 32% | -0.03% | 0.99 | -21% | 53% | 341% | -30% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 144 | 35% | 0.29% | 1.17 | 21% | 55% | 341% | 17% |
+| Volume profile: thoát vùng giá trị | 92 | 35% | 1.82% | 1.66 | 185% | 38% | 341% | 56% |
+| Volume profile: hồi về POC | 187 | 34% | -0.18% | 0.88 | -37% | 51% | 341% | -14% |
+| Volume profile: cắt EMA lọc theo POC | 243 | 27% | 0.64% | 1.37 | 140% | 46% | 341% | -1% |
