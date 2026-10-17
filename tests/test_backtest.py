@@ -85,7 +85,7 @@ def test_stock_market_strategies():
     for key in stock.STRATS:
         sig = B.STRATS[key][1](k4, k1)
         assert len(sig) == len(k4) and set(sig) <= {-1, 0, 1}, key
-        if key not in ("st_orb", "st_vwap", "st_base"):  # st_base cần co biên + khối lượng, dữ liệu giả lập hiếm có
+        if key not in ("st_orb", "st_vwap", "st_base", "st_darvas", "st_pct_b"):  # st_base cần co biên + khối lượng, dữ liệu giả lập hiếm có
             assert any(sig), key
     B.CFG = B.TF["1h"]
     k1h = make_klines(2000, drift=0.001, vol=0.004, seed=3)

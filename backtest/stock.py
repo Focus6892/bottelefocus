@@ -440,6 +440,66 @@ def strat_vote_mtf(k, kh, cfg):
     return [x if x == y else 0 for x, y in zip(v, w)]
 
 
+# ---------- 17. Darvas box ----------
+def strat_darvas(k, kh, cfg, confirm=3, lookback=250):
+    """Hộp Darvas: sau đỉnh mới `lookback` nến, đỉnh hộp = đỉnh không bị vượt trong 3 nến, đáy hộp = đáy không bị thủng trong 3 nến.
+    Long khi đóng trên đỉnh hộp với khối lượng > TB 20; thoát khi đóng dưới đáy hộp (đáy được nâng theo hộp mới). Short đối xứng."""
+    h = [x["h"] for x in k]; l = [x["l"] for x in k]; c = [x["c"] for x in k]; v = [x["v"] for x in k]
+    sig, pos, box = [], 0, None
+    for i in range(len(k)):
+        if i < lookback:
+            sig.append(0); continue
+        # hộp xác nhận tại nến i: đỉnh tại i-confirm cao nhất trong 2*confirm+1 nến quanh nó và là đỉnh lookback
+        j = i - confirm
+        if h[j] == max(h[j - confirm : i + 1]) and h[j] >= max(h[i - lookback : j]):
+            lo = min(l[j : i + 1])
+            box = (lo, h[j])
+        if l[j] == min(l[j - confirm : i + 1]) and l[j] <= min(l[i - lookback : j]):
+            hi = max(h[j : i + 1])
+            box = (l[j], hi)
+        if pos == 1 and box and c[i] < box[0]:
+            pos = 0
+        elif pos == -1 and box and c[i] > box[1]:
+            pos = 0
+        if pos == 0 and box and v[i] > mean(v[i - 20 : i]):
+            if c[i] > box[1]:
+                pos = 1
+            elif c[i] < box[0]:
+                pos = -1
+        sig.append(pos)
+    return sig
+
+
+# ---------- 18. Bollinger %b (Connors) ----------
+def strat_pct_b(k, kh, cfg):
+    """%b < 0,2 ba nến liên tiếp và giá trên SMA200 -> long; thoát khi %b > 0,8. Short đối xứng."""
+    c = [x["c"] for x in k]
+    s20, s200 = sma(c, 20), sma(c, 200)
+    pb = [None] * len(c)
+    for i in range(19, len(c)):
+        w = c[i - 19 : i + 1]; m = s20[i]
+        sd = (sum((x - m) ** 2 for x in w) / 20) ** 0.5
+        pb[i] = (c[i] - (m - 2 * sd)) / (4 * sd) if sd else 0.5
+    def enter(i):
+        if i < 200 or s200[i] is None or pb[i - 2] is None:
+            return 0
+        if c[i] > s200[i] and all(pb[j] < 0.2 for j in (i - 2, i - 1, i)):
+            return 1
+        if c[i] < s200[i] and all(pb[j] > 0.8 for j in (i - 2, i - 1, i)):
+            return -1
+        return 0
+    def exit_(i, pos):
+        return (pos == 1 and pb[i] > 0.8) or (pos == -1 and pb[i] < 0.2)
+    return _hold(k, enter, exit_)
+
+
+# ---------- 19. Động lượng tuyệt đối (Antonacci) ----------
+def strat_abs_momentum(k, kh, cfg, lookback=90):
+    """Lợi nhuận `lookback` nến > 0 -> long, < 0 -> short (nửa 'tuyệt đối' của dual momentum, không có tài sản an toàn)."""
+    c = [x["c"] for x in k]
+    return [0 if i < lookback else (1 if c[i] > c[i - lookback] else -1) for i in range(len(c))]
+
+
 STRATS = {
     "st_rsi2": ("CK: Connors RSI(2) hồi về trung bình + SMA200", strat_rsi2),
     "st_golden": ("CK: cắt SMA50/200 (golden/death cross)", strat_golden_cross),
@@ -456,6 +516,9 @@ STRATS = {
     "st_turtle": ("CK: Turtle Donchian 55/20", strat_turtle),
     "st_orb": ("CK: bung biên độ 60 phút đầu ngày (chỉ khung < 4h)", strat_orb),
     "st_vwap": ("CK: VWAP ngày hồi về trung bình (chỉ khung < 4h)", strat_vwap_revert),
+    "st_darvas": ("CK: hộp Darvas (đỉnh mới + khối lượng)", strat_darvas),
+    "st_pct_b": ("CK: Bollinger %b < 0,2 ba nến + SMA200 (Connors)", strat_pct_b),
+    "st_abs_mom": ("CK: động lượng tuyệt đối 90 nến (Antonacci)", strat_abs_momentum),
     "st_vote": ("Đồng thuận 2/3: Supertrend + Keltner + Weinstein", strat_vote),
     "st_vote_mtf": ("Đồng thuận 2/3 bắt buộc cùng chiều khung cao", strat_vote_mtf),
 }
