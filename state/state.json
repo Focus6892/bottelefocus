@@ -1,5 +1,14 @@
 {
- "trend": {},
+ "trend": {
+  "BTCUSDT": "flat",
+  "ETHUSDT": "flat",
+  "SOLUSDT": "flat"
+ },
  "alerts": {},
- "last_digest_hour": "2026-10-17T04"
+ "last_digest_hour": "2026-10-17T04",
+ "trend_1d": {
+  "BTCUSDT": "up",
+  "ETHUSDT": "up",
+  "SOLUSDT": "up"
+ }
 }
