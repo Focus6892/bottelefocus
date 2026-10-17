@@ -1,21 +1,64 @@
-== TradingView scanner ==
+== TradingView scanner global ==
+{"totalCount":3,"data":[{"s":"CRYPTOCAP:BTC.D","d":[60.53791593542876,0.1951644906737221,0.8002642736772937,2.0731529871193355,59.97580770201011,59.71156686892627,70.02345996252038,26.86145442942139,0.603030303030303]},{"s":"CRYPTOCAP:USDT.D","d":[6.797147714035784,0.49396750241187126,2.0115867065275648,-4.365412376376096,6.645047937869688,6.83219985503289,56.78601447073544,25.91001197790268,0.08787878787878788]},{"s":"CRYPTOCAP:OTHERS.D","d":[8.151212282718328,-1.3281661424924076,-2.8464692946681875,2.944796881934122,8.357636599180742,8.196870085089786,42.993993666815605,26.79169681713658,-0.24545454545454548]}]}
+== TradingView scanner crypto ==
 {"totalCount":0,"data":[]}
-== CoinGecko global ==
-{"data":{"active_cryptocurrencies":22317,"upcoming_icos":0,"ongoing_icos":49,"ended_icos":3376,"markets":1508,"total_market_cap":{"btc":33812808.389706545,"eth":1140809660.5185022,"ltc":46749031874.86339,"bch":10072230320.468569,"bnb":3849136638.3290753,"eos":24910894255234.664,"xrp":2125840057399.8267,"xlm":15532998723876.686,"link":230572146724.32468,"dot":2455693556156.12,"yfi":1238548035.8147242,"sol":26524303236.243782,"usd":2746860227013.01,"aed":10087844183705.277,"ars":4.169047109548996e+15,"aud":3951748490710.4487,"bdt":338400288952957.25,"bhd":1040441982486.8527,"bmd":2746860227013.01,"brl":13905979899253.363,"cad":3888867366393.6675,"chf":2268719761017.3096,"clp":2.702306154130859e+15,"cny":18378692406898.65,"czk":59456613671764.68,"dkk":18269916741908.934,"eur":2444804489009.7515,"gbp":2060892316241.5054,"gel":7114367987963.694,"hkd":21557771090632.156,"huf":888087379995576.2,"idr":4.958906767826586e+16,"ils":8500708344537.161,"inr":260843220587268.94,"jpy":434045118771460.5,"krw":3665987127573830.5,"kwd":849164370578.802,"lkr":909760925751056.5,"mmk":5.768269133715967e+15,"mxn":50797411492128.87,"myr":11215979678939.52,"ngn":3656647802801988.5,"nok":25896574162210.555,"nzd":4857402041857.775,"php":173038438025802.75,"pkr":761532664933379.5,"pln":10670766379920.615,"rub":226976722122767.62,"sar":10308518693762.824,"sek":27228801372311.86,"sgd":3519810213733.1074,"thb":91374673530858.19,"try":136007487908276.78,"twd":89145503063389.4,"uah":123391353912682.14,"vef":
+== TradingView scanner coin ==
+{"totalCount":0,"data":[]}
+== TradingView scanner global, cot don gian ==
+{"totalCount":3,"data":[{"s":"CRYPTOCAP:BTC.D","d":[60.53791593542876,0.1951644906737221]},{"s":"CRYPTOCAP:TOTAL","d":[2698588325633,-0.4805781806392899]},{"s":"BINANCE:BTCUSDT","d":[81396.01,-0.24999996936274885]}]}
+== CoinGecko global percentage ==
+{'btc': 59.436342800117416, 'eth': 10.703790683802824, 'usdt': 6.672651185400966, 'bnb': 3.459119243675647, 'xrp': 2.968233740147451, 'usdc': 2.6378067357469317, 'sol': 2.2208114413546705, 'trx': 1.1571533481815133, 'figr_heloc': 0.9005184642475036, 'steth': 0.8475153238681788} -3.018544928623081
+== CoinGecko market_cap_chart (co the tra phi) ==
+{"status":{"timestamp":"2026-10-17T16:09:03.977+00:00","error_code":10005,"error_message":"This request is limited to PRO API subscribers. Please visit https://www.coingecko.com/en/api/pricing to subscribe to our API plan to access exclusive endpoints."}}
+== CoinGecko bitcoin market_chart ==
+{"prices":[[1792022400000,81603.65464601685],[1792108800000,82155.53979682797],[1792195200000,81523.6580235906],[1792253270000,81305.12072840623]],"market_caps":[[1792022400000,1640092365666.0557],[1792108800000,1651229242068.2024],[1792195200000,1638531203401.838],[1792253270000,1634057911727.354]],"total_volumes":[[1792022400000,33806769353.611042],[1792108800000,40395142289.559006],[17921952000
 == bot.dominance ==
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/runner/work/bottelefocus/bottelefocus/bot/dominance.py", line 169, in <module>
-    print(json.dumps(analyze(d), indent=1, ensure_ascii=False))
-                     ^^^^^^^^^^
-  File "/home/runner/work/bottelefocus/bottelefocus/bot/dominance.py", line 135, in analyze
-    b, u, o = (_dir(dom[k]) for k in ("BTC.D", "USDT.D", "OTHERS.D"))
-    ^^^^^^^
-  File "/home/runner/work/bottelefocus/bottelefocus/bot/dominance.py", line 135, in <genexpr>
-    b, u, o = (_dir(dom[k]) for k in ("BTC.D", "USDT.D", "OTHERS.D"))
-                    ~~~^^^
-KeyError: 'BTC.D'
 {
+ "BTC.D": {
+  "value": 60.53791593542876,
+  "chg_1d": 0.1951644906737221,
+  "chg_1w": 0.8002642736772937,
+  "chg_1m": 2.0731529871193355,
+  "ema20": 59.97580770201011,
+  "ema50": 59.71156686892627,
+  "rsi": 70.02345996252038,
+  "adx": 26.86145442942139,
+  "rating": 0.603030303030303
+ },
+ "USDT.D": {
+  "value": 6.797147714035784,
+  "chg_1d": 0.49396750241187126,
+  "chg_1w": 2.0115867065275648,
+  "chg_1m": -4.365412376376096,
+  "ema20": 6.645047937869688,
+  "ema50": 6.83219985503289,
+  "rsi": 56.78601447073544,
+  "adx": 25.91001197790268,
+  "rating": 0.08787878787878788
+ },
+ "OTHERS.D": {
+  "value": 8.151212282718328,
+  "chg_1d": -1.3281661424924076,
+  "chg_1w": -2.8464692946681875,
+  "chg_1m": 2.944796881934122,
+  "ema20": 8.357636599180742,
+  "ema50": 8.196870085089786,
+  "rsi": 42.993993666815605,
+  "adx": 26.79169681713658,
+  "rating": -0.24545454545454548
+ },
  "source": "tradingview"
+}
+{
+ "regime": "risk_off_alt",
+ "text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC",
+ "bias": "Tránh long alt; nếu giữ lệnh thì BTC trụ tốt hơn ETH/SOL",
+ "dirs": {
+  "BTC.D": "up",
+  "USDT.D": "up",
+  "OTHERS.D": "down"
+ },
+ "notes": [
+  "BTC.D quá mua: alt có thể bật hồi so với BTC"
+ ]
 }
