@@ -22,14 +22,16 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Tải lịch sử và chạy backtest
         run: |
-          python backtest/fetch_history.py ${{ inputs.days }}
-          python backtest/run.py
+          python backtest/fetch_history.py ${{ inputs.days }} 4H
+          python backtest/run.py 4h
+          python backtest/fetch_history.py 2200 1Dutc,1Wutc
+          python backtest/run.py 1d
       - name: Lưu kết quả
         if: always()
         run: |
           git config user.name "bottelefocus"
           git config user.email "bot@users.noreply.github.com"
-          git add backtest/results.md backtest/results.json
+          git add backtest/results*.md backtest/results*.json
           git diff --cached --quiet || git commit -m "backtest: $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase origin ${{ github.ref_name }} || true
           git push

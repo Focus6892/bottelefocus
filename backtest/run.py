@@ -16,7 +16,18 @@ from statistics import mean, pstdev
 DATA = os.path.join(os.path.dirname(__file__), "data")
 SYMS = ["BTC", "ETH", "SOL"]
 FEE = 0.0005
-HORIZONS = {"1d": 6, "3d": 18, "7d": 42}
+
+# Cấu hình theo khung: 4h (xác nhận 1D) hoặc 1d (xác nhận 1W)
+TF = {
+    "4h": dict(main="4H", high="1Dutc", main_ms=4 * 3600_000, high_ms=86_400_000,
+               horizons={"1d": 6, "3d": 18, "7d": 42}, atr_stop=2.0, squeeze_lookback=180, squeeze_hold=42,
+               recent_months=12, label="4h", out="results"),
+    "1d": dict(main="1Dutc", high="1Wutc", main_ms=86_400_000, high_ms=7 * 86_400_000,
+               horizons={"1 tuần": 7, "2 tuần": 14, "4 tuần": 28}, atr_stop=3.5, squeeze_lookback=120, squeeze_hold=28,
+               recent_months=24, label="1D", out="results_1d"),
+}
+CFG = TF["4h"]
+HORIZONS = CFG["horizons"]
 
 
 # ---------- chỉ báo dạng chuỗi ----------
@@ -85,10 +96,10 @@ def bb(closes, n=20, m=2.0):
 
 
 def day_index(k4, k1):
-    """Với mỗi nến 4h, chỉ số nến 1D gần nhất ĐÃ ĐÓNG trước nó."""
+    """Với mỗi nến khung chính, chỉ số nến khung cao gần nhất ĐÃ ĐÓNG trước nó."""
     out, j = [], -1
     for bar in k4:
-        while j + 1 < len(k1) and k1[j + 1]["t"] + 86_400_000 <= bar["t"] + 4 * 3600_000:
+        while j + 1 < len(k1) and k1[j + 1]["t"] + CFG["high_ms"] <= bar["t"] + CFG["main_ms"]:
             j += 1
         out.append(j)
     return out
@@ -146,7 +157,8 @@ def strat_donchian(k4, k1, n=20, exit_n=10):
     return sig
 
 
-def strat_squeeze(k4, k1, lookback=180, hold=42):
+def strat_squeeze(k4, k1, lookback=None, hold=None):
+    lookback = lookback or CFG["squeeze_lookback"]; hold = hold or CFG["squeeze_hold"]
     """Nén (BBW thấp nhất 30 ngày trong 5 nến gần) rồi đóng ngoài dải: theo hướng bung, giữ 7 ngày."""
     c = [x["c"] for x in k4]
     up, lo, w = bb(c)
@@ -214,7 +226,8 @@ def directional(k4, sig):
     return res
 
 
-def trade_sim(k4, sig, atr_stop=2.0):
+def trade_sim(k4, sig, atr_stop=None):
+    atr_stop = atr_stop or CFG["atr_stop"]
     c = [x["c"] for x in k4]
     atr = atr_series(k4)
     pos, entry, stop, trades = 0, 0.0, 0.0, []
@@ -256,17 +269,19 @@ def trade_sim(k4, sig, atr_stop=2.0):
     }
 
 
-def split(k4, k1, months=12):
-    cut = k4[-1]["t"] - months * 30 * 86_400_000
+def split(k4, k1, months=None):
+    cut = k4[-1]["t"] - (months or CFG["recent_months"]) * 30 * 86_400_000
     i4 = next(i for i, x in enumerate(k4) if x["t"] >= cut)
     return i4
 
 
-def run():
-    out = {}
+def run(tf="4h"):
+    global CFG, HORIZONS
+    CFG = TF[tf]; HORIZONS = CFG["horizons"]
+    out = {"tf": tf}
     for sym in SYMS:
-        k4 = json.load(open(os.path.join(DATA, f"{sym}_4H.json")))
-        k1 = json.load(open(os.path.join(DATA, f"{sym}_1Dutc.json")))
+        k4 = json.load(open(os.path.join(DATA, f"{sym}_{CFG['main']}.json")))
+        k1 = json.load(open(os.path.join(DATA, f"{sym}_{CFG['high']}.json")))
         out[sym] = {"bars": len(k4), "from": k4[0]["t"], "to": k4[-1]["t"]}
         i_recent = split(k4, k1)
         for key, (label, fn) in STRATS.items():
@@ -275,7 +290,7 @@ def run():
             # 12 tháng gần nhất (tín hiệu tính trên toàn bộ, chỉ đo giao dịch trong đoạn gần)
             res["recent"] = trade_sim(k4[i_recent:], sig[i_recent:])
             out[sym][key] = res
-    with open(os.path.join(os.path.dirname(__file__), "results.json"), "w") as f:
+    with open(os.path.join(os.path.dirname(__file__), CFG["out"] + ".json"), "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)
     write_md(out)
     return out
@@ -290,26 +305,29 @@ def f(x, d=1, suf=""):
 
 
 def write_md(out):
-    L = ["# Kết quả backtest dự đoán xu hướng", ""]
+    hz = list(HORIZONS)
+    L = [f"# Kết quả backtest dự đoán xu hướng · khung {CFG['label']}", ""]
     import datetime as dt
     for sym in SYMS:
         d = out[sym]
         a, b = (dt.datetime.utcfromtimestamp(d[k] / 1000).strftime("%Y-%m-%d") for k in ("from", "to"))
-        L += [f"## {sym} · {d['bars']} nến 4h · {a} đến {b}", ""]
-        L += ["| Chiến lược | Số tín hiệu | Đúng hướng 1 ngày | 3 ngày | 7 ngày | Nền 7 ngày | LN TB 7 ngày |", "|---|---|---|---|---|---|---|"]
+        L += [f"## {sym} · {d['bars']} nến {CFG['label']} · {a} đến {b}", ""]
+        L += [f"| Chiến lược | Số tín hiệu | Đúng hướng {hz[0]} | {hz[1]} | {hz[2]} | Nền {hz[2]} | LN TB {hz[2]} |", "|---|---|---|---|---|---|---|"]
         for key, (label, _) in STRATS.items():
             r = d[key]["direction"]
-            L.append(f"| {label} | {r['7d']['n']} | {f(r['1d']['hit']*100 if r['1d']['hit'] is not None else None,0,'%')} | {f(r['3d']['hit']*100 if r['3d']['hit'] is not None else None,0,'%')} | {f(r['7d']['hit']*100 if r['7d']['hit'] is not None else None,0,'%')} | {f(r['7d']['base']*100,0,'%')} | {f(r['7d']['avg_ret'],2,'%')} |")
-        L += ["", "| Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN 3 năm | Sụt giảm tối đa | Mua và giữ | Tổng LN 12 tháng |", "|---|---|---|---|---|---|---|---|---|"]
+            h = lambda z: f(r[z]['hit']*100 if r[z]['hit'] is not None else None, 0, '%')
+            L.append(f"| {label} | {r[hz[2]]['n']} | {h(hz[0])} | {h(hz[1])} | {h(hz[2])} | {f(r[hz[2]]['base']*100,0,'%')} | {f(r[hz[2]]['avg_ret'],2,'%')} |")
+        L += ["", f"| Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN {CFG['recent_months']} tháng |", "|---|---|---|---|---|---|---|---|---|"]
         for key, (label, _) in STRATS.items():
             t, rc = d[key]["trades"], d[key]["recent"]
             if t["n"] == 0:
                 L.append(f"| {label} | 0 | | | | | | | |"); continue
             L.append(f"| {label} | {t['n']} | {f(t['win_rate']*100,0,'%')} | {f(t['avg_trade'],2,'%')} | {f(t['profit_factor'],2)} | {f(t['total_return'],0,'%')} | {f(t['max_drawdown'],0,'%')} | {f(t['buy_hold'],0,'%')} | {f(rc.get('total_return'),0,'%')} |")
         L.append("")
-    with open(os.path.join(os.path.dirname(__file__), "results.md"), "w") as fh:
+    with open(os.path.join(os.path.dirname(__file__), CFG["out"] + ".md"), "w") as fh:
         fh.write("\n".join(L))
 
 
 if __name__ == "__main__":
-    run()
+    import sys
+    run(sys.argv[1] if len(sys.argv) > 1 else "4h")

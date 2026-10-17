@@ -9,7 +9,7 @@ import requests
 BASE = "https://www.okx.com/api/v5"
 OUT = os.path.join(os.path.dirname(__file__), "data")
 SYMBOLS = ["BTC-USDT-SWAP", "ETH-USDT-SWAP", "SOL-USDT-SWAP"]
-BARS = {"4H": 4 * 3600_000, "1Dutc": 86_400_000}
+BARS = {"4H": 4 * 3600_000, "1Dutc": 86_400_000, "1Wutc": 7 * 86_400_000}
 
 
 def fetch(inst, bar, days):
@@ -40,10 +40,10 @@ def fetch(inst, bar, days):
     return [r for r in rows if r["t"] >= stop]
 
 
-def main(days=1095):
+def main(days=1095, bars=None):
     os.makedirs(OUT, exist_ok=True)
     for inst in SYMBOLS:
-        for bar in BARS:
+        for bar in (bars or BARS):
             rows = fetch(inst, bar, days)
             path = os.path.join(OUT, f"{inst.split('-')[0]}_{bar}.json")
             with open(path, "w") as f:
@@ -52,4 +52,4 @@ def main(days=1095):
 
 
 if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 1095)
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 1095, sys.argv[2].split(",") if len(sys.argv) > 2 else None)
