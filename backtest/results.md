@@ -4,54 +4,72 @@
 
 | Chiến lược | Số tín hiệu | Đúng hướng 1d | 3d | 7d | Nền 7d | LN TB 7d |
 |---|---|---|---|---|---|---|
-| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 158 | 49% | 44% | 44% | 54% | -0.37% |
-| Cắt EMA20/50 | 118 | 45% | 51% | 58% | 54% | 0.51% |
+| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 159 | 50% | 43% | 45% | 54% | -0.37% |
+| Cắt EMA20/50 | 118 | 46% | 51% | 58% | 54% | 0.50% |
 | Phá đỉnh/đáy 20 nến | 179 | 52% | 54% | 50% | 54% | 0.34% |
 | Nén Bollinger rồi bung | 27 | 48% | 44% | 56% | 54% | 0.15% |
-| Xu hướng + phá đỉnh/đáy cùng chiều | 134 | 51% | 51% | 45% | 54% | 0.39% |
-| Volume profile: thoát vùng giá trị | 73 | 58% | 55% | 49% | 54% | 0.82% |
-| Volume profile: hồi về POC | 211 | 49% | 49% | 52% | 54% | -0.13% |
-| Volume profile: cắt EMA lọc theo POC | 231 | 56% | 57% | 56% | 54% | 0.93% |
+| Xu hướng + phá đỉnh/đáy cùng chiều | 134 | 51% | 51% | 45% | 54% | 0.40% |
+| Volume profile: thoát vùng giá trị | 72 | 63% | 59% | 50% | 54% | 0.77% |
+| Volume profile: hồi về POC | 213 | 47% | 48% | 51% | 54% | -0.22% |
+| Volume profile: cắt EMA lọc theo POC | 239 | 56% | 59% | 56% | 54% | 1.01% |
 | RSI14 qua 50 (chuẩn so sánh) | 658 | 49% | 49% | 50% | 54% | 0.07% |
-| VP thoát vùng + RSI xác nhận | 154 | 49% | 49% | 50% | 54% | 0.58% |
-| VP thoát vùng + RSI + khối lượng 1,5x | 68 | 64% | 54% | 47% | 54% | 0.69% |
-| VP thoát vùng + RSI + ADX20 | 71 | 49% | 55% | 52% | 54% | 0.86% |
-| VP hồi trong vùng + RSI 30/70 | 35 | 57% | 57% | 40% | 54% | -2.16% |
-| Đồng thuận POC + EMA + RSI | 168 | 55% | 57% | 56% | 54% | 1.12% |
-| VP + RSI + KL, chỉ vào cùng hướng EMA | 68 | 62% | 53% | 47% | 54% | 0.68% |
-| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 73 | 61% | 53% | 48% | 54% | 0.74% |
+| VP thoát vùng + RSI xác nhận | 154 | 53% | 48% | 48% | 54% | 0.35% |
+| VP thoát vùng + RSI + khối lượng 1,5x | 67 | 65% | 59% | 48% | 54% | 0.67% |
+| VP thoát vùng + RSI + ADX20 | 71 | 53% | 57% | 52% | 54% | 0.73% |
+| VP hồi trong vùng + RSI 30/70 | 35 | 60% | 63% | 46% | 54% | -1.70% |
+| Đồng thuận POC + EMA + RSI | 173 | 54% | 59% | 54% | 54% | 1.06% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 67 | 63% | 57% | 48% | 54% | 0.65% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 71 | 62% | 58% | 49% | 54% | 0.79% |
+| SMC: cấu trúc BOS/CHoCH | 142 | 53% | 52% | 58% | 54% | 0.96% |
+| SMC: hồi về order block sau BOS | 100 | 51% | 50% | 54% | 54% | 0.87% |
+| SMC: hồi về fair value gap | 72 | 49% | 45% | 54% | 54% | 0.06% |
+| SMC: quét thanh khoản đảo chiều | 251 | 51% | 49% | 49% | 54% | -0.51% |
+| SMC: quét thanh khoản + displacement | 179 | 45% | 49% | 46% | 54% | -0.71% |
+| PA: nến nhấn chìm theo EMA50 | 477 | 50% | 50% | 50% | 54% | -0.04% |
+| PA: pin bar tại đỉnh/đáy swing | 116 | 43% | 50% | 55% | 54% | 0.36% |
+| PA: phá đỉnh/đáy rồi retest | 118 | 51% | 53% | 57% | 54% | 1.28% |
+| PA: inside bar theo xu hướng EMA | 78 | 55% | 55% | 59% | 54% | 1.03% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 12 tháng |
 |---|---|---|---|---|---|---|---|---|
-| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 166 | 25% | -0.02% | 0.98 | -13% | 38% | 188% | -9% |
-| Cắt EMA20/50 | 174 | 31% | 0.47% | 1.32 | 62% | 39% | 188% | 21% |
-| Phá đỉnh/đáy 20 nến | 227 | 30% | 0.03% | 1.02 | -14% | 58% | 188% | -29% |
-| Nén Bollinger rồi bung | 68 | 34% | 0.00% | 1.00 | -5% | 36% | 188% | 39% |
-| Xu hướng + phá đỉnh/đáy cùng chiều | 140 | 31% | 0.21% | 1.19 | 21% | 21% | 188% | -4% |
-| Volume profile: thoát vùng giá trị | 112 | 26% | 0.32% | 1.19 | 19% | 38% | 188% | 16% |
-| Volume profile: hồi về POC | 218 | 30% | -0.11% | 0.87 | -26% | 34% | 188% | -3% |
-| Volume profile: cắt EMA lọc theo POC | 252 | 20% | -0.01% | 0.99 | -22% | 49% | 188% | 3% |
-| RSI14 qua 50 (chuẩn so sánh) | 672 | 23% | -0.00% | 1.00 | -28% | 66% | 188% | -24% |
-| VP thoát vùng + RSI xác nhận | 175 | 25% | -0.01% | 0.99 | -15% | 53% | 188% | 9% |
-| VP thoát vùng + RSI + khối lượng 1,5x | 110 | 26% | 0.28% | 1.15 | 12% | 38% | 188% | 12% |
-| VP thoát vùng + RSI + ADX20 | 110 | 25% | 0.18% | 1.10 | 2% | 41% | 188% | 14% |
-| VP hồi trong vùng + RSI 30/70 | 40 | 45% | 0.30% | 1.31 | 11% | 14% | 188% | 19% |
-| Đồng thuận POC + EMA + RSI | 189 | 26% | 0.12% | 1.09 | 2% | 36% | 188% | 5% |
-| VP + RSI + KL, chỉ vào cùng hướng EMA | 111 | 26% | 0.24% | 1.13 | 8% | 38% | 188% | 11% |
-| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 113 | 26% | 0.12% | 1.07 | -2% | 40% | 188% | 19% |
+| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 167 | 26% | -0.03% | 0.97 | -14% | 38% | 187% | -9% |
+| Cắt EMA20/50 | 174 | 31% | 0.48% | 1.33 | 63% | 39% | 187% | 21% |
+| Phá đỉnh/đáy 20 nến | 227 | 30% | 0.03% | 1.02 | -14% | 58% | 187% | -28% |
+| Nén Bollinger rồi bung | 68 | 34% | 0.00% | 1.00 | -5% | 36% | 187% | 39% |
+| Xu hướng + phá đỉnh/đáy cùng chiều | 140 | 31% | 0.22% | 1.20 | 22% | 21% | 187% | -4% |
+| Volume profile: thoát vùng giá trị | 112 | 28% | 0.32% | 1.18 | 18% | 39% | 187% | 24% |
+| Volume profile: hồi về POC | 219 | 30% | -0.12% | 0.85 | -27% | 32% | 187% | -7% |
+| Volume profile: cắt EMA lọc theo POC | 258 | 22% | 0.04% | 1.03 | -12% | 45% | 187% | -5% |
+| RSI14 qua 50 (chuẩn so sánh) | 672 | 23% | -0.00% | 1.00 | -28% | 66% | 187% | -23% |
+| VP thoát vùng + RSI xác nhận | 175 | 23% | -0.01% | 0.99 | -16% | 52% | 187% | 11% |
+| VP thoát vùng + RSI + khối lượng 1,5x | 109 | 28% | 0.36% | 1.21 | 23% | 38% | 187% | 20% |
+| VP thoát vùng + RSI + ADX20 | 113 | 27% | 0.12% | 1.07 | -4% | 41% | 187% | 20% |
+| VP hồi trong vùng + RSI 30/70 | 40 | 48% | 0.72% | 1.76 | 30% | 8% | 187% | 19% |
+| Đồng thuận POC + EMA + RSI | 197 | 27% | 0.13% | 1.10 | 5% | 36% | 187% | 2% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 110 | 28% | 0.33% | 1.19 | 19% | 38% | 187% | 19% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 111 | 27% | 0.19% | 1.11 | 6% | 39% | 187% | 27% |
+| SMC: cấu trúc BOS/CHoCH | 203 | 32% | 0.63% | 1.42 | 157% | 40% | 187% | -24% |
+| SMC: hồi về order block sau BOS | 120 | 27% | 0.72% | 1.49 | 88% | 41% | 187% | -28% |
+| SMC: hồi về fair value gap | 97 | 32% | 0.66% | 1.44 | 63% | 23% | 187% | 6% |
+| SMC: quét thanh khoản đảo chiều | 261 | 33% | -0.33% | 0.75 | -62% | 66% | 187% | -22% |
+| SMC: quét thanh khoản + displacement | 191 | 32% | -0.18% | 0.74 | -33% | 48% | 187% | 4% |
+| PA: nến nhấn chìm theo EMA50 | 500 | 30% | -0.11% | 0.87 | -49% | 60% | 187% | -23% |
+| PA: pin bar tại đỉnh/đáy swing | 117 | 38% | -0.08% | 0.94 | -13% | 30% | 187% | -4% |
+| PA: phá đỉnh/đáy rồi retest | 123 | 21% | 0.37% | 1.38 | 41% | 31% | 187% | -15% |
+| PA: inside bar theo xu hướng EMA | 94 | 27% | 1.08% | 1.69 | 108% | 27% | 187% | 34% |
 
 ## ETH · 6569 nến 4h · 2023-10-18 đến 2026-10-17
 
 | Chiến lược | Số tín hiệu | Đúng hướng 1d | 3d | 7d | Nền 7d | LN TB 7d |
 |---|---|---|---|---|---|---|
 | Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 142 | 45% | 45% | 56% | 52% | 1.27% |
-| Cắt EMA20/50 | 134 | 46% | 46% | 52% | 52% | 0.27% |
+| Cắt EMA20/50 | 134 | 47% | 46% | 52% | 52% | 0.27% |
 | Phá đỉnh/đáy 20 nến | 170 | 47% | 45% | 48% | 52% | -0.03% |
 | Nén Bollinger rồi bung | 30 | 47% | 60% | 67% | 52% | 0.38% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 141 | 52% | 49% | 60% | 52% | 2.61% |
 | Volume profile: thoát vùng giá trị | 68 | 44% | 43% | 56% | 52% | 2.57% |
-| Volume profile: hồi về POC | 195 | 42% | 47% | 46% | 52% | -1.05% |
-| Volume profile: cắt EMA lọc theo POC | 255 | 40% | 44% | 46% | 52% | -0.71% |
+| Volume profile: hồi về POC | 196 | 42% | 47% | 45% | 52% | -1.07% |
+| Volume profile: cắt EMA lọc theo POC | 254 | 41% | 43% | 46% | 52% | -0.74% |
 | RSI14 qua 50 (chuẩn so sánh) | 718 | 49% | 48% | 49% | 52% | -0.06% |
 | VP thoát vùng + RSI xác nhận | 143 | 45% | 48% | 55% | 52% | 1.71% |
 | VP thoát vùng + RSI + khối lượng 1,5x | 61 | 48% | 43% | 57% | 52% | 3.03% |
@@ -60,39 +78,57 @@
 | Đồng thuận POC + EMA + RSI | 190 | 44% | 42% | 47% | 52% | -0.51% |
 | VP + RSI + KL, chỉ vào cùng hướng EMA | 61 | 49% | 43% | 54% | 52% | 2.95% |
 | VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 67 | 48% | 43% | 52% | 52% | 2.36% |
+| SMC: cấu trúc BOS/CHoCH | 142 | 55% | 50% | 50% | 52% | 0.22% |
+| SMC: hồi về order block sau BOS | 100 | 55% | 47% | 46% | 52% | -1.06% |
+| SMC: hồi về fair value gap | 77 | 52% | 44% | 53% | 52% | -0.07% |
+| SMC: quét thanh khoản đảo chiều | 228 | 55% | 52% | 52% | 52% | 0.37% |
+| SMC: quét thanh khoản + displacement | 162 | 47% | 48% | 49% | 52% | -0.13% |
+| PA: nến nhấn chìm theo EMA50 | 469 | 46% | 46% | 48% | 52% | 0.28% |
+| PA: pin bar tại đỉnh/đáy swing | 109 | 50% | 54% | 49% | 52% | -0.23% |
+| PA: phá đỉnh/đáy rồi retest | 102 | 44% | 42% | 48% | 52% | -0.69% |
+| PA: inside bar theo xu hướng EMA | 78 | 44% | 42% | 54% | 52% | 1.15% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 12 tháng |
 |---|---|---|---|---|---|---|---|---|
-| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 146 | 27% | 0.01% | 1.00 | -14% | 44% | 54% | -14% |
-| Cắt EMA20/50 | 206 | 24% | 0.16% | 1.07 | -28% | 53% | 54% | -34% |
-| Phá đỉnh/đáy 20 nến | 214 | 28% | 0.31% | 1.15 | 17% | 63% | 54% | 2% |
+| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 146 | 26% | 0.00% | 1.00 | -15% | 44% | 54% | -14% |
+| Cắt EMA20/50 | 206 | 24% | 0.17% | 1.07 | -27% | 53% | 54% | -34% |
+| Phá đỉnh/đáy 20 nến | 214 | 28% | 0.30% | 1.14 | 15% | 63% | 54% | 2% |
 | Nén Bollinger rồi bung | 69 | 35% | -0.08% | 0.97 | -16% | 50% | 54% | 33% |
 | Xu hướng + phá đỉnh/đáy cùng chiều | 147 | 29% | 0.34% | 1.23 | 35% | 46% | 54% | 22% |
-| Volume profile: thoát vùng giá trị | 106 | 27% | 1.21% | 1.55 | 134% | 34% | 54% | 19% |
+| Volume profile: thoát vùng giá trị | 106 | 27% | 1.22% | 1.55 | 136% | 34% | 54% | 19% |
 | Volume profile: hồi về POC | 204 | 30% | -0.11% | 0.91 | -29% | 43% | 54% | -9% |
-| Volume profile: cắt EMA lọc theo POC | 284 | 19% | 0.13% | 1.08 | -19% | 46% | 54% | -22% |
-| RSI14 qua 50 (chuẩn so sánh) | 725 | 22% | 0.02% | 1.02 | -35% | 69% | 54% | -29% |
-| VP thoát vùng + RSI xác nhận | 159 | 33% | 0.39% | 1.22 | 36% | 25% | 54% | -5% |
-| VP thoát vùng + RSI + khối lượng 1,5x | 99 | 27% | 1.19% | 1.53 | 122% | 29% | 54% | 25% |
-| VP thoát vùng + RSI + ADX20 | 101 | 29% | 1.21% | 1.55 | 126% | 33% | 54% | 13% |
+| Volume profile: cắt EMA lọc theo POC | 283 | 19% | 0.14% | 1.09 | -16% | 46% | 54% | -22% |
+| RSI14 qua 50 (chuẩn so sánh) | 725 | 22% | 0.02% | 1.02 | -35% | 69% | 54% | -26% |
+| VP thoát vùng + RSI xác nhận | 159 | 33% | 0.39% | 1.22 | 37% | 25% | 54% | -4% |
+| VP thoát vùng + RSI + khối lượng 1,5x | 99 | 27% | 1.20% | 1.53 | 124% | 29% | 54% | 25% |
+| VP thoát vùng + RSI + ADX20 | 101 | 29% | 1.22% | 1.55 | 128% | 33% | 54% | 13% |
 | VP hồi trong vùng + RSI 30/70 | 47 | 32% | -0.37% | 0.78 | -18% | 21% | 54% | -11% |
-| Đồng thuận POC + EMA + RSI | 218 | 22% | 0.18% | 1.09 | -16% | 47% | 54% | -10% |
-| VP + RSI + KL, chỉ vào cùng hướng EMA | 99 | 27% | 1.12% | 1.49 | 105% | 33% | 54% | 21% |
-| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 106 | 31% | 1.06% | 1.50 | 108% | 32% | 54% | 12% |
+| Đồng thuận POC + EMA + RSI | 218 | 22% | 0.19% | 1.10 | -15% | 47% | 54% | -10% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 99 | 27% | 1.12% | 1.49 | 107% | 33% | 54% | 21% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 106 | 31% | 1.06% | 1.50 | 109% | 32% | 54% | 12% |
+| SMC: cấu trúc BOS/CHoCH | 204 | 27% | 0.66% | 1.28 | 93% | 48% | 54% | -21% |
+| SMC: hồi về order block sau BOS | 114 | 20% | -0.55% | 0.77 | -56% | 72% | 54% | -36% |
+| SMC: hồi về fair value gap | 100 | 32% | 1.08% | 1.55 | 99% | 45% | 54% | -2% |
+| SMC: quét thanh khoản đảo chiều | 239 | 36% | 0.02% | 1.01 | -19% | 51% | 54% | -11% |
+| SMC: quét thanh khoản + displacement | 171 | 36% | 0.33% | 1.37 | 49% | 32% | 54% | 12% |
+| PA: nến nhấn chìm theo EMA50 | 491 | 29% | -0.20% | 0.83 | -71% | 77% | 54% | -43% |
+| PA: pin bar tại đỉnh/đáy swing | 111 | 32% | -0.25% | 0.86 | -31% | 43% | 54% | -4% |
+| PA: phá đỉnh/đáy rồi retest | 104 | 12% | -0.22% | 0.85 | -29% | 48% | 54% | -28% |
+| PA: inside bar theo xu hướng EMA | 95 | 29% | 1.53% | 1.72 | 186% | 46% | 54% | 47% |
 
 ## SOL · 6569 nến 4h · 2023-10-18 đến 2026-10-17
 
 | Chiến lược | Số tín hiệu | Đúng hướng 1d | 3d | 7d | Nền 7d | LN TB 7d |
 |---|---|---|---|---|---|---|
-| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 146 | 56% | 54% | 51% | 51% | 1.49% |
-| Cắt EMA20/50 | 126 | 57% | 51% | 53% | 51% | 0.83% |
+| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 146 | 56% | 54% | 51% | 51% | 1.44% |
+| Cắt EMA20/50 | 126 | 56% | 51% | 53% | 51% | 0.74% |
 | Phá đỉnh/đáy 20 nến | 180 | 50% | 49% | 48% | 51% | 0.42% |
 | Nén Bollinger rồi bung | 33 | 48% | 39% | 45% | 51% | -0.12% |
-| Xu hướng + phá đỉnh/đáy cùng chiều | 141 | 56% | 53% | 49% | 51% | 1.51% |
-| Volume profile: thoát vùng giá trị | 65 | 55% | 53% | 57% | 51% | 1.88% |
+| Xu hướng + phá đỉnh/đáy cùng chiều | 141 | 56% | 53% | 49% | 51% | 1.52% |
+| Volume profile: thoát vùng giá trị | 65 | 56% | 52% | 57% | 51% | 1.84% |
 | Volume profile: hồi về POC | 182 | 51% | 51% | 50% | 51% | -1.26% |
-| Volume profile: cắt EMA lọc theo POC | 228 | 53% | 50% | 51% | 51% | 0.03% |
-| RSI14 qua 50 (chuẩn so sánh) | 766 | 49% | 49% | 50% | 51% | 0.09% |
+| Volume profile: cắt EMA lọc theo POC | 228 | 54% | 49% | 51% | 51% | 0.01% |
+| RSI14 qua 50 (chuẩn so sánh) | 762 | 49% | 49% | 50% | 51% | 0.09% |
 | VP thoát vùng + RSI xác nhận | 148 | 50% | 51% | 51% | 51% | 1.72% |
 | VP thoát vùng + RSI + khối lượng 1,5x | 57 | 55% | 53% | 60% | 51% | 1.99% |
 | VP thoát vùng + RSI + ADX20 | 61 | 48% | 52% | 57% | 51% | 1.08% |
@@ -100,22 +136,40 @@
 | Đồng thuận POC + EMA + RSI | 168 | 55% | 49% | 51% | 51% | 0.18% |
 | VP + RSI + KL, chỉ vào cùng hướng EMA | 57 | 53% | 53% | 60% | 51% | 1.81% |
 | VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 60 | 52% | 52% | 58% | 51% | 1.86% |
+| SMC: cấu trúc BOS/CHoCH | 156 | 46% | 48% | 52% | 51% | 0.64% |
+| SMC: hồi về order block sau BOS | 118 | 44% | 50% | 53% | 51% | 0.29% |
+| SMC: hồi về fair value gap | 78 | 45% | 53% | 50% | 51% | -0.15% |
+| SMC: quét thanh khoản đảo chiều | 240 | 54% | 55% | 54% | 51% | 0.35% |
+| SMC: quét thanh khoản + displacement | 205 | 56% | 53% | 50% | 51% | 0.53% |
+| PA: nến nhấn chìm theo EMA50 | 464 | 49% | 49% | 48% | 51% | -0.18% |
+| PA: pin bar tại đỉnh/đáy swing | 72 | 60% | 57% | 60% | 51% | 1.75% |
+| PA: phá đỉnh/đáy rồi retest | 146 | 51% | 53% | 56% | 51% | 2.00% |
+| PA: inside bar theo xu hướng EMA | 90 | 49% | 54% | 58% | 51% | 0.18% |
 
 | Chiến lược | Số lệnh | Thắng | LN/lệnh | Profit factor | Tổng LN cả kỳ | Sụt giảm tối đa | Mua và giữ | Tổng LN 12 tháng |
 |---|---|---|---|---|---|---|---|---|
-| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 150 | 41% | 0.35% | 1.23 | 36% | 42% | 341% | 4% |
-| Cắt EMA20/50 | 176 | 34% | 1.15% | 1.48 | 212% | 46% | 341% | 8% |
-| Phá đỉnh/đáy 20 nến | 223 | 35% | 0.20% | 1.08 | -16% | 66% | 341% | 15% |
-| Nén Bollinger rồi bung | 84 | 32% | -0.03% | 0.99 | -21% | 53% | 341% | -30% |
-| Xu hướng + phá đỉnh/đáy cùng chiều | 144 | 35% | 0.29% | 1.17 | 21% | 55% | 341% | 17% |
-| Volume profile: thoát vùng giá trị | 92 | 35% | 1.82% | 1.66 | 185% | 38% | 341% | 56% |
-| Volume profile: hồi về POC | 187 | 34% | -0.18% | 0.88 | -37% | 51% | 341% | -14% |
-| Volume profile: cắt EMA lọc theo POC | 243 | 27% | 0.64% | 1.37 | 140% | 46% | 341% | -1% |
-| RSI14 qua 50 (chuẩn so sánh) | 768 | 21% | -0.01% | 0.99 | -59% | 79% | 341% | -15% |
-| VP thoát vùng + RSI xác nhận | 160 | 34% | 0.38% | 1.18 | 26% | 36% | 341% | 38% |
-| VP thoát vùng + RSI + khối lượng 1,5x | 90 | 33% | 1.60% | 1.58 | 137% | 40% | 341% | 16% |
-| VP thoát vùng + RSI + ADX20 | 92 | 35% | 1.47% | 1.51 | 112% | 44% | 341% | 49% |
-| VP hồi trong vùng + RSI 30/70 | 45 | 47% | 0.86% | 1.52 | 37% | 19% | 341% | 50% |
-| Đồng thuận POC + EMA + RSI | 185 | 26% | 0.88% | 1.42 | 156% | 46% | 341% | 0% |
-| VP + RSI + KL, chỉ vào cùng hướng EMA | 90 | 33% | 1.43% | 1.52 | 107% | 44% | 341% | 16% |
-| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 88 | 36% | 1.36% | 1.53 | 119% | 30% | 341% | 30% |
+| Xu hướng EMA20/50 + ADX25 + xác nhận khung cao (đang dùng) | 150 | 41% | 0.31% | 1.21 | 30% | 42% | 342% | 4% |
+| Cắt EMA20/50 | 176 | 34% | 1.14% | 1.47 | 208% | 46% | 342% | 9% |
+| Phá đỉnh/đáy 20 nến | 223 | 35% | 0.21% | 1.08 | -15% | 66% | 342% | 17% |
+| Nén Bollinger rồi bung | 84 | 32% | -0.03% | 0.99 | -21% | 53% | 342% | -31% |
+| Xu hướng + phá đỉnh/đáy cùng chiều | 144 | 35% | 0.30% | 1.18 | 23% | 55% | 342% | 17% |
+| Volume profile: thoát vùng giá trị | 93 | 35% | 1.81% | 1.63 | 185% | 38% | 342% | 58% |
+| Volume profile: hồi về POC | 187 | 34% | -0.18% | 0.88 | -37% | 51% | 342% | -14% |
+| Volume profile: cắt EMA lọc theo POC | 244 | 27% | 0.64% | 1.36 | 139% | 46% | 342% | 1% |
+| RSI14 qua 50 (chuẩn so sánh) | 764 | 21% | -0.00% | 1.00 | -58% | 79% | 342% | -14% |
+| VP thoát vùng + RSI xác nhận | 160 | 34% | 0.39% | 1.18 | 27% | 36% | 342% | 40% |
+| VP thoát vùng + RSI + khối lượng 1,5x | 90 | 33% | 1.61% | 1.59 | 140% | 40% | 342% | 17% |
+| VP thoát vùng + RSI + ADX20 | 92 | 35% | 1.49% | 1.51 | 114% | 44% | 342% | 51% |
+| VP hồi trong vùng + RSI 30/70 | 45 | 47% | 0.86% | 1.52 | 37% | 19% | 342% | 50% |
+| Đồng thuận POC + EMA + RSI | 185 | 26% | 0.89% | 1.42 | 159% | 46% | 342% | 1% |
+| VP + RSI + KL, chỉ vào cùng hướng EMA | 90 | 33% | 1.44% | 1.52 | 110% | 44% | 342% | 17% |
+| VP + RSI + KL, cùng hướng EMA, thoát khi EMA đổi | 88 | 36% | 1.37% | 1.54 | 121% | 30% | 342% | 32% |
+| SMC: cấu trúc BOS/CHoCH | 224 | 34% | 0.46% | 1.16 | 18% | 79% | 342% | -32% |
+| SMC: hồi về order block sau BOS | 134 | 31% | 0.50% | 1.18 | 17% | 57% | 342% | -4% |
+| SMC: hồi về fair value gap | 103 | 26% | 0.02% | 1.01 | -28% | 79% | 342% | -16% |
+| SMC: quét thanh khoản đảo chiều | 255 | 33% | -0.18% | 0.92 | -59% | 79% | 342% | 47% |
+| SMC: quét thanh khoản + displacement | 207 | 50% | 0.51% | 1.64 | 135% | 31% | 342% | 60% |
+| PA: nến nhấn chìm theo EMA50 | 487 | 34% | 0.07% | 1.05 | -15% | 52% | 342% | -14% |
+| PA: pin bar tại đỉnh/đáy swing | 77 | 39% | 0.70% | 1.29 | 39% | 43% | 342% | 19% |
+| PA: phá đỉnh/đáy rồi retest | 149 | 18% | 0.21% | 1.13 | -0% | 57% | 342% | -5% |
+| PA: inside bar theo xu hướng EMA | 101 | 29% | 1.02% | 1.38 | 70% | 47% | 342% | 3% |
