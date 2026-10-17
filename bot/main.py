@@ -11,7 +11,7 @@ import sys
 import time
 from datetime import datetime, timezone
 
-from . import binance, config as C, deribit, indicators, report, telegram
+from . import binance, config as C, deribit, indicators, okx, report, telegram
 
 STATE_PATH = os.environ.get("STATE_PATH", "state/state.json")
 
@@ -32,8 +32,18 @@ def save_state(st):
 
 def collect():
     results = []
+    source = os.environ.get("DATA_SOURCE", "auto")
     for sym in C.SYMBOLS:
-        d = binance.fetch_all(sym, C.MAIN_TF, C.HIGHER_TF, C.KLINE_LIMIT)
+        if source == "okx":
+            d = okx.fetch_all(sym, C.MAIN_TF, C.HIGHER_TF, C.KLINE_LIMIT)
+        else:
+            try:
+                d = binance.fetch_all(sym, C.MAIN_TF, C.HIGHER_TF, C.KLINE_LIMIT)
+            except Exception as e:  # Binance chặn IP Mỹ (HTTP 451) -> dùng OKX
+                print(f"[{sym}] Binance lỗi ({e}); chuyển sang OKX", flush=True)
+                source = "okx"
+                d = okx.fetch_all(sym, C.MAIN_TF, C.HIGHER_TF, C.KLINE_LIMIT)
+        print(f"[{sym}] nguồn: {source if source != 'auto' else 'binance'}", flush=True)
         dv = deribit.dvol(C.DVOL_CURRENCIES[sym]) if sym in C.DVOL_CURRENCIES else None
         results.append(indicators.compute(sym, d, dv))
     return results

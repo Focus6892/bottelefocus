@@ -32,12 +32,15 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
+          mkdir -p state
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.digest }}" = "true" ]; then
-            python -m bot.main --digest
+            python -m bot.main --digest 2>&1 | tee state/last_run.log
           else
-            python -m bot.main
+            python -m bot.main 2>&1 | tee state/last_run.log
           fi
+          exit ${PIPESTATUS[0]}
       - name: Lưu trạng thái
+        if: always()
         run: |
           git config user.name "bottelefocus"
           git config user.email "bot@users.noreply.github.com"
