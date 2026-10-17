@@ -1,10 +1,13 @@
+BTC-USDT-SWAP 1Dutc: 2199 nến, từ 2020-10-09
+BTC-USDT-SWAP 1Wutc: 313 nến, từ 2020-10-12
+ETH-USDT-SWAP 1Dutc: 2199 nến, từ 2020-10-09
+ETH-USDT-SWAP 1Wutc: 313 nến, từ 2020-10-12
+SOL-USDT-SWAP 1Dutc: 2093 nến, từ 2021-01-23
+SOL-USDT-SWAP 1Wutc: 299 nến, từ 2021-01-18
 BTC-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
 ETH-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
 SOL-USDT-SWAP 4H: 6569 nến, từ 2023-10-18
-Traceback (most recent call last):
-  File "/home/runner/work/bottelefocus/bottelefocus/backtest/run.py", line 333, in <module>
-    run(sys.argv[1] if len(sys.argv) > 1 else "4h")
-  File "/home/runner/work/bottelefocus/bottelefocus/backtest/run.py", line 284, in run
-    k1 = json.load(open(os.path.join(DATA, f"{sym}_{CFG['high']}.json")))
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/bottelefocus/bottelefocus/backtest/data/BTC_1Dutc.json'
+/home/runner/work/bottelefocus/bottelefocus/backtest/run.py:313: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  a, b = (dt.datetime.utcfromtimestamp(d[k] / 1000).strftime("%Y-%m-%d") for k in ("from", "to"))
+/home/runner/work/bottelefocus/bottelefocus/backtest/run.py:313: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  a, b = (dt.datetime.utcfromtimestamp(d[k] / 1000).strftime("%Y-%m-%d") for k in ("from", "to"))
