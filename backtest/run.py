@@ -25,6 +25,13 @@ TF = {
     "1d": dict(main="1Dutc", high="1Wutc", main_ms=86_400_000, high_ms=7 * 86_400_000,
                horizons={"1 tuần": 7, "2 tuần": 14, "4 tuần": 28}, atr_stop=3.5, squeeze_lookback=120, squeeze_hold=28,
                recent_months=24, label="1D", out="results_1d"),
+    # Scalp: xác nhận bằng 4h, dừng lỗ 1,5 ATR, nén tính trong 2 ngày, giữ tối đa 1 ngày
+    "15m": dict(main="15m", high="4H", main_ms=15 * 60_000, high_ms=4 * 3600_000,
+                horizons={"1 giờ": 4, "4 giờ": 16, "1 ngày": 96}, atr_stop=1.5, squeeze_lookback=192, squeeze_hold=96,
+                recent_months=3, label="15m", out="results_15m"),
+    "30m": dict(main="30m", high="4H", main_ms=30 * 60_000, high_ms=4 * 3600_000,
+                horizons={"1 giờ": 2, "4 giờ": 8, "1 ngày": 48}, atr_stop=1.5, squeeze_lookback=96, squeeze_hold=48,
+                recent_months=3, label="30m", out="results_30m"),
 }
 CFG = TF["4h"]
 HORIZONS = CFG["horizons"]
