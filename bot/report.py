@@ -72,7 +72,34 @@ def coin_block(r):
     for code, level, text in r["signals"]:
         mark = "🔴" if level == "high" else "🟡" if level == "medium" else "⚪"
         lines.append(f"{mark} {text}")
+    if r.get("reco"):
+        lines += reco_lines(r["reco"])
     return "\n".join(lines)
+
+
+def reco_lines(rv):
+    """Hai dòng: agent đề xuất và agent review."""
+    f = rv["final"]
+    side = {"LONG": "🟢 <b>LONG</b>", "SHORT": "🔻 <b>SHORT</b>", "NGOÀI": "⚪ <b>ĐỨNG NGOÀI</b>"}[f["side"]]
+    first = f"🤖 Đề xuất: {side} · tin cậy {f['confidence']*100:.0f}%"
+    if f.get("stop"):
+        first += f" · dừng lỗ <b>{_fmt_price(f['stop'])}</b> ({f.get('risk_pct', 0):.1f}%)"
+    mark = {"ĐỒNG Ý": "✅", "GIỮ LẠI": "⚠️", "BÁC": "⛔"}[rv["verdict"]]
+    second = f"🧑‍⚖️ Review {mark} {rv['verdict'].lower()}: " + "; ".join(rv["notes"][:3])
+    return [first, second]
+
+
+def reco_alert(r, previous):
+    rv = r["reco"]; f = rv["final"]
+    head = {"LONG": "🟢 <b>KHUYẾN NGHỊ MỚI: LONG</b>", "SHORT": "🔻 <b>KHUYẾN NGHỊ MỚI: SHORT</b>", "NGOÀI": "⚪ <b>KHUYẾN NGHỊ MỚI: ĐỨNG NGOÀI</b>"}[f["side"]]
+    body = [f"Trước đó: {previous.lower() if previous else 'chưa có'}."]
+    if f["for"]:
+        body.append("Ủng hộ: " + "; ".join(d for _, _, _, d in f["for"]))
+    if f["against"]:
+        body.append("Ngược lại: " + "; ".join(d for _, _, _, d in f["against"]))
+    if f.get("size_note"):
+        body.append("📏 " + f["size_note"])
+    return _alert(f"{head}\n{ICON.get(r['name'], '•')} <b>{r['name']}</b> · {_now()}", r, body)
 
 
 def market_block(dom, ana):

@@ -131,3 +131,33 @@ def test_inside_bar_detection_and_alert():
     r = I.compute("ETHUSDT", make_data(), dvol=None)
     r["inside_4h"] = ib
     assert "INSIDE BAR 4h BUNG LÊN" in report.inside_alert(r)
+
+
+def test_advisor_and_reviewer():
+    from bot import advisor, reviewer
+    r = I.compute("ETHUSDT", make_data(), dvol=None)
+    r["daily"].update(regime="up", stop=r["price"] * 0.9, bars_in_regime=10)
+    r["vp_1d"].update(state="above", confirmed=True)
+    r["vp_4h"].update(state="above")
+    r["trend"] = "up"
+    rec = advisor.recommend(r, None)
+    assert rec["side"] == "LONG" and rec["stop"] == r["daily"]["stop"] and rec["confidence"] > 0.9
+    stats = {"1d": {"ETH": {"ema_cross": {"trades": {"profit_factor": 3.0}}, "vp_rsi_vol": {"trades": {"profit_factor": 0.9}}}}}
+    rv = reviewer.review(rec, r, None, stats)
+    assert rv["verdict"] == "ĐỒNG Ý" and any("bỏ nguồn" in n for n in rv["notes"]) and rv["final"]["side"] == "LONG"
+    # ngược khung ngày -> bác
+    r["daily"]["regime"] = "down"; r["vp_1d"]["state"] = "above"; r["vp_4h"]["state"] = "above"; r["inside_4h"] = {"dir": 1, "mother_low": 1, "mother_high": 2, "close": 3, "t": 0}
+    rec = advisor.recommend(r, None)
+    if rec["side"] == "LONG":
+        rv = reviewer.review(rec, r, None, {})
+        assert rv["verdict"] == "BÁC" and rv["final"]["side"] == "NGOÀI"
+    # long alt khi risk-off -> giữ lại
+    r["daily"]["regime"] = "up"
+    ana = {"regime": "risk_off", "text": "Tiền rút về stablecoin", "bias": "", "dirs": {}, "notes": []}
+    rec = advisor.recommend(r, ana)
+    rv = reviewer.review(rec, r, ana, {})
+    assert rv["verdict"] in ("GIỮ LẠI", "ĐỒNG Ý")
+    r["reco"] = rv
+    text = report.hourly_digest([r])
+    assert "🤖 Đề xuất" in text and "🧑‍⚖️ Review" in text
+    assert "KHUYẾN NGHỊ MỚI" in report.reco_alert(r, "NGOÀI")

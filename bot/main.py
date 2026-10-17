@@ -11,7 +11,7 @@ import sys
 import time
 from datetime import datetime, timezone
 
-from . import binance, config as C, deribit, dominance, indicators, okx, report, telegram
+from . import advisor, binance, config as C, deribit, dominance, indicators, okx, report, reviewer, telegram
 
 STATE_PATH = os.environ.get("STATE_PATH", "state/state.json")
 
@@ -115,7 +115,21 @@ def run(force_digest=False, dry=False):
             st["market_regime"] = ana["regime"]
         st["market_text"] = ana["text"]
 
-    # 3. Bản tin mỗi giờ
+    # 3. Agent đề xuất + agent review cho từng đồng; báo khi khuyến nghị đã duyệt đổi
+    st.setdefault("reco", {})
+    stats = reviewer.load_stats()
+    for r in results:
+        rec = advisor.recommend(r, ana)
+        r["reco"] = reviewer.review(rec, r, ana, stats)
+        side = r["reco"]["final"]["side"]
+        prev_side = st["reco"].get(r["symbol"])
+        if prev_side is None:
+            st["reco"][r["symbol"]] = side
+        elif side != prev_side:
+            sent.append(report.reco_alert(r, prev_side))
+            st["reco"][r["symbol"]] = side
+
+    # 4. Bản tin mỗi giờ
     if force_digest or st.get("last_digest_hour") != hour_key:
         sent.append(report.hourly_digest(results, dom, ana))
         st["last_digest_hour"] = hour_key
@@ -133,7 +147,7 @@ def run(force_digest=False, dry=False):
         os.makedirs(snap_dir, exist_ok=True)
         with open(os.path.join(snap_dir, datetime.now(timezone.utc).strftime("%Y-%m-%d") + ".jsonl"), "a") as f:
             for r in results:
-                f.write(json.dumps({k: v for k, v in r.items() if k != "signals"}, ensure_ascii=False) + "\n")
+                f.write(json.dumps({k: v for k, v in r.items() if k not in ("signals", "reco")} | {"reco": r["reco"]["final"]["side"], "review": r["reco"]["verdict"]}, ensure_ascii=False) + "\n")
     return results, sent
 
 
