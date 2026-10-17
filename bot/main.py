@@ -81,6 +81,12 @@ def run(force_digest=False, dry=False):
                 if cur in ("above", "below"):
                     sent.append(report.vp_alert(r, tf, prev_vp))
                 st["vp"][key] = cur
+        ib = r.get("inside_4h")
+        if ib:
+            key = f"{r['symbol']}:inside_4h"
+            if st["alerts"].get(key) != ib["t"]:  # mỗi nến bung chỉ báo một lần
+                sent.append(report.inside_alert(r))
+                st["alerts"][key] = ib["t"]
         if d["squeeze_break"]:
             key = f"{r['symbol']}:squeeze_1d:{d['squeeze_break']}"
             if now - st["alerts"].get(key, 0) >= 7 * 86400:

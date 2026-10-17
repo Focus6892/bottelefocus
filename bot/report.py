@@ -165,6 +165,17 @@ def daily_squeeze_alert(r):
     ])
 
 
+def inside_alert(r):
+    ib = r["inside_4h"]
+    up = ib["dir"] == 1
+    head = f"{'🟢' if up else '🔻'} <b>INSIDE BAR 4h BUNG {'LÊN' if up else 'XUỐNG'}</b> · theo hướng EMA20/50\n{ICON.get(r['name'], '•')} <b>{r['name']}</b> · {_now()}"
+    return _alert(head, r, [
+        f"Nến 4h đóng <b>{_fmt_price(ib['close'])}</b>, {'trên đỉnh' if up else 'dưới đáy'} nến mẹ {_fmt_price(ib['mother_high'] if up else ib['mother_low'])}.",
+        f"🎯 Gợi ý <b>{'LONG' if up else 'SHORT'}</b> · 🛑 thoát khi nến đóng {'dưới đáy' if up else 'trên đỉnh'} nến mẹ <b>{_fmt_price(ib['mother_low'] if up else ib['mother_high'])}</b> hoặc EMA20/50 4h đổi chiều",
+        "📚 Backtest 3 năm trên 4h: PF 1,7 BTC · 1,7 ETH · 1,4 SOL, sụt giảm 27–47%, 3 lệnh/10 thắng, lãi từ các đợt chạy dài.",
+    ])
+
+
 def urgent_alert(r, sigs):
     body = "\n".join(f"🔴 {t}" for _, _, t in sigs)
     return (

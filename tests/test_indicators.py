@@ -118,3 +118,16 @@ def test_market_block_and_regimes():
     assert "BTC.D <b>58.0%</b>" in text and "Tiền rút về stablecoin" in text
     assert "Chưa lấy được" in report.market_block(None, None)
     assert "DÒNG TIỀN THỊ TRƯỜNG ĐỔI" in report.market_alert(dom, ana, "trước")
+
+
+def test_inside_bar_detection_and_alert():
+    k = make_klines(300, drift=0.003, vol=0.004, seed=21)
+    k[-3].update(o=100, h=110, l=90, c=105); k[-2].update(o=104, h=108, l=95, c=103); k[-1].update(o=103, h=115, l=102, c=112)
+    ib = I.inside_bar(k, 100.0, 90.0)
+    assert ib and ib["dir"] == 1 and ib["mother_high"] == 110
+    assert I.inside_bar(k, 90.0, 100.0) is None  # ngược hướng EMA
+    k[-2].update(h=111)
+    assert I.inside_bar(k, 100.0, 90.0) is None  # không phải inside bar
+    r = I.compute("ETHUSDT", make_data(), dvol=None)
+    r["inside_4h"] = ib
+    assert "INSIDE BAR 4h BUNG LÊN" in report.inside_alert(r)

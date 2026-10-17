@@ -215,9 +215,27 @@ def compute(symbol, d, dvol=None):
     rs, vr = r["vp_1d"]["rsi"], r["vp_1d"]["vol_ratio"]
     r["vp_1d"]["confirmed"] = bool(rs is not None and vr is not None and vr >= 1.5 and ((st == "above" and rs > 55) or (st == "below" and rs < 45)))
 
+    # Inside bar 4h theo hướng EMA20/50 (backtest 3 năm: PF 1,4-1,7 cả 3 đồng). Nến mẹ km[-3], nến trong km[-2], nến bung km[-1].
+    r["inside_4h"] = inside_bar(km, e20[-1], e50[-1])
+
     r["score"] = volatility_score(r)
     r["signals"] = signals(r)
     return r
+
+
+def inside_bar(km, e20, e50):
+    """{dir: 1/-1, mother_low, mother_high, close, t} khi nến vừa đóng bung khỏi nến mẹ cùng chiều EMA, ngược lại None."""
+    if len(km) < 3 or e20 is None or e50 is None:
+        return None
+    m, ins, b = km[-3], km[-2], km[-1]
+    if not (ins["h"] <= m["h"] and ins["l"] >= m["l"]):
+        return None
+    trend = 1 if e20 > e50 else -1
+    if trend == 1 and b["c"] > m["h"]:
+        return {"dir": 1, "mother_low": m["l"], "mother_high": m["h"], "close": b["c"], "t": b["t"]}
+    if trend == -1 and b["c"] < m["l"]:
+        return {"dir": -1, "mother_low": m["l"], "mother_high": m["h"], "close": b["c"], "t": b["t"]}
+    return None
 
 
 def daily_signals(symbol, kh):
