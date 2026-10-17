@@ -9,7 +9,7 @@ import requests
 BASE = "https://www.okx.com/api/v5"
 OUT = os.path.join(os.path.dirname(__file__), "data")
 SYMBOLS = ["BTC-USDT-SWAP", "ETH-USDT-SWAP", "SOL-USDT-SWAP"]
-BARS = {"4H": 4 * 3600_000, "1Dutc": 86_400_000, "1Wutc": 7 * 86_400_000, "15m": 15 * 60_000, "30m": 30 * 60_000}
+BARS = {"1H": 3600_000, "4H": 4 * 3600_000, "1Dutc": 86_400_000, "1Wutc": 7 * 86_400_000, "15m": 15 * 60_000, "30m": 30 * 60_000}
 
 
 def fetch(inst, bar, days):

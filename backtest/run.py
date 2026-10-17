@@ -30,6 +30,10 @@ TF = {
     "1d": dict(main="1Dutc", high="1Wutc", main_ms=86_400_000, high_ms=7 * 86_400_000,
                horizons={"1 tuần": 7, "2 tuần": 14, "4 tuần": 28}, atr_stop=3.5, squeeze_lookback=120, squeeze_hold=28,
                recent_months=24, label="1D", out="results_1d", vp_window=90, smc_n=3),
+    # Ngắn hạn: 1h (xác nhận 4h), dừng lỗ 1,5 ATR, nén tính trong 7 ngày, giữ tối đa 1 ngày
+    "1h": dict(main="1H", high="4H", main_ms=3600_000, high_ms=4 * 3600_000,
+               horizons={"4 giờ": 4, "1 ngày": 24, "3 ngày": 72}, atr_stop=1.5, squeeze_lookback=168, squeeze_hold=24,
+               recent_months=6, label="1h", out="results_1h", vp_window=168, smc_n=5),
     # Scalp: xác nhận bằng 4h, dừng lỗ 1,5 ATR, nén tính trong 2 ngày, giữ tối đa 1 ngày
     "15m": dict(main="15m", high="4H", main_ms=15 * 60_000, high_ms=4 * 3600_000,
                 horizons={"1 giờ": 4, "4 giờ": 16, "1 ngày": 96}, atr_stop=1.5, squeeze_lookback=192, squeeze_hold=96,
