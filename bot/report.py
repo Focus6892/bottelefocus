@@ -53,6 +53,7 @@ def coin_block(r):
         f"ATR {r['atr_pct']:.2f}% · RV24h {r['rv_24h']:.0f}%" + (f" · DVOL {r['dvol']:.0f}" if r.get("dvol") else "") + (" · <b>nén</b>" if r.get("bbw_squeeze") else ""),
         f"OI {r['oi_chg_4h']:+.1f}% 4h / {r['oi_chg_24h']:+.1f}% 24h · Funding {r['funding']*100:+.3f}% · L/S {r['ls_accounts']:.2f} (top {r['ls_top']:.2f}) · Taker {r['taker']:.2f}",
     ]
+    lines += _vp_line(r)
     for code, level, text in r["signals"]:
         mark = "🔴" if level == "high" else "🟡" if level == "medium" else "⚪"
         lines.append(f"{mark} {text}")
