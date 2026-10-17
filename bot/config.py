@@ -46,3 +46,6 @@ VP_WINDOW_4H = 180   # 30 ngày nến 4h
 VP_WINDOW_1D = 90    # 90 ngày nến ngày
 VP_BIN_PCT = 0.002
 VP_VALUE_AREA = 0.70
+
+# Scalp 1h (backtest/scalp_1h.md): chỉ hai cách còn lãi ngoài mẫu; tắt bằng SCALP_ALERTS = False
+SCALP_ALERTS = True

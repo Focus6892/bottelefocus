@@ -81,6 +81,11 @@ def run(force_digest=False, dry=False):
                 if cur in ("above", "below"):
                     sent.append(report.vp_alert(r, tf, prev_vp))
                 st["vp"][key] = cur
+        for st_ in r.get("scalp") or []:  # mỗi nến 1h, mỗi kiểu chỉ báo một lần
+            key = f"{r['symbol']}:scalp:{st_['key']}"
+            if st["alerts"].get(key) != st_["t"]:
+                sent.append(report.scalp_alert(r, st_))
+                st["alerts"][key] = st_["t"]
         ib = r.get("inside_4h")
         if ib:
             key = f"{r['symbol']}:inside_4h"

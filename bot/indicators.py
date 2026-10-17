@@ -2,7 +2,7 @@
 import math
 from statistics import mean, pstdev
 
-from . import config as C, vp_forecast
+from . import config as C, scalp_signals, vp_forecast
 
 
 # ---------- tiện ích ----------
@@ -222,6 +222,9 @@ def compute(symbol, d, dvol=None):
     # Dự báo biến động từ volume profile 1h / 4h / 1D (thống kê trong backtest/vp_vol.json)
     k1h = d.get("k_1h")
     r["vp_forecast"] = vp_forecast.compute(r["name"], km, kh, k1h[:-1] if k1h else None)
+
+    # Setup scalp 1h vừa xuất hiện ở nến 1h đóng gần nhất (bot/scalp_signals.py)
+    r["scalp"] = scalp_signals.detect(symbol, k1h[:-1] if k1h else None, km, kh) if C.SCALP_ALERTS else []
 
     # Inside bar 4h theo hướng EMA20/50 (backtest 3 năm: PF 1,4-1,7 cả 3 đồng). Nến mẹ km[-3], nến trong km[-2], nến bung km[-1].
     r["inside_4h"] = inside_bar(km, e20[-1], e50[-1])

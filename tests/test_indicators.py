@@ -180,8 +180,8 @@ def test_vp_forecast_with_fake_study(tmp_path):
     k1d = make_klines(200, drift=0.002, vol=0.01, seed=32, step=86_400_000)
     k1h = make_klines(300, drift=0.001, vol=0.003, seed=33, step=3600_000)
     base = {"n": 500, "p_expand": 0.50, "ratio": 1.0, "range": 5.0, "p_up": 0.52}
-    def grp(pe, pu, sig_e, sig_u, rng=5.0, cont=None):
-        return {"n": 200, "p_expand": pe, "ratio": 1.0, "range": rng, "p_up": pu, "sig_expand": sig_e, "sig_up": sig_u, "continue": cont}
+    def grp(pe, pu, rng=5.0, cont=None):
+        return {"n": 200, "p_expand": pe, "ratio": 1.0, "range": rng, "p_up": pu, "sig_expand": False, "sig_up": False, "continue": cont}
     study = {}
     for frame in ("1h", "4h", "1d"):
         study[frame] = {}
@@ -189,20 +189,24 @@ def test_vp_forecast_with_fake_study(tmp_path):
             groups = {}
             for key, vals in (("state", ("trên VAH", "trong vùng", "dưới VAL")), ("width", ("hẹp", "vừa", "rộng")), ("shape", ("POC thấp (b)", "POC giữa (D)", "POC cao (P)")), ("node", ("LVN", "HVN", "bình thường")), ("dist", ("gần POC (<1 ATR)", "vừa", "xa POC (>3 ATR)"))):
                 for v in vals:
-                    groups[f"{key}={v}"] = grp(0.62 if key == "state" and v == "trên VAH" else 0.5, 0.60 if key == "node" and v == "LVN" else 0.52, key == "state" and v == "trên VAH", key == "node" and v == "LVN", 6.0)
+                    groups[f"{key}={v}"] = grp(0.62 if key == "state" and v == "trên VAH" else 0.5, 0.60 if key == "node" and v == "LVN" else 0.52, 6.0, 0.40 if key == "state" and v != "trong vùng" else None)
             hz = {"24 giờ": {"base": base, "groups": groups}, "7 ngày": {"base": base, "groups": groups}, "3 ngày": {"base": base, "groups": groups}}
             study[frame][sym] = {**hz, "bars": 1000, "width_q": [0.02, 0.08]}
     path = tmp_path / "study.json"
     path.write_text(json.dumps(study))
     vp_forecast._cache.clear()
-    vp_forecast.STUDY_PATH = str(path)
-    st = vp_forecast.load_study(str(path))
-    frames = {"1h": vp_forecast.live_features(k1h, "1h", "BTC", st), "4h": vp_forecast.live_features(k4, "4h", "BTC", st), "1d": vp_forecast.live_features(k1d, "1d", "BTC", st)}
+    raw, pooled = vp_forecast.load_study(str(path))
+    g = pooled["4h"]["24 giờ"]["groups"]["state=trên VAH"]
+    assert g["n"] == 600 and g["z_expand"] > 2 and abs(g["z_up"]) < 2 and g["z_cont"] < -2
+    frames = {"1h": vp_forecast.live_features(k1h, "1h", "BTC", raw), "4h": vp_forecast.live_features(k4, "4h", "BTC", raw), "1d": vp_forecast.live_features(k1d, "1d", "BTC", raw)}
     assert frames["4h"] and frames["4h"]["width"] in ("hẹp", "vừa", "rộng") and frames["1d"]
-    fc = vp_forecast.forecast("BTC", frames, st)
+    fc = vp_forecast.forecast(frames, pooled)
     assert fc and "24 giờ tới" in fc and "7 ngày tới" in fc
     for v in fc.values():
         assert v["level"] in ("TĂNG", "GIẢM", "bình thường") and v["range"] > 0
+    # giá trên VAH ở mọi khung (xu hướng tăng mạnh) -> mở rộng +12 điểm -> TĂNG, và quay về POC 60% -> nghiêng giảm
+    if all(f and f["state"] == "trên VAH" for f in frames.values()):
+        assert fc["24 giờ tới"]["level"] == "TĂNG" and fc["24 giờ tới"]["lean"] == "nghiêng giảm"
     vf = {"features": {}, "forecast": fc}
     assert any("🔮 24 giờ tới" in x for x in vp_forecast.lines(vf))
     assert vp_forecast.lines(None) == []
@@ -211,3 +215,27 @@ def test_vp_forecast_with_fake_study(tmp_path):
     vp_forecast.STUDY_PATH = str(tmp_path / "missing.json")
     r = I.compute("BTCUSDT", make_data(), dvol=None)
     assert r["vp_forecast"]["forecast"] is None and "🔮" not in report.hourly_digest([r])
+    vp_forecast.STUDY_PATH = "backtest/vp_vol.json"
+    vp_forecast._cache.clear()
+
+
+def test_scalp_signals_and_alert():
+    from bot import scalp_signals
+    assert scalp_signals.detect("ETHUSDT", None, [], []) == []
+    k1h = make_klines(400, drift=0.0, vol=0.004, seed=51, step=3600_000)
+    k4h = make_klines(300, drift=0.0, vol=0.008, seed=52)
+    k1d = make_klines(200, drift=0.001, vol=0.01, seed=53, step=86_400_000)
+    out = scalp_signals.detect("ETHUSDT", k1h, k4h, k1d)
+    assert isinstance(out, list)
+    for st in out:
+        assert st["dir"] in (1, -1) and st["key"] in scalp_signals.SETUPS
+    # BTC không có vp_limit
+    assert all(st["key"] != "vp_limit" for st in scalp_signals.detect("BTCUSDT", k1h, k4h, k1d))
+    r = I.compute("ETHUSDT", make_data(), dvol=None)
+    assert isinstance(r["scalp"], list)
+    fake = {"key": "vp_limit", "label": "Lệnh chờ tại mép vùng giá trị 7 ngày", "dir": 1, "entry": 3000.0, "limit": True, "tp": 3030.0, "sl": 2955.0,
+            "tp_atr": 1.0, "sl_atr": 1.5, "hold": 8, "wait": 4, "atr": 30.0, "t": 1, "stats": "ngoài mẫu: ETH PF 1,32", "poc": 3050.0}
+    text = report.scalp_alert(r, fake)
+    assert "SCALP 1h · LONG" in text and "3,000" in text and "POC 7 ngày" in text
+    fake.update(dir=-1, limit=False, key="squeeze_1d", poc=None)
+    assert "SHORT</b> ngay" in report.scalp_alert(r, fake)

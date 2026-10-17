@@ -206,6 +206,25 @@ def inside_alert(r):
     ])
 
 
+def scalp_alert(r, st):
+    up = st["dir"] == 1
+    side = "LONG" if up else "SHORT"
+    if st["limit"]:
+        entry = f"🎯 Đặt lệnh chờ <b>{side}</b> tại <b>{_fmt_price(st['entry'])}</b> ({'VAL' if up else 'VAH'} profile 7 ngày) · hủy nếu {st['wait']} giờ không khớp"
+    else:
+        entry = f"🎯 <b>{side}</b> ngay quanh <b>{_fmt_price(st['entry'])}</b> (giá mở nến 1h kế)"
+    body = [
+        f"Kiểu: {st['label']}",
+        entry,
+        f"✅ Chốt lời <b>{_fmt_price(st['tp'])}</b> ({st['tp_atr']:g} ATR) · 🛑 dừng lỗ <b>{_fmt_price(st['sl'])}</b> ({st['sl_atr']:g} ATR) · đóng sau {st['hold']} giờ nếu chưa chạm",
+        f"📚 Backtest 3 năm, {st['stats']}. Giả định lệnh chờ khớp khi giá chạm, phí maker 0,02%/taker 0,05%: lãi mỏng, chỉ nên thử với khối lượng nhỏ.",
+    ]
+    if st.get("poc"):
+        body.insert(2, f"POC 7 ngày {_fmt_price(st['poc'])}")
+    head = f"⚡ <b>SCALP 1h · {side}</b>\n{ICON.get(r['name'], '•')} <b>{r['name']}</b> · {_now()}"
+    return "\n".join([head, *body, "", f"📈 <a href=\"{TV.format(sym=r['symbol'])}\">Mở biểu đồ {r['name']}</a>"])
+
+
 def urgent_alert(r, sigs):
     body = "\n".join(f"🔴 {t}" for _, _, t in sigs)
     return (
