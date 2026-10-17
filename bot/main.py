@@ -11,7 +11,7 @@ import sys
 import time
 from datetime import datetime, timezone
 
-from . import binance, config as C, deribit, indicators, okx, report, telegram
+from . import binance, config as C, deribit, dominance, indicators, okx, report, telegram
 
 STATE_PATH = os.environ.get("STATE_PATH", "state/state.json")
 
@@ -97,9 +97,21 @@ def run(force_digest=False, dry=False):
         if urgent:
             sent.append(report.urgent_alert(r, urgent))
 
-    # 2. Bản tin mỗi giờ
+    # 2. Thị trường chung (dominance): báo khi dòng tiền đổi trạng thái
+    dom = None if os.environ.get("SKIP_DOMINANCE") else dominance.fetch()
+    ana = dominance.analyze(dom)
+    if ana:
+        prev_m = st.get("market_regime")
+        if prev_m is None:
+            st["market_regime"] = ana["regime"]
+        elif prev_m != ana["regime"]:
+            sent.append(report.market_alert(dom, ana, st.get("market_text") or prev_m))
+            st["market_regime"] = ana["regime"]
+        st["market_text"] = ana["text"]
+
+    # 3. Bản tin mỗi giờ
     if force_digest or st.get("last_digest_hour") != hour_key:
-        sent.append(report.hourly_digest(results))
+        sent.append(report.hourly_digest(results, dom, ana))
         st["last_digest_hour"] = hour_key
 
     for msg in sent:

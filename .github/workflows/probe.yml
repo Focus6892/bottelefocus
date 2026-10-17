@@ -20,12 +20,22 @@ jobs:
         run: |
           mkdir -p state
           {
-            echo "== TradingView scanner =="
+            for m in global crypto coin; do
+              echo "== TradingView scanner $m =="
+              curl -sS -m 20 -H 'User-Agent: Mozilla/5.0' -H 'Content-Type: application/json' \
+                -d '{"symbols":{"tickers":["CRYPTOCAP:BTC.D","CRYPTOCAP:USDT.D","CRYPTOCAP:OTHERS.D"],"query":{"types":[]}},"columns":["close","change","Perf.W","Perf.1M","EMA20","EMA50","RSI","ADX","Recommend.All"]}' \
+                https://scanner.tradingview.com/$m/scan | head -c 2000; echo
+            done
+            echo "== TradingView scanner global, cot don gian =="
             curl -sS -m 20 -H 'User-Agent: Mozilla/5.0' -H 'Content-Type: application/json' \
-              -d '{"symbols":{"tickers":["CRYPTOCAP:BTC.D","CRYPTOCAP:USDT.D","CRYPTOCAP:OTHERS.D"],"query":{"types":[]}},"columns":["close","change","Perf.W","Perf.1M","EMA20","EMA50","RSI","ADX","Recommend.All"]}' \
-              https://scanner.tradingview.com/crypto/scan | head -c 2000; echo
-            echo "== CoinGecko global =="
-            curl -sS -m 20 https://api.coingecko.com/api/v3/global | head -c 1500; echo
+              -d '{"symbols":{"tickers":["CRYPTOCAP:BTC.D","CRYPTOCAP:TOTAL","BINANCE:BTCUSDT"]},"columns":["close","change"]}' \
+              https://scanner.tradingview.com/global/scan | head -c 1000; echo
+            echo "== CoinGecko global percentage =="
+            curl -sS -m 20 https://api.coingecko.com/api/v3/global | python -c "import sys,json; g=json.load(sys.stdin)['data']; print(g['market_cap_percentage'], g['market_cap_change_percentage_24h_usd'])"
+            echo "== CoinGecko market_cap_chart (co the tra phi) =="
+            curl -sS -m 20 "https://api.coingecko.com/api/v3/global/market_cap_chart?days=30" | head -c 600; echo
+            echo "== CoinGecko bitcoin market_chart =="
+            curl -sS -m 20 "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=3&interval=daily" | head -c 400; echo
             echo "== bot.dominance =="
             DOMINANCE_HISTORY=/tmp/dom.jsonl python -m bot.dominance
           } 2>&1 | tee state/probe.log

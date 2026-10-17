@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 
 import requests
 
-TV_URL = "https://scanner.tradingview.com/crypto/scan"
+TV_URLS = ["https://scanner.tradingview.com/global/scan", "https://scanner.tradingview.com/crypto/scan", "https://scanner.tradingview.com/coin/scan"]
 TV_SYMS = {"BTC.D": "CRYPTOCAP:BTC.D", "USDT.D": "CRYPTOCAP:USDT.D", "OTHERS.D": "CRYPTOCAP:OTHERS.D"}
 TV_COLS = ["close", "change", "Perf.W", "Perf.1M", "EMA20", "EMA50", "RSI", "ADX", "Recommend.All"]
 CG_URL = "https://api.coingecko.com/api/v3/global"
@@ -21,10 +21,16 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (bottelefocus)", "Accept": "application/js
 
 def _tv(cols=TV_COLS):
     body = {"symbols": {"tickers": list(TV_SYMS.values()), "query": {"types": []}}, "columns": cols}
-    r = requests.post(TV_URL, json=body, headers=HEADERS, timeout=20)
-    r.raise_for_status()
+    data = []
+    for url in TV_URLS:
+        r = requests.post(url, json=body, headers=HEADERS, timeout=20)
+        if r.status_code == 200 and r.json().get("data"):
+            data = r.json()["data"]
+            break
+    if len(data) < len(TV_SYMS):
+        raise RuntimeError(f"scanner trả về {len(data)} dòng")
     out = {}
-    for row in r.json()["data"]:
+    for row in data:
         name = next(k for k, v in TV_SYMS.items() if v == row["s"])
         d = dict(zip(cols, row["d"]))
         out[name] = {
@@ -130,7 +136,7 @@ def _dir(d):
 
 def analyze(dom):
     """Đọc xu hướng thị trường chung từ 3 chỉ số dominance. Quy tắc chuẩn, chưa backtest."""
-    if not dom:
+    if not dom or any(k not in dom for k in ("BTC.D", "USDT.D", "OTHERS.D")):
         return None
     b, u, o = (_dir(dom[k]) for k in ("BTC.D", "USDT.D", "OTHERS.D"))
     if u == "up" and b == "up":

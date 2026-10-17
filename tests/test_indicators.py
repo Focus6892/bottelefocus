@@ -67,7 +67,7 @@ def test_score_rises_with_volatility():
 def test_report_renders():
     r = I.compute("BTCUSDT", make_data(), dvol=55.0)
     text = report.hourly_digest([r])
-    assert "BTC" in text and "Điểm biến động" in text
+    assert "BTC" in text and "biến động <b>" in text
     assert "DVOL 55" in text
     assert "Mở biểu đồ" in report.trend_alert(r, "up")
 
@@ -78,7 +78,7 @@ def test_daily_signals_cross_and_stop():
     dd = r["daily"]
     assert dd["regime"] in ("up", "down") and dd["stop"] is not None
     assert isinstance(dd["crossed"], bool) and dd["bars_in_regime"] >= 1
-    assert "Xu hướng ngày" in report.hourly_digest([r])
+    assert "Ngày:" in report.hourly_digest([r])
     assert "KHUNG NGÀY" in report.daily_trend_alert(r, "down")
 
 
@@ -103,3 +103,18 @@ def test_daily_vp_confirmation_fields():
     assert "Có xác nhận RSI" in report.vp_alert(r, "vp_1d", "inside")
     v["confirmed"] = False
     assert "Chưa xác nhận" in report.vp_alert(r, "vp_1d", "inside")
+
+
+def test_market_block_and_regimes():
+    from bot import dominance
+    base = lambda v, e20, e50, w: {"value": v, "ema20": e20, "ema50": e50, "chg_1w": w, "chg_1d": None, "chg_1m": None, "rsi": 75, "adx": None, "rating": None}
+    dom = {"BTC.D": base(55, 56, 57, -1.0), "USDT.D": base(4.0, 4.2, 4.4, -3.0), "OTHERS.D": base(10, 9.5, 9.0, 2.0)}
+    ana = dominance.analyze(dom)
+    assert ana["regime"] == "alt_season" and ana["dirs"] == {"BTC.D": "down", "USDT.D": "down", "OTHERS.D": "up"}
+    dom["USDT.D"] = base(5.0, 4.8, 4.6, 3.0); dom["BTC.D"] = base(58, 57, 56, 1.0)
+    ana = dominance.analyze(dom)
+    assert ana["regime"] == "risk_off_alt" and any("quá mua" in n for n in ana["notes"])
+    text = report.market_block(dom, ana)
+    assert "BTC.D <b>58.0%</b>" in text and "Tiền rút về stablecoin" in text
+    assert "Chưa lấy được" in report.market_block(None, None)
+    assert "DÒNG TIỀN THỊ TRƯỜNG ĐỔI" in report.market_alert(dom, ana, "trước")
