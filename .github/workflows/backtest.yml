@@ -52,7 +52,16 @@ jobs:
         run: |
           git config user.name "bottelefocus"
           git config user.email "bot@users.noreply.github.com"
-          git add backtest/results*.md backtest/results*.json backtest/last_run.log
-          git diff --cached --quiet || git commit -m "backtest: $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase origin ${{ github.ref_name }} || true
-          git push
+          # Chạy chồng nhau (cron + chạy tay) từng làm mất kết quả vì rebase xung đột: lấy đầu nhánh mới nhất,
+          # đặt kết quả của lần chạy này lên trên rồi đẩy, thử lại vài lần nếu bị từ chối.
+          for i in 1 2 3 4; do
+            git fetch -q origin ${{ github.ref_name }}
+            git reset -q FETCH_HEAD
+            git add backtest/results*.md backtest/results*.json backtest/last_run.log
+            git diff --cached --quiet && exit 0
+            git commit -q -m "backtest: $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push -q origin HEAD:${{ github.ref_name }} && exit 0
+            sleep $((5 * i))
+          done
+          echo "không đẩy được kết quả sau 4 lần" >&2
+          exit 1
