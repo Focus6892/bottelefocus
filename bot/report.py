@@ -217,7 +217,7 @@ def scalp_alert(r, st):
         f"Kiểu: {st['label']}",
         entry,
         f"✅ Chốt lời <b>{_fmt_price(st['tp'])}</b> ({st['tp_atr']:g} ATR) · 🛑 dừng lỗ <b>{_fmt_price(st['sl'])}</b> ({st['sl_atr']:g} ATR) · đóng sau {st['hold']} giờ nếu chưa chạm",
-        f"📚 Backtest 3 năm, {st['stats']}. Giả định lệnh chờ khớp khi giá chạm, phí maker 0,02%/taker 0,05%: lãi mỏng, chỉ nên thử với khối lượng nhỏ.",
+        f"📚 Backtest 3 năm, {st['stats']}. Giả định lệnh chờ khớp khi giá chạm, phí maker 0,02%, taker 0,05% + trượt giá 0,01%: lãi mỏng, chỉ nên thử với khối lượng nhỏ.",
     ]
     if st.get("poc"):
         body.insert(2, f"POC 7 ngày {_fmt_price(st['poc'])}")

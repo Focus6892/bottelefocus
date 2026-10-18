@@ -1,19 +1,20 @@
 """Tín hiệu scalp 1h, dùng lại đúng mã của backtest/scalp.py để bot và backtest không lệch nhau.
 
-Chỉ giữ hai cách còn lãi NGOÀI MẪU (11 tháng cuối, sau khi tối ưu tham số trên 70% đầu của 3 năm):
-  - vp_limit: lệnh chờ tại VAL/VAH của profile 7 ngày khi giá trong vùng và cách mép dưới 1 ATR
-              (ETH PF 1,30 +25%, SOL 1,34 +40%, BTC 1,05 +3% -> bỏ BTC). TP 1 ATR, SL 1,5 ATR, hủy sau 4 giờ, đóng sau 8 giờ.
-  - squeeze_1d: Bollinger hẹp nhất 48 giờ rồi bung với khối lượng 1,5x, cùng chiều EMA20/50 ngày
-              (BTC 1,18 +5%, ETH 1,45 +16%, SOL 1,35 +13%; chỉ ~0,2 lệnh/ngày). TP 3 ATR, SL 1,5 ATR, đóng sau 8 giờ.
-Giả định của backtest: lệnh chờ khớp ngay khi giá chạm mức (thực tế có thể không khớp), phí maker 0,02% / taker 0,05%.
+Kiểm lại bằng backtest đa khung (backtest/scalp_mtf.md: 21 cách trên 5m/15m/30m/1h, phí sát thực tế: taker 0,05% + trượt 0,01%,
+chốt lời bằng lệnh chờ 0,02%). 5m, 15m, 30m không cách nào có lãi ngoài mẫu. Ở 1h:
+  - vp_limit: lệnh chờ tại VAL/VAH của profile 7 ngày khi giá trong vùng và cách mép dưới 1 ATR. Đạt GIỮ
+              (ETH PF 1,32 +29%, SOL 1,37 +45%, BTC 1,06 +4% -> bỏ BTC). TP 1 ATR, SL 1,5 ATR, hủy sau 4 giờ, đóng sau 8 giờ.
+  - squeeze_1d: Bollinger hẹp nhất 48 giờ rồi bung với khối lượng 1,5x, cùng chiều EMA20/50 ngày. Chỉ ở mức THEO DÕI
+              (BTC 1,15, ETH 1,42, SOL 1,33 nhưng nửa sau ngoài mẫu PF 0,91; ~0,2 lệnh/ngày). TP 3 ATR, SL 1,5 ATR, đóng sau 8 giờ.
+Giả định của backtest: lệnh chờ khớp ngay khi giá chạm mức (thực tế có thể không khớp).
 """
 from backtest import scalp as S
 
 SETUPS = {
     "vp_limit": dict(label="Lệnh chờ tại mép vùng giá trị 7 ngày", fn=S.sig_vp_limit, use_regime=False, tp=1.0, sl=1.5, hold=8, wait=4,
-                     symbols=("ETHUSDT", "SOLUSDT"), stats="ngoài mẫu 11 tháng: ETH PF 1,30 (+25%), SOL 1,34 (+40%); BTC gần hòa nên bỏ"),
+                     symbols=("ETHUSDT", "SOLUSDT"), stats="ngoài mẫu 11 tháng, phí sát thực tế: ETH PF 1,32 (+29%), SOL 1,37 (+45%); BTC gần hòa nên bỏ"),
     "squeeze_1d": dict(label="Nén Bollinger 48 giờ rồi bung, cùng chiều ngày", fn=S.sig_squeeze, use_regime=True, tp=3.0, sl=1.5, hold=8, wait=0,
-                       symbols=("BTCUSDT", "ETHUSDT", "SOLUSDT"), stats="ngoài mẫu 11 tháng: BTC PF 1,18 (+5%), ETH 1,45 (+16%), SOL 1,35 (+13%)"),
+                       symbols=("BTCUSDT", "ETHUSDT", "SOLUSDT"), stats="ngoài mẫu 11 tháng, phí sát thực tế: BTC PF 1,15 (+4%), ETH 1,42 (+15%), SOL 1,33 (+12%) nhưng nửa sau ngoài mẫu PF 0,91, mới ở mức theo dõi"),
 }
 
 
