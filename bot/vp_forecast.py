@@ -2,7 +2,7 @@
 
 Với mỗi khung (1h: profile 7 ngày, 4h: 30 ngày, 1D: 90 ngày) tính đặc trưng profile hiện tại (vị trí giá so với vùng giá trị,
 độ rộng vùng, dạng profile, node khối lượng, khoảng cách tới POC) rồi tra bảng thống kê GỘP 3 đồng: nhóm nào có xác suất
-mở rộng biến động / xác suất tăng lệch nền với |z| >= 2 (n >= 200) thì tính là bằng chứng. Không có thống kê -> không dự báo.
+mở rộng biến động / xác suất tăng lệch nền với |z| >= 2 (n >= 200) và lệch ít nhất 3 điểm thì tính là bằng chứng. Không có thống kê -> không dự báo.
 """
 import json
 import math
@@ -16,7 +16,7 @@ HORIZONS = {  # tên hiển thị -> [(khung, chân trời trong nghiên cứu)]
     "24 giờ tới": [("1h", "24 giờ"), ("4h", "24 giờ")],
     "7 ngày tới": [("4h", "7 ngày"), ("1d", "7 ngày")],
 }
-MIN_N, Z_MIN = 200, 2.0
+MIN_N, Z_MIN, D_MIN = 200, 2.0, 0.03
 _cache = {}
 
 
@@ -114,8 +114,10 @@ def evidence(pooled, frame, horizon, feats):
         g = r["groups"].get(f"{key}={val}")
         if not g:
             continue
-        sig_e, sig_u = abs(g["z_expand"]) >= Z_MIN, abs(g["z_up"]) >= Z_MIN
-        sig_c = g["z_cont"] is not None and abs(g["z_cont"]) >= Z_MIN
+        # có ý nghĩa thống kê (|z| >= 2) VÀ đủ lớn để đáng nói (>= 3 điểm): mẫu lớn làm lệch 1-2 điểm cũng "có ý nghĩa"
+        sig_e = abs(g["z_expand"]) >= Z_MIN and abs(g["p_expand"] - base["p_expand"]) >= D_MIN
+        sig_u = abs(g["z_up"]) >= Z_MIN and abs(g["p_up"] - base["p_up"]) >= D_MIN
+        sig_c = g["z_cont"] is not None and abs(g["z_cont"]) >= Z_MIN and abs(g["cont"] - 0.5) >= D_MIN
         if sig_e or sig_u or sig_c:
             hits.append({"desc": _label(key, val), "n": g["n"], "d_expand": g["p_expand"] - base["p_expand"], "d_up": g["p_up"] - base["p_up"],
                          "range_ratio": g["range_ratio"], "cont": g["cont"], "sig_e": sig_e, "sig_u": sig_u, "sig_c": sig_c, "side": feats.get("side", 0)})
