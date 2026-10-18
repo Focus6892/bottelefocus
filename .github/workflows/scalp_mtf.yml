@@ -9,6 +9,9 @@ on:
       frames:
         description: "Khung chạy, cách nhau dấu phẩy"
         default: "5m,15m,30m,1h"
+      gross:
+        description: "Chạy trước phí (đo lợi thế thô): 0 = không, 1 = thêm, only = chỉ chạy trước phí"
+        default: "0"
 
 permissions:
   contents: write
@@ -40,7 +43,8 @@ jobs:
             python backtest/fetch_history.py 2200 1Dutc &&
             python backtest/fetch_history.py $(( ${{ inputs.days }} + 60 )) 4H &&
             python backtest/fetch_history.py ${{ inputs.days }} 5m &&
-            python backtest/scalp_mtf.py ${{ inputs.frames }}
+            if [ "${{ inputs.gross }}" != "only" ]; then python backtest/scalp_mtf.py ${{ inputs.frames }}; fi &&
+            if [ "${{ inputs.gross }}" != "0" ]; then SCALP_GROSS=1 python backtest/scalp_mtf.py ${{ inputs.frames }}; fi
           } 2>&1 | tee backtest/scalp_mtf_log.txt
       - name: Lưu kết quả
         if: always()
@@ -52,7 +56,7 @@ jobs:
           for i in 1 2 3 4; do
             git fetch -q origin ${{ github.ref_name }}
             git reset -q FETCH_HEAD
-            git add backtest/scalp_mtf.md backtest/scalp_mtf.json backtest/scalp_mtf_log.txt
+            git add backtest/scalp_mtf*.md backtest/scalp_mtf*.json backtest/scalp_mtf_log.txt
             git diff --cached --quiet && exit 0
             git commit -q -m "scalp-mtf: $(date -u +%Y-%m-%dT%H:%MZ)"
             git push -q origin HEAD:${{ github.ref_name }} && exit 0

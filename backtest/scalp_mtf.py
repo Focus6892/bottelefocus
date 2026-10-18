@@ -28,6 +28,10 @@ except ImportError:  # chạy trực tiếp
 DATA = S.DATA
 SYMS = S.SYMS
 TAKER, MAKER, SLIP = 0.0005, 0.0002, 0.0001
+GROSS = os.environ.get("SCALP_GROSS") == "1"  # chạy kiểm tra TRƯỚC phí: mọi chi phí = 0, ghi ra scalp_mtf_gross.*
+if GROSS:
+    TAKER = MAKER = SLIP = 0.0
+SUFFIX = "_gross" if GROSS else ""
 TP_GRID, SL_GRID, HOLD_GRID = S.TP_GRID, S.SL_GRID, S.HOLD_GRID
 MAX_HOLD = max(HOLD_GRID)
 DAY, HOUR, BASE_MS = 86_400_000, 3_600_000, 300_000
@@ -471,8 +475,12 @@ def prepare(k, atr, sigs, wait=4, max_hold=MAX_HOLD):
     return out
 
 
-def run_combo(k, prep, ti, si, hold, lo_i, hi_i, fee_tp=MAKER, slip=SLIP, fee_in_market=TAKER, fee_stop=TAKER):
+def run_combo(k, prep, ti, si, hold, lo_i, hi_i, fee_tp=None, slip=None, fee_in_market=None, fee_stop=None):
     """Chạy một tổ hợp (chỉ số TP, chỉ số SL, giữ) trên các tín hiệu có lo_i <= i < hi_i. Trả về [(i, j, nến ra, lợi nhuận)]."""
+    fee_tp = MAKER if fee_tp is None else fee_tp
+    slip = SLIP if slip is None else slip
+    fee_in_market = TAKER if fee_in_market is None else fee_in_market
+    fee_stop = TAKER if fee_stop is None else fee_stop
     n, trades, busy = len(k), [], -1
     for e in prep:
         i = e[0]
@@ -616,7 +624,7 @@ def run(frames=None):
             by_f["_chosen"] = max(cands)[1] if cands else None
         out["frames"][tf] = res
         out["meta"][tf] = {s: meta[tf][s] for s in SYMS}
-    with open(os.path.join(os.path.dirname(__file__), "scalp_mtf.json"), "w") as fh:
+    with open(os.path.join(os.path.dirname(__file__), f"scalp_mtf{SUFFIX}.json"), "w") as fh:
         json.dump(out, fh, indent=1, ensure_ascii=False)
     write_md(out)
     return out
@@ -634,7 +642,7 @@ def _cell(m):
 
 def write_md(out):
     frames = list(out["frames"])
-    L = ["# Scalp đa khung · 5m, 15m, 30m, 1h · nến 5m OKX 3 năm gộp lên", "",
+    L = ["# Scalp đa khung · 5m, 15m, 30m, 1h · nến 5m OKX 3 năm gộp lên" + (" · KIỂM TRA TRƯỚC PHÍ (mọi chi phí = 0, chỉ để đo lợi thế thô)" if GROSS else ""), "",
          "Mỗi ô: PF trung bình NGOÀI MẪU của 3 đồng (BTC, ETH, SOL) · lãi trung bình mỗi đồng · lệnh/ngày/đồng · kết luận. "
          "Bộ lọc khung lớn và tham số TP/SL/giữ đều chọn TRONG MẪU (70% đầu); ngoài mẫu là 30% cuối, chưa từng dùng để chọn. "
          "Chi phí: vào lệnh thị trường 0,05% + trượt 0,01%; chốt lời bằng lệnh chờ 0,02%; dừng lỗ 0,05% + trượt 0,01%.", ""]
@@ -678,7 +686,7 @@ def write_md(out):
                 if not r.get("best"):
                     L.append(f"| {r['label']} | {FILTER_LABEL[f]} | {sig} | không có | | | | | BỎ |"); continue
                 L.append(f"| {r['label']} | {FILTER_LABEL[f]} | {sig} | {r['best']} | {_fmt(r['is_pf'])} | " + " | ".join(_cell(r["oos"][s]) for s in SYMS) + f" | {r['verdict']} |")
-    with open(os.path.join(os.path.dirname(__file__), "scalp_mtf.md"), "w") as fh:
+    with open(os.path.join(os.path.dirname(__file__), f"scalp_mtf{SUFFIX}.md"), "w") as fh:
         fh.write("\n".join(L) + "\n")
 
 
