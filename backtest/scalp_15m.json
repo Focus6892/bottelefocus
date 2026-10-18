@@ -2,96 +2,96 @@
  "tf": "15m",
  "BTC": {
   "bars": 105119,
-  "from": 1697652900000,
-  "to": 1792259100000,
+  "from": 1697674500000,
+  "to": 1792280700000,
   "cut": 73583,
   "strats": {
    "vp_rotation": {
-    "n_signals": 5398,
+    "n_signals": 5407,
     "default_oos": {
-     "n": 999,
-     "win_rate": 0.3843843843843844,
-     "avg_trade": -0.09598260539286449,
-     "profit_factor": 0.5972474621840553,
-     "total_return": -62.02092907543268,
-     "max_drawdown": 62.02092907543268,
-     "per_day": 3.041095890410959,
-     "avg_hold": 4.747747747747748
+     "n": 1023,
+     "win_rate": 0.38220918866080156,
+     "avg_trade": -0.09997459725249662,
+     "profit_factor": 0.5834339369667048,
+     "total_return": -64.36905316047519,
+     "max_drawdown": 64.76193801523517,
+     "per_day": 3.1141552511415527,
+     "avg_hold": 4.648093841642229
     },
     "label": "VP: từ chối tại VAL/VAH, TP/SL theo ATR",
     "fee_in": 0.0005
    },
    "vp_rotation+1d": {
-    "n_signals": 2760,
+    "n_signals": 2780,
     "default_oos": {
-     "n": 512,
-     "win_rate": 0.361328125,
-     "avg_trade": -0.11044214946271595,
-     "profit_factor": 0.5453066656531155,
-     "total_return": -43.436879943672324,
-     "max_drawdown": 43.436879943672324,
-     "per_day": 1.5585996955859969,
-     "avg_hold": 4.779296875
+     "n": 531,
+     "win_rate": 0.3747645951035782,
+     "avg_trade": -0.10445238893656088,
+     "profit_factor": 0.5701998201317867,
+     "total_return": -42.83955321343894,
+     "max_drawdown": 43.09636875809871,
+     "per_day": 1.6164383561643836,
+     "avg_hold": 4.694915254237288
     },
     "label": "VP: từ chối tại VAL/VAH, TP/SL theo ATR · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "vp_rotation_poc": {
-    "n_signals": 5398,
+    "n_signals": 5407,
     "default_oos": {
-     "n": 1094,
-     "win_rate": 0.24954296160877515,
-     "avg_trade": -0.11037695410096512,
-     "profit_factor": 0.44775191913795637,
-     "total_return": -70.30744015540043,
-     "max_drawdown": 70.30744015540043,
-     "per_day": 3.330289193302892,
-     "avg_hold": 3.6480804387568555
+     "n": 1111,
+     "win_rate": 0.2565256525652565,
+     "avg_trade": -0.10047740271316541,
+     "profit_factor": 0.4820222922781771,
+     "total_return": -67.48226364687525,
+     "max_drawdown": 67.64634537247403,
+     "per_day": 3.382039573820396,
+     "avg_hold": 3.64986498649865
     },
     "label": "VP: từ chối tại VAL/VAH, chốt tại POC, dừng dưới nến",
     "fee_in": 0.0005
    },
    "vp_rotation_poc+1d": {
-    "n_signals": 2760,
+    "n_signals": 2780,
     "default_oos": {
-     "n": 559,
-     "win_rate": 0.22182468694096602,
-     "avg_trade": -0.12668227895199174,
-     "profit_factor": 0.3851042085365443,
-     "total_return": -50.90244089109799,
-     "max_drawdown": 50.90244089109799,
-     "per_day": 1.7016742770167428,
-     "avg_hold": 3.558139534883721
+     "n": 579,
+     "win_rate": 0.2538860103626943,
+     "avg_trade": -0.11070418450760244,
+     "profit_factor": 0.43697130258486266,
+     "total_return": -47.499111143935615,
+     "max_drawdown": 47.56319669901769,
+     "per_day": 1.7625570776255708,
+     "avg_hold": 3.488773747841105
     },
     "label": "VP: từ chối tại VAL/VAH, chốt tại POC, dừng dưới nến · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "vp_limit": {
-    "n_signals": 9223,
+    "n_signals": 9209,
     "default_oos": {
-     "n": 1268,
-     "win_rate": 0.38170347003154576,
-     "avg_trade": -0.07473802233275763,
-     "profit_factor": 0.6610978085214185,
-     "total_return": -61.647647323000555,
-     "max_drawdown": 62.18729997896196,
-     "per_day": 3.8599695585996954,
-     "avg_hold": 4.829652996845426
+     "n": 1275,
+     "win_rate": 0.3764705882352941,
+     "avg_trade": -0.07699923144030003,
+     "profit_factor": 0.6529902098705003,
+     "total_return": -62.9380820871252,
+     "max_drawdown": 63.60222522034225,
+     "per_day": 3.8812785388127855,
+     "avg_hold": 4.746666666666667
     },
     "label": "VP: lệnh chờ tại VAL/VAH (phí maker)",
     "fee_in": 0.0002
    },
    "vp_limit+1d": {
-    "n_signals": 4683,
+    "n_signals": 4688,
     "default_oos": {
-     "n": 653,
-     "win_rate": 0.36906584992343033,
-     "avg_trade": -0.07885638503966651,
-     "profit_factor": 0.6436728859899485,
-     "total_return": -40.55644946621746,
-     "max_drawdown": 41.422785441754925,
-     "per_day": 1.9878234398782344,
-     "avg_hold": 4.88208269525268
+     "n": 663,
+     "win_rate": 0.3861236802413273,
+     "avg_trade": -0.06974928559221791,
+     "profit_factor": 0.6777502996675028,
+     "total_return": -37.358744177313284,
+     "max_drawdown": 38.098423416207496,
+     "per_day": 2.0182648401826486,
+     "avg_hold": 4.832579185520362
     },
     "label": "VP: lệnh chờ tại VAL/VAH (phí maker) · lọc xu hướng ngày",
     "fee_in": 0.0002
@@ -99,20 +99,20 @@
    "pullback": {
     "n_signals": 4015,
     "default_oos": {
-     "n": 886,
-     "win_rate": 0.38261851015801357,
-     "avg_trade": -0.1137204994830069,
-     "profit_factor": 0.5224486722913347,
-     "total_return": -63.769339220477846,
+     "n": 888,
+     "win_rate": 0.38175675675675674,
+     "avg_trade": -0.11396564354126063,
+     "profit_factor": 0.5213487506993706,
+     "total_return": -63.93043385000632,
      "max_drawdown": 64.11843530447956,
-     "per_day": 2.6971080669710807,
-     "avg_hold": 5.251693002257336
+     "per_day": 2.7031963470319633,
+     "avg_hold": 5.24436936936937
     },
     "label": "Hồi theo xu hướng 4h: RSI<40/EMA20 rồi vượt đỉnh nến trước",
     "fee_in": 0.0005
    },
    "pullback+1d": {
-    "n_signals": 2542,
+    "n_signals": 2540,
     "default_oos": {
      "n": 534,
      "win_rate": 0.3913857677902622,
@@ -127,37 +127,37 @@
     "fee_in": 0.0005
    },
    "vwap_bounce": {
-    "n_signals": 14309,
+    "n_signals": 14310,
     "default_oos": {
-     "n": 2416,
-     "win_rate": 0.3878311258278146,
-     "avg_trade": -0.10132674036882446,
-     "profit_factor": 0.5703573705306134,
-     "total_return": -91.53528342960387,
-     "max_drawdown": 91.99866023591765,
-     "per_day": 7.354642313546423,
-     "avg_hold": 5.203642384105961
+     "n": 2417,
+     "win_rate": 0.38725693007860984,
+     "avg_trade": -0.10190106201169839,
+     "profit_factor": 0.5680818116818065,
+     "total_return": -91.66027562786545,
+     "max_drawdown": 91.99866023591767,
+     "per_day": 7.357686453576864,
+     "avg_hold": 5.203971865949524
     },
     "label": "VWAP phiên: xuyên -1 sd rồi đóng lại",
     "fee_in": 0.0005
    },
    "vwap_bounce+1d": {
-    "n_signals": 7058,
+    "n_signals": 7059,
     "default_oos": {
      "n": 1320,
      "win_rate": 0.3878787878787879,
-     "avg_trade": -0.10063509026110959,
-     "profit_factor": 0.5653633997248614,
-     "total_return": -73.7966426110592,
-     "max_drawdown": 74.23007082935216,
+     "avg_trade": -0.10110655493642019,
+     "profit_factor": 0.5633271735626436,
+     "total_return": -73.95883209649202,
+     "max_drawdown": 74.23007082935227,
      "per_day": 4.018264840182648,
-     "avg_hold": 5.131060606060606
+     "avg_hold": 5.134848484848485
     },
     "label": "VWAP phiên: xuyên -1 sd rồi đóng lại · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "squeeze": {
-    "n_signals": 2748,
+    "n_signals": 2746,
     "default_oos": {
      "n": 508,
      "win_rate": 0.3700787401574803,
@@ -172,7 +172,7 @@
     "fee_in": 0.0005
    },
    "squeeze+1d": {
-    "n_signals": 1376,
+    "n_signals": 1374,
     "default_oos": {
      "n": 259,
      "win_rate": 0.3861003861003861,
@@ -187,31 +187,31 @@
     "fee_in": 0.0005
    },
    "lvn_break": {
-    "n_signals": 1884,
+    "n_signals": 1847,
     "default_oos": {
-     "n": 569,
-     "win_rate": 0.4007029876977153,
-     "avg_trade": -0.10693085759320553,
-     "profit_factor": 0.547219875602493,
-     "total_return": -45.83236956676735,
-     "max_drawdown": 46.152152294964424,
-     "per_day": 1.7321156773211568,
-     "avg_hold": 3.1195079086115993
+     "n": 557,
+     "win_rate": 0.400359066427289,
+     "avg_trade": -0.10349514143227008,
+     "profit_factor": 0.5598901972729075,
+     "total_return": -44.06999489183333,
+     "max_drawdown": 44.06999489183333,
+     "per_day": 1.69558599695586,
+     "avg_hold": 3.1526032315978454
     },
     "label": "VP: thoát vùng qua node khối lượng thấp + khối lượng 1,2x",
     "fee_in": 0.0005
    },
    "lvn_break+1d": {
-    "n_signals": 947,
+    "n_signals": 938,
     "default_oos": {
-     "n": 299,
-     "win_rate": 0.3979933110367893,
-     "avg_trade": -0.11012285232410222,
-     "profit_factor": 0.5480300766191002,
-     "total_return": -28.245057528895533,
-     "max_drawdown": 28.245057528895533,
-     "per_day": 0.9101978691019786,
-     "avg_hold": 3.1638795986622075
+     "n": 298,
+     "win_rate": 0.41946308724832215,
+     "avg_trade": -0.0933724685619779,
+     "profit_factor": 0.6031062238993029,
+     "total_return": -24.488951063621688,
+     "max_drawdown": 24.488951063621688,
+     "per_day": 0.9071537290715372,
+     "avg_hold": 3.1812080536912752
     },
     "label": "VP: thoát vùng qua node khối lượng thấp + khối lượng 1,2x · lọc xu hướng ngày",
     "fee_in": 0.0005
@@ -250,21 +250,21 @@
  },
  "ETH": {
   "bars": 105119,
-  "from": 1697652900000,
-  "to": 1792259100000,
+  "from": 1697674500000,
+  "to": 1792280700000,
   "cut": 73583,
   "strats": {
    "vp_rotation": {
     "n_signals": 5822,
     "default_oos": {
-     "n": 1055,
-     "win_rate": 0.4151658767772512,
-     "avg_trade": -0.07499244895951113,
-     "profit_factor": 0.7404726306098902,
-     "total_return": -55.436966194292125,
-     "max_drawdown": 57.25389998555121,
-     "per_day": 3.2115677321156775,
-     "avg_hold": 5.107109004739336
+     "n": 1054,
+     "win_rate": 0.4155597722960152,
+     "avg_trade": -0.07451345347494454,
+     "profit_factor": 0.7418837620218338,
+     "total_return": -55.17705871542461,
+     "max_drawdown": 57.2538999855511,
+     "per_day": 3.208523592085236,
+     "avg_hold": 5.10910815939279
     },
     "label": "VP: từ chối tại VAL/VAH, TP/SL theo ATR",
     "fee_in": 0.0005
@@ -272,14 +272,14 @@
    "vp_rotation+1d": {
     "n_signals": 3052,
     "default_oos": {
-     "n": 523,
-     "win_rate": 0.40152963671128106,
-     "avg_trade": -0.09227497875538715,
-     "profit_factor": 0.6873335043827693,
-     "total_return": -38.76993943685346,
-     "max_drawdown": 40.224707705537945,
-     "per_day": 1.5920852359208524,
-     "avg_hold": 5.263862332695985
+     "n": 522,
+     "win_rate": 0.40229885057471265,
+     "avg_trade": -0.0913409199221739,
+     "profit_factor": 0.6899253925419675,
+     "total_return": -38.41282392399924,
+     "max_drawdown": 40.224707705537966,
+     "per_day": 1.5890410958904109,
+     "avg_hold": 5.268199233716475
     },
     "label": "VP: từ chối tại VAL/VAH, TP/SL theo ATR · lọc xu hướng ngày",
     "fee_in": 0.0005
@@ -287,14 +287,14 @@
    "vp_rotation_poc": {
     "n_signals": 5822,
     "default_oos": {
-     "n": 1166,
-     "win_rate": 0.3241852487135506,
-     "avg_trade": -0.0753823246223994,
-     "profit_factor": 0.6641885966523216,
-     "total_return": -59.04806495769888,
+     "n": 1165,
+     "win_rate": 0.3244635193133047,
+     "avg_trade": -0.07525333284977363,
+     "profit_factor": 0.664761714054987,
+     "total_return": -58.9554447420209,
      "max_drawdown": 61.086545436266725,
-     "per_day": 3.549467275494673,
-     "avg_hold": 3.9691252144082334
+     "per_day": 3.5464231354642313,
+     "avg_hold": 3.9716738197424895
     },
     "label": "VP: từ chối tại VAL/VAH, chốt tại POC, dừng dưới nến",
     "fee_in": 0.0005
@@ -302,20 +302,20 @@
    "vp_rotation_poc+1d": {
     "n_signals": 3052,
     "default_oos": {
-     "n": 584,
-     "win_rate": 0.3184931506849315,
-     "avg_trade": -0.07258194653961672,
-     "profit_factor": 0.6770790064833409,
-     "total_return": -35.00926009485487,
-     "max_drawdown": 35.37680855493358,
-     "per_day": 1.7777777777777777,
-     "avg_hold": 3.9743150684931505
+     "n": 583,
+     "win_rate": 0.3190394511149228,
+     "avg_trade": -0.07231938085661192,
+     "profit_factor": 0.6782449879534569,
+     "total_return": -34.86227176961766,
+     "max_drawdown": 35.37680855493345,
+     "per_day": 1.7747336377473364,
+     "avg_hold": 3.979416809605489
     },
     "label": "VP: từ chối tại VAL/VAH, chốt tại POC, dừng dưới nến · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "vp_limit": {
-    "n_signals": 9443,
+    "n_signals": 9440,
     "default_oos": {
      "n": 1253,
      "win_rate": 0.3974461292897047,
@@ -330,7 +330,7 @@
     "fee_in": 0.0002
    },
    "vp_limit+1d": {
-    "n_signals": 4916,
+    "n_signals": 4913,
     "default_oos": {
      "n": 647,
      "win_rate": 0.3956723338485317,
@@ -347,20 +347,20 @@
    "pullback": {
     "n_signals": 3686,
     "default_oos": {
-     "n": 894,
-     "win_rate": 0.38814317673378074,
-     "avg_trade": -0.11231870443987178,
-     "profit_factor": 0.6237259734682479,
-     "total_return": -63.86391351091139,
-     "max_drawdown": 64.01438734521909,
-     "per_day": 2.721461187214612,
-     "avg_hold": 5.019015659955257
+     "n": 896,
+     "win_rate": 0.3872767857142857,
+     "avg_trade": -0.11282488164079428,
+     "profit_factor": 0.6221449214178046,
+     "total_return": -64.10856496385087,
+     "max_drawdown": 64.13173319470975,
+     "per_day": 2.7275494672754945,
+     "avg_hold": 5.013392857142857
     },
     "label": "Hồi theo xu hướng 4h: RSI<40/EMA20 rồi vượt đỉnh nến trước",
     "fee_in": 0.0005
    },
    "pullback+1d": {
-    "n_signals": 2410,
+    "n_signals": 2408,
     "default_oos": {
      "n": 562,
      "win_rate": 0.3914590747330961,
@@ -375,37 +375,37 @@
     "fee_in": 0.0005
    },
    "vwap_bounce": {
-    "n_signals": 14290,
+    "n_signals": 14291,
     "default_oos": {
      "n": 2471,
-     "win_rate": 0.38526912181303113,
-     "avg_trade": -0.1132928167670027,
-     "profit_factor": 0.6212379189885,
-     "total_return": -94.140081049478,
-     "max_drawdown": 94.38131064251188,
+     "win_rate": 0.3848644273573452,
+     "avg_trade": -0.11384391508895655,
+     "profit_factor": 0.6195698188877784,
+     "total_return": -94.2191730827584,
+     "max_drawdown": 94.3813106425119,
      "per_day": 7.5220700152207005,
-     "avg_hold": 5.371914204775394
+     "avg_hold": 5.376770538243626
     },
     "label": "VWAP phiên: xuyên -1 sd rồi đóng lại",
     "fee_in": 0.0005
    },
    "vwap_bounce+1d": {
-    "n_signals": 7204,
+    "n_signals": 7208,
     "default_oos": {
-     "n": 1279,
-     "win_rate": 0.40265832681782643,
-     "avg_trade": -0.09162746092102528,
-     "profit_factor": 0.6788108800127439,
-     "total_return": -69.59296023127905,
-     "max_drawdown": 70.09698809193155,
-     "per_day": 3.893455098934551,
-     "avg_hold": 5.489444878811572
+     "n": 1280,
+     "win_rate": 0.40234375,
+     "avg_trade": -0.09213082313837391,
+     "profit_factor": 0.6770936566579907,
+     "total_return": -69.81563893666689,
+     "max_drawdown": 70.09698809193145,
+     "per_day": 3.896499238964992,
+     "avg_hold": 5.49765625
     },
     "label": "VWAP phiên: xuyên -1 sd rồi đóng lại · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "squeeze": {
-    "n_signals": 2768,
+    "n_signals": 2767,
     "default_oos": {
      "n": 515,
      "win_rate": 0.42135922330097086,
@@ -420,7 +420,7 @@
     "fee_in": 0.0005
    },
    "squeeze+1d": {
-    "n_signals": 1367,
+    "n_signals": 1366,
     "default_oos": {
      "n": 258,
      "win_rate": 0.4108527131782946,
@@ -435,16 +435,16 @@
     "fee_in": 0.0005
    },
    "lvn_break": {
-    "n_signals": 1902,
+    "n_signals": 1903,
     "default_oos": {
-     "n": 546,
-     "win_rate": 0.41025641025641024,
-     "avg_trade": -0.1111871158673548,
-     "profit_factor": 0.6530852231987831,
-     "total_return": -46.02100142676806,
-     "max_drawdown": 47.351100066036565,
-     "per_day": 1.6621004566210045,
-     "avg_hold": 2.967032967032967
+     "n": 547,
+     "win_rate": 0.40950639853747717,
+     "avg_trade": -0.1116473736077052,
+     "profit_factor": 0.651733492247898,
+     "total_return": -46.216917176401736,
+     "max_drawdown": 47.54218824793304,
+     "per_day": 1.665144596651446,
+     "avg_hold": 2.963436928702011
     },
     "label": "VP: thoát vùng qua node khối lượng thấp + khối lượng 1,2x",
     "fee_in": 0.0005
@@ -465,7 +465,7 @@
     "fee_in": 0.0005
    },
    "orb": {
-    "n_signals": 1759,
+    "n_signals": 1758,
     "default_oos": {
      "n": 517,
      "win_rate": 0.3617021276595745,
@@ -480,7 +480,7 @@
     "fee_in": 0.0005
    },
    "orb+1d": {
-    "n_signals": 872,
+    "n_signals": 871,
     "default_oos": {
      "n": 270,
      "win_rate": 0.37037037037037035,
@@ -498,117 +498,117 @@
  },
  "SOL": {
   "bars": 105119,
-  "from": 1697652900000,
-  "to": 1792259100000,
+  "from": 1697674500000,
+  "to": 1792280700000,
   "cut": 73583,
   "strats": {
    "vp_rotation": {
-    "n_signals": 5855,
+    "n_signals": 5856,
     "default_oos": {
-     "n": 1059,
-     "win_rate": 0.37110481586402266,
-     "avg_trade": -0.12955348192140514,
-     "profit_factor": 0.6282422246443871,
-     "total_return": -75.1633219056191,
-     "max_drawdown": 75.45451558484604,
-     "per_day": 3.223744292237443,
-     "avg_hold": 4.959395656279509
+     "n": 1058,
+     "win_rate": 0.3714555765595463,
+     "avg_trade": -0.12910072496329333,
+     "profit_factor": 0.6292799195129117,
+     "total_return": -75.01124777031258,
+     "max_drawdown": 75.30422441853429,
+     "per_day": 3.2207001522070016,
+     "avg_hold": 4.96124763705104
     },
     "label": "VP: từ chối tại VAL/VAH, TP/SL theo ATR",
     "fee_in": 0.0005
    },
    "vp_rotation+1d": {
-    "n_signals": 3017,
+    "n_signals": 3018,
     "default_oos": {
-     "n": 566,
-     "win_rate": 0.3480565371024735,
-     "avg_trade": -0.15657841494932453,
-     "profit_factor": 0.5567058169176352,
-     "total_return": -59.186632602291475,
-     "max_drawdown": 59.2439111168645,
-     "per_day": 1.7229832572298325,
-     "avg_hold": 5.042402826855124
+     "n": 565,
+     "win_rate": 0.3486725663716814,
+     "avg_trade": -0.155778429234892,
+     "profit_factor": 0.5584056422280654,
+     "total_return": -58.936733741728474,
+     "max_drawdown": 58.99436297069827,
+     "per_day": 1.7199391171993912,
+     "avg_hold": 5.046017699115044
     },
     "label": "VP: từ chối tại VAL/VAH, TP/SL theo ATR · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "vp_rotation_poc": {
-    "n_signals": 5855,
+    "n_signals": 5856,
     "default_oos": {
-     "n": 1220,
-     "win_rate": 0.2639344262295082,
-     "avg_trade": -0.10873243492709553,
-     "profit_factor": 0.5655930862985574,
-     "total_return": -73.87709209667442,
-     "max_drawdown": 73.87709209667442,
-     "per_day": 3.713850837138508,
-     "avg_hold": 3.569672131147541
+     "n": 1219,
+     "win_rate": 0.2641509433962264,
+     "avg_trade": -0.10865730453537294,
+     "profit_factor": 0.5659643507172982,
+     "total_return": -73.82465859969071,
+     "max_drawdown": 73.82465859969071,
+     "per_day": 3.710806697108067,
+     "avg_hold": 3.571780147662018
     },
     "label": "VP: từ chối tại VAL/VAH, chốt tại POC, dừng dưới nến",
     "fee_in": 0.0005
    },
    "vp_rotation_poc+1d": {
-    "n_signals": 3017,
+    "n_signals": 3018,
     "default_oos": {
-     "n": 653,
-     "win_rate": 0.24961715160796324,
-     "avg_trade": -0.12218118092720064,
-     "profit_factor": 0.5142065219437254,
-     "total_return": -55.3337792632852,
-     "max_drawdown": 55.3337792632852,
-     "per_day": 1.9878234398782344,
-     "avg_hold": 3.490045941807044
+     "n": 652,
+     "win_rate": 0.25,
+     "avg_trade": -0.12206134166108146,
+     "profit_factor": 0.514834462103161,
+     "total_return": -55.24412591539083,
+     "max_drawdown": 55.24412591539083,
+     "per_day": 1.9847792998477929,
+     "avg_hold": 3.4938650306748467
     },
     "label": "VP: từ chối tại VAL/VAH, chốt tại POC, dừng dưới nến · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "vp_limit": {
-    "n_signals": 9528,
+    "n_signals": 9527,
     "default_oos": {
      "n": 1312,
      "win_rate": 0.3871951219512195,
-     "avg_trade": -0.08785974530425096,
-     "profit_factor": 0.7291137218499859,
-     "total_return": -69.2411548518914,
-     "max_drawdown": 69.68931830430033,
+     "avg_trade": -0.08783591846270304,
+     "profit_factor": 0.7291672880353752,
+     "total_return": -69.23148632026025,
+     "max_drawdown": 69.52204041478868,
      "per_day": 3.993911719939117,
-     "avg_hold": 4.952743902439025
+     "avg_hold": 4.953506097560975
     },
     "label": "VP: lệnh chờ tại VAL/VAH (phí maker)",
     "fee_in": 0.0002
    },
    "vp_limit+1d": {
-    "n_signals": 4897,
+    "n_signals": 4899,
     "default_oos": {
      "n": 709,
      "win_rate": 0.3921015514809591,
-     "avg_trade": -0.08869714698625447,
-     "profit_factor": 0.714413385584691,
-     "total_return": -47.308180166612324,
-     "max_drawdown": 47.5315033191781,
+     "avg_trade": -0.08865305556719824,
+     "profit_factor": 0.714514821911946,
+     "total_return": -47.29161736900698,
+     "max_drawdown": 47.29161736900698,
      "per_day": 2.158295281582953,
-     "avg_hold": 5.02820874471086
+     "avg_hold": 5.029619181946403
     },
     "label": "VP: lệnh chờ tại VAL/VAH (phí maker) · lọc xu hướng ngày",
     "fee_in": 0.0002
    },
    "pullback": {
-    "n_signals": 3690,
+    "n_signals": 3689,
     "default_oos": {
-     "n": 872,
-     "win_rate": 0.43577981651376146,
-     "avg_trade": -0.06090875281088697,
-     "profit_factor": 0.8003627508686753,
-     "total_return": -42.179449137729094,
+     "n": 873,
+     "win_rate": 0.4352806414662085,
+     "avg_trade": -0.061351123128245796,
+     "profit_factor": 0.7990199680248676,
+     "total_return": -42.43796368727354,
      "max_drawdown": 45.34253475486689,
-     "per_day": 2.654490106544901,
-     "avg_hold": 4.537844036697248
+     "per_day": 2.6575342465753424,
+     "avg_hold": 4.533791523482245
     },
     "label": "Hồi theo xu hướng 4h: RSI<40/EMA20 rồi vượt đỉnh nến trước",
     "fee_in": 0.0005
    },
    "pullback+1d": {
-    "n_signals": 2242,
+    "n_signals": 2240,
     "default_oos": {
      "n": 507,
      "win_rate": 0.4181459566074951,
@@ -623,37 +623,37 @@
     "fee_in": 0.0005
    },
    "vwap_bounce": {
-    "n_signals": 14001,
+    "n_signals": 14000,
     "default_oos": {
      "n": 2385,
      "win_rate": 0.40964360587002097,
-     "avg_trade": -0.09335127543456297,
-     "profit_factor": 0.7113560569387619,
-     "total_return": -89.68516063855338,
-     "max_drawdown": 90.6322337222115,
+     "avg_trade": -0.09366455286142045,
+     "profit_factor": 0.7103873970962555,
+     "total_return": -89.7615792955589,
+     "max_drawdown": 90.63223372221148,
      "per_day": 7.260273972602739,
-     "avg_hold": 5.129559748427673
+     "avg_hold": 5.132914046121593
     },
     "label": "VWAP phiên: xuyên -1 sd rồi đóng lại",
     "fee_in": 0.0005
    },
    "vwap_bounce+1d": {
-    "n_signals": 6932,
+    "n_signals": 6933,
     "default_oos": {
-     "n": 1321,
-     "win_rate": 0.4012112036336109,
-     "avg_trade": -0.09255073548431533,
-     "profit_factor": 0.7082184319865835,
-     "total_return": -71.24446403098122,
-     "max_drawdown": 73.70473984935093,
-     "per_day": 4.02130898021309,
-     "avg_hold": 5.049205147615443
+     "n": 1322,
+     "win_rate": 0.4016641452344932,
+     "avg_trade": -0.09253588024259549,
+     "profit_factor": 0.7080444217473679,
+     "total_return": -71.26505359088983,
+     "max_drawdown": 73.70473984935091,
+     "per_day": 4.024353120243531,
+     "avg_hold": 5.055975794251134
     },
     "label": "VWAP phiên: xuyên -1 sd rồi đóng lại · lọc xu hướng ngày",
     "fee_in": 0.0005
    },
    "squeeze": {
-    "n_signals": 2492,
+    "n_signals": 2490,
     "default_oos": {
      "n": 475,
      "win_rate": 0.37684210526315787,
@@ -668,7 +668,7 @@
     "fee_in": 0.0005
    },
    "squeeze+1d": {
-    "n_signals": 1221,
+    "n_signals": 1219,
     "default_oos": {
      "n": 249,
      "win_rate": 0.3654618473895582,
@@ -683,16 +683,16 @@
     "fee_in": 0.0005
    },
    "lvn_break": {
-    "n_signals": 1839,
+    "n_signals": 1840,
     "default_oos": {
-     "n": 522,
-     "win_rate": 0.39655172413793105,
-     "avg_trade": -0.10116137872186907,
-     "profit_factor": 0.7015726153635591,
-     "total_return": -41.63335810766641,
+     "n": 523,
+     "win_rate": 0.39579349904397704,
+     "avg_trade": -0.10182282549269753,
+     "profit_factor": 0.6998044093200725,
+     "total_return": -41.894314219502135,
      "max_drawdown": 45.06494004836047,
-     "per_day": 1.5890410958904109,
-     "avg_hold": 3.3409961685823757
+     "per_day": 1.5920852359208524,
+     "avg_hold": 3.3365200764818357
     },
     "label": "VP: thoát vùng qua node khối lượng thấp + khối lượng 1,2x",
     "fee_in": 0.0005
@@ -717,10 +717,10 @@
     "is": {
      "n": 558,
      "win_rate": 0.40860215053763443,
-     "avg_trade": 0.06146616292900473,
-     "profit_factor": 1.1008700373025138,
-     "total_return": 32.50354848615407,
-     "max_drawdown": 30.612571232243546,
+     "avg_trade": 0.06146634451504865,
+     "profit_factor": 1.1008703352628129,
+     "total_return": 32.50368021319725,
+     "max_drawdown": 30.612571232243525,
      "per_day": 0.7279942377994917,
      "avg_hold": 8.06989247311828
     },
@@ -738,7 +738,7 @@
     "fee_in": 0.0005
    },
    "orb": {
-    "n_signals": 1793,
+    "n_signals": 1792,
     "default_oos": {
      "n": 530,
      "win_rate": 0.39622641509433965,
@@ -772,161 +772,161 @@
  "pooled": {
   "vp_rotation": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.7878449478941757,
+   "is_pf": 0.7938600472900078,
    "oos": {
     "BTC": {
-     "n": 756,
-     "win_rate": 0.32671957671957674,
-     "avg_trade": -0.10699390368190966,
-     "profit_factor": 0.7073007555323501,
-     "total_return": -56.330767831092345,
-     "max_drawdown": 57.42684439625604,
-     "per_day": 2.3013698630136985,
-     "avg_hold": 13.884920634920634
+     "n": 772,
+     "win_rate": 0.3329015544041451,
+     "avg_trade": -0.10321234237493468,
+     "profit_factor": 0.7138002174237554,
+     "total_return": -55.80934310406227,
+     "max_drawdown": 56.975300673463906,
+     "per_day": 2.350076103500761,
+     "avg_hold": 13.74740932642487
     },
     "ETH": {
-     "n": 769,
-     "win_rate": 0.3550065019505852,
-     "avg_trade": -0.08536563229931808,
-     "profit_factor": 0.8151167507857191,
-     "total_return": -49.94769328604328,
-     "max_drawdown": 54.01203972896265,
-     "per_day": 2.340943683409437,
-     "avg_hold": 14.126137841352406
+     "n": 768,
+     "win_rate": 0.35546875,
+     "avg_trade": -0.0844093628953601,
+     "profit_factor": 0.8170030450354302,
+     "total_return": -49.53398269965772,
+     "max_drawdown": 54.01203972896247,
+     "per_day": 2.3378995433789953,
+     "avg_hold": 14.13671875
     },
     "SOL": {
-     "n": 803,
-     "win_rate": 0.3287671232876712,
-     "avg_trade": -0.12152399253100797,
-     "profit_factor": 0.7716315417238018,
-     "total_return": -64.00467322935897,
-     "max_drawdown": 64.8131728466727,
-     "per_day": 2.4444444444444446,
-     "avg_hold": 13.454545454545455
+     "n": 802,
+     "win_rate": 0.32917705735660846,
+     "avg_trade": -0.12059963901121422,
+     "profit_factor": 0.773192834842566,
+     "total_return": -63.691382319132096,
+     "max_drawdown": 64.50691883828145,
+     "per_day": 2.441400304414003,
+     "avg_hold": 13.467581047381547
     }
    }
   },
   "vp_rotation+1d": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.7541992839318199,
+   "is_pf": 0.757256232284077,
    "oos": {
     "BTC": {
-     "n": 409,
-     "win_rate": 0.3374083129584352,
-     "avg_trade": -0.10122356461740277,
-     "profit_factor": 0.7123142510021183,
-     "total_return": -34.51690059396686,
-     "max_drawdown": 34.52005639317326,
-     "per_day": 1.2450532724505328,
-     "avg_hold": 13.65036674816626
+     "n": 424,
+     "win_rate": 0.3278301886792453,
+     "avg_trade": -0.11693254131981246,
+     "profit_factor": 0.6781218947530222,
+     "total_return": -39.70265530113895,
+     "max_drawdown": 40.163326084005504,
+     "per_day": 1.2907153729071537,
+     "avg_hold": 13.558962264150944
     },
     "ETH": {
-     "n": 415,
-     "win_rate": 0.3469879518072289,
-     "avg_trade": -0.09143144158250896,
-     "profit_factor": 0.7991273925261648,
-     "total_return": -32.78638962616095,
-     "max_drawdown": 39.29809849517092,
-     "per_day": 1.2633181126331812,
-     "avg_hold": 14.701204819277109
+     "n": 414,
+     "win_rate": 0.34782608695652173,
+     "avg_trade": -0.08967214425652699,
+     "profit_factor": 0.8026106016316961,
+     "total_return": -32.23083117168759,
+     "max_drawdown": 39.29809849517098,
+     "per_day": 1.2602739726027397,
+     "avg_hold": 14.722222222222221
     },
     "SOL": {
-     "n": 447,
-     "win_rate": 0.3087248322147651,
-     "avg_trade": -0.16163369419831225,
-     "profit_factor": 0.6976457890378631,
-     "total_return": -52.52965809400949,
-     "max_drawdown": 52.52965809400949,
-     "per_day": 1.360730593607306,
-     "avg_hold": 13.373601789709172
+     "n": 446,
+     "win_rate": 0.3094170403587444,
+     "avg_trade": -0.16006144796242147,
+     "profit_factor": 0.7001740429345782,
+     "total_return": -52.116492609521025,
+     "max_drawdown": 52.116492609521025,
+     "per_day": 1.3576864535768645,
+     "avg_hold": 13.396860986547086
     }
    }
   },
   "vp_rotation_poc": {
    "best": "1.0/0.5/48",
-   "is_pf": 0.5708114381328125,
+   "is_pf": 0.5703075128942728,
    "oos": {
     "BTC": {
-     "n": 1085,
-     "win_rate": 0.23870967741935484,
-     "avg_trade": -0.10277972366974407,
-     "profit_factor": 0.49525860618301615,
-     "total_return": -67.54790795236812,
-     "max_drawdown": 67.54947190226144,
-     "per_day": 3.3028919330289193,
-     "avg_hold": 4.258064516129032
+     "n": 1092,
+     "win_rate": 0.2445054945054945,
+     "avg_trade": -0.09804115325376132,
+     "profit_factor": 0.5111578235790716,
+     "total_return": -66.08187761490359,
+     "max_drawdown": 66.25302556904103,
+     "per_day": 3.324200913242009,
+     "avg_hold": 4.398351648351649
     },
     "ETH": {
-     "n": 1136,
-     "win_rate": 0.30369718309859156,
-     "avg_trade": -0.07666932580551081,
-     "profit_factor": 0.679129135251589,
-     "total_return": -58.84088877535516,
-     "max_drawdown": 60.40563902762661,
-     "per_day": 3.4581430745814306,
-     "avg_hold": 4.903169014084507
+     "n": 1135,
+     "win_rate": 0.3039647577092511,
+     "avg_trade": -0.07653805848046598,
+     "profit_factor": 0.6796941946508209,
+     "total_return": -58.7477999932305,
+     "max_drawdown": 60.40563902762668,
+     "per_day": 3.4550989345509895,
+     "avg_hold": 4.906607929515419
     },
     "SOL": {
-     "n": 1206,
-     "win_rate": 0.2512437810945274,
-     "avg_trade": -0.10288735509917571,
-     "profit_factor": 0.6050425116400583,
-     "total_return": -71.63802989585082,
-     "max_drawdown": 71.63802989585082,
-     "per_day": 3.671232876712329,
-     "avg_hold": 4.218905472636816
+     "n": 1205,
+     "win_rate": 0.25145228215767634,
+     "avg_trade": -0.10280650113458006,
+     "profit_factor": 0.6054285410568616,
+     "total_return": -71.58110218782508,
+     "max_drawdown": 71.58110218782508,
+     "per_day": 3.6681887366818873,
+     "avg_hold": 4.221576763485477
     }
    }
   },
   "vp_rotation_poc+1d": {
    "best": "1.0/0.5/48",
-   "is_pf": 0.5376401757600089,
+   "is_pf": 0.542185937462986,
    "oos": {
     "BTC": {
-     "n": 554,
-     "win_rate": 0.2184115523465704,
-     "avg_trade": -0.1250192959761148,
-     "profit_factor": 0.4024989082700713,
-     "total_return": -50.14855900718158,
-     "max_drawdown": 50.15096147651108,
-     "per_day": 1.6864535768645357,
-     "avg_hold": 4.157039711191335
+     "n": 569,
+     "win_rate": 0.24428822495606328,
+     "avg_trade": -0.11314550483156875,
+     "profit_factor": 0.44341976899565283,
+     "total_return": -47.665962434494055,
+     "max_drawdown": 47.89893650843271,
+     "per_day": 1.7321156773211568,
+     "avg_hold": 4.3690685413005275
     },
     "ETH": {
-     "n": 574,
-     "win_rate": 0.30139372822299654,
-     "avg_trade": -0.0706070988309693,
-     "profit_factor": 0.6979824968473899,
-     "total_return": -33.85894992950524,
-     "max_drawdown": 34.71127514141072,
-     "per_day": 1.7473363774733637,
-     "avg_hold": 4.839721254355401
+     "n": 573,
+     "win_rate": 0.3019197207678883,
+     "avg_trade": -0.07033650434423205,
+     "profit_factor": 0.699158199620056,
+     "total_return": -33.709359969559074,
+     "max_drawdown": 34.563612869249575,
+     "per_day": 1.7442922374429224,
+     "avg_hold": 4.846422338568935
     },
     "SOL": {
-     "n": 651,
-     "win_rate": 0.2350230414746544,
-     "avg_trade": -0.12930619384205094,
-     "profit_factor": 0.5035510705997457,
-     "total_return": -57.280837226417944,
-     "max_drawdown": 57.280837226417944,
-     "per_day": 1.9817351598173516,
-     "avg_hold": 4.012288786482335
+     "n": 650,
+     "win_rate": 0.2353846153846154,
+     "avg_trade": -0.12919694739805887,
+     "profit_factor": 0.5041466609123203,
+     "total_return": -57.195091983173185,
+     "max_drawdown": 57.195091983173185,
+     "per_day": 1.97869101978691,
+     "avg_hold": 4.016923076923077
     }
    }
   },
   "vp_limit": {
    "best": "1.0/1.5/48",
-   "is_pf": 0.8795020280574355,
+   "is_pf": 0.8755559875633717,
    "oos": {
     "BTC": {
-     "n": 1284,
-     "win_rate": 0.632398753894081,
-     "avg_trade": -0.03042046539731329,
-     "profit_factor": 0.835876474634265,
-     "total_return": -33.05590905666422,
-     "max_drawdown": 34.95942134109081,
-     "per_day": 3.9086757990867578,
-     "avg_hold": 4.7827102803738315
+     "n": 1283,
+     "win_rate": 0.6360093530787218,
+     "avg_trade": -0.028014118029589273,
+     "profit_factor": 0.8452218994460333,
+     "total_return": -30.908171280911723,
+     "max_drawdown": 36.16737128949258,
+     "per_day": 3.9056316590563167,
+     "avg_hold": 4.730319563522993
     },
     "ETH": {
      "n": 1281,
@@ -940,29 +940,29 @@
     },
     "SOL": {
      "n": 1338,
-     "win_rate": 0.6136023916292974,
-     "avg_trade": -0.048834583721922134,
-     "profit_factor": 0.8346260682131748,
-     "total_return": -49.349737480243974,
-     "max_drawdown": 49.889702757294785,
+     "win_rate": 0.6143497757847534,
+     "avg_trade": -0.04807743421067231,
+     "profit_factor": 0.8368646190265782,
+     "total_return": -48.83253993947493,
+     "max_drawdown": 49.49155831220477,
      "per_day": 4.073059360730594,
-     "avg_hold": 4.653961136023916
+     "avg_hold": 4.655455904334828
     }
    }
   },
   "vp_limit+1d": {
    "best": "1.0/1.5/48",
-   "is_pf": 0.9079473558045221,
+   "is_pf": 0.8995259331895953,
    "oos": {
     "BTC": {
-     "n": 656,
-     "win_rate": 0.6158536585365854,
-     "avg_trade": -0.03794987876185699,
-     "profit_factor": 0.7975653415365566,
-     "total_return": -22.430053999378952,
-     "max_drawdown": 23.565455798742164,
-     "per_day": 1.9969558599695585,
-     "avg_hold": 4.998475609756097
+     "n": 658,
+     "win_rate": 0.6246200607902735,
+     "avg_trade": -0.03052082230606894,
+     "profit_factor": 0.8321645843764408,
+     "total_return": -18.60033450017824,
+     "max_drawdown": 22.333392781391947,
+     "per_day": 2.0030441400304415,
+     "avg_hold": 4.87082066869301
     },
     "ETH": {
      "n": 663,
@@ -976,55 +976,55 @@
     },
     "SOL": {
      "n": 725,
-     "win_rate": 0.6179310344827587,
-     "avg_trade": -0.04139440376300182,
-     "profit_factor": 0.8518456488840106,
-     "total_return": -26.84068212848333,
-     "max_drawdown": 27.149021633126292,
+     "win_rate": 0.6193103448275862,
+     "avg_trade": -0.03999707128568834,
+     "profit_factor": 0.8562875797120262,
+     "total_return": -26.093641197101913,
+     "max_drawdown": 26.570194247296975,
      "per_day": 2.207001522070015,
-     "avg_hold": 4.7379310344827585
+     "avg_hold": 4.740689655172414
     }
    }
   },
   "pullback": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.8699304923920075,
+   "is_pf": 0.8702712604763122,
    "oos": {
     "BTC": {
-     "n": 657,
-     "win_rate": 0.3546423135464231,
-     "avg_trade": -0.08974550181901667,
-     "profit_factor": 0.7490220994536687,
-     "total_return": -45.514149762574895,
+     "n": 659,
+     "win_rate": 0.3550834597875569,
+     "avg_trade": -0.08938719528805987,
+     "profit_factor": 0.7495399023467115,
+     "total_return": -45.483740039129685,
      "max_drawdown": 47.50104417794731,
-     "per_day": 2.0,
-     "avg_hold": 12.866057838660579
+     "per_day": 2.006088280060883,
+     "avg_hold": 12.833080424886191
     },
     "ETH": {
-     "n": 647,
-     "win_rate": 0.3415765069551777,
-     "avg_trade": -0.10138373222989708,
-     "profit_factor": 0.7846292662178085,
-     "total_return": -49.71572495826102,
+     "n": 649,
+     "win_rate": 0.3420647149460709,
+     "avg_trade": -0.10066142769618996,
+     "profit_factor": 0.7858000338302678,
+     "total_return": -49.58342929573358,
      "max_drawdown": 53.12303095322799,
-     "per_day": 1.969558599695586,
-     "avg_hold": 12.938176197836167
+     "per_day": 1.9756468797564688,
+     "avg_hold": 12.913713405238829
     },
     "SOL": {
-     "n": 667,
-     "win_rate": 0.3613193403298351,
-     "avg_trade": -0.035649724799757254,
-     "profit_factor": 0.9280959113951851,
-     "total_return": -24.34509724656696,
+     "n": 668,
+     "win_rate": 0.36227544910179643,
+     "avg_trade": -0.03418723401473452,
+     "profit_factor": 0.9309423178523012,
+     "total_return": -23.632962095763254,
      "max_drawdown": 28.38871617031664,
-     "per_day": 2.0304414003044142,
-     "avg_hold": 11.854572713643178
+     "per_day": 2.0334855403348553,
+     "avg_hold": 11.838323353293413
     }
    }
   },
   "pullback+1d": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.8558163913872621,
+   "is_pf": 0.8562525850949173,
    "oos": {
     "BTC": {
      "n": 400,
@@ -1060,79 +1060,79 @@
   },
   "vwap_bounce": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.7822674837621484,
+   "is_pf": 0.7824942580461678,
    "oos": {
     "BTC": {
-     "n": 1457,
-     "win_rate": 0.3507206588881263,
-     "avg_trade": -0.09255503892516753,
-     "profit_factor": 0.7458471020856456,
-     "total_return": -75.01828235526176,
-     "max_drawdown": 76.02350445424698,
-     "per_day": 4.43531202435312,
-     "avg_hold": 13.756348661633494
+     "n": 1458,
+     "win_rate": 0.3511659807956104,
+     "avg_trade": -0.09220508706844446,
+     "profit_factor": 0.7464714317122467,
+     "total_return": -74.91334655699832,
+     "max_drawdown": 76.02350445424695,
+     "per_day": 4.438356164383562,
+     "avg_hold": 13.743484224965707
     },
     "ETH": {
      "n": 1386,
-     "win_rate": 0.3477633477633478,
-     "avg_trade": -0.11293955176519477,
-     "profit_factor": 0.7620576525811728,
-     "total_return": -80.39191389394348,
-     "max_drawdown": 82.62793370224942,
+     "win_rate": 0.34704184704184704,
+     "avg_trade": -0.11501819065543648,
+     "profit_factor": 0.7578469611377235,
+     "total_return": -80.94579530086955,
+     "max_drawdown": 82.62793370224941,
      "per_day": 4.219178082191781,
-     "avg_hold": 14.834776334776334
+     "avg_hold": 14.831168831168831
     },
     "SOL": {
      "n": 1420,
-     "win_rate": 0.3492957746478873,
-     "avg_trade": -0.10442975478111803,
-     "profit_factor": 0.8034194176824894,
-     "total_return": -79.11197776034562,
-     "max_drawdown": 83.55910051936578,
+     "win_rate": 0.3485915492957746,
+     "avg_trade": -0.10666987759631774,
+     "profit_factor": 0.7993485975074174,
+     "total_return": -79.76219524910218,
+     "max_drawdown": 83.5591005193658,
      "per_day": 4.322678843226789,
-     "avg_hold": 13.538028169014085
+     "avg_hold": 13.533802816901408
     }
    }
   },
   "vwap_bounce+1d": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.7697031196329436,
+   "is_pf": 0.7692730607659098,
    "oos": {
     "BTC": {
-     "n": 932,
-     "win_rate": 0.3369098712446352,
-     "avg_trade": -0.10419025759679335,
-     "profit_factor": 0.7098722611733244,
-     "total_return": -62.983530784427934,
-     "max_drawdown": 62.983530784427934,
-     "per_day": 2.837138508371385,
-     "avg_hold": 13.508583690987125
+     "n": 933,
+     "win_rate": 0.33762057877813506,
+     "avg_trade": -0.10363091673315578,
+     "profit_factor": 0.7108257117580126,
+     "total_return": -62.82804296724625,
+     "max_drawdown": 62.85658957359915,
+     "per_day": 2.8401826484018264,
+     "avg_hold": 13.488745980707396
     },
     "ETH": {
-     "n": 859,
-     "win_rate": 0.37485448195576254,
-     "avg_trade": -0.04487744287614073,
-     "profit_factor": 0.8964997951964464,
-     "total_return": -34.52384959093394,
-     "max_drawdown": 38.964482335989324,
-     "per_day": 2.614916286149163,
-     "avg_hold": 14.979045401629802
+     "n": 860,
+     "win_rate": 0.3744186046511628,
+     "avg_trade": -0.046603547934463356,
+     "profit_factor": 0.892525955975095,
+     "total_return": -35.51337479265092,
+     "max_drawdown": 38.964482335989295,
+     "per_day": 2.617960426179604,
+     "avg_hold": 14.976744186046512
     },
     "SOL": {
-     "n": 898,
-     "win_rate": 0.3429844097995546,
-     "avg_trade": -0.09813398450073034,
-     "profit_factor": 0.8099853010416921,
-     "total_return": -60.61600374765872,
-     "max_drawdown": 67.19258016560264,
-     "per_day": 2.7336377473363775,
-     "avg_hold": 14.005567928730512
+     "n": 899,
+     "win_rate": 0.3426028921023359,
+     "avg_trade": -0.09995192810343774,
+     "profit_factor": 0.8064788215734423,
+     "total_return": -61.28925487861687,
+     "max_drawdown": 67.19258016560266,
+     "per_day": 2.736681887366819,
+     "avg_hold": 14.003337041156842
     }
    }
   },
   "squeeze": {
    "best": "2.0/1.5/48",
-   "is_pf": 0.7984322134770891,
+   "is_pf": 0.798058250590643,
    "oos": {
     "BTC": {
      "n": 459,
@@ -1168,7 +1168,7 @@
   },
   "squeeze+1d": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.7551990822214093,
+   "is_pf": 0.7537662074286248,
    "oos": {
     "BTC": {
      "n": 225,
@@ -1203,54 +1203,54 @@
    }
   },
   "lvn_break": {
-   "best": "3.0/1.5/16",
-   "is_pf": 0.8942502356308484,
+   "best": "2.0/1.5/48",
+   "is_pf": 0.8995317645775008,
    "oos": {
     "BTC": {
-     "n": 532,
-     "win_rate": 0.35902255639097747,
-     "avg_trade": -0.08774747923280905,
-     "profit_factor": 0.7236878502189947,
-     "total_return": -37.96616429213089,
-     "max_drawdown": 38.87959444544791,
-     "per_day": 1.6194824961948249,
-     "avg_hold": 7.078947368421052
+     "n": 520,
+     "win_rate": 0.4461538461538462,
+     "avg_trade": -0.09368853989867379,
+     "profit_factor": 0.6931060062612137,
+     "total_return": -39.08439849191747,
+     "max_drawdown": 39.502620405131104,
+     "per_day": 1.582952815829528,
+     "avg_hold": 6.8
     },
     "ETH": {
-     "n": 512,
-     "win_rate": 0.365234375,
-     "avg_trade": -0.10097084252109398,
-     "profit_factor": 0.7740810756306229,
-     "total_return": -41.666534999151914,
-     "max_drawdown": 45.70248534768193,
-     "per_day": 1.5585996955859969,
-     "avg_hold": 7.2109375
+     "n": 515,
+     "win_rate": 0.44854368932038835,
+     "avg_trade": -0.1028592481488269,
+     "profit_factor": 0.7573594311540235,
+     "total_return": -42.1516033289593,
+     "max_drawdown": 42.816684442126515,
+     "per_day": 1.5677321156773212,
+     "avg_hold": 6.902912621359223
     },
     "SOL": {
-     "n": 495,
-     "win_rate": 0.3595959595959596,
-     "avg_trade": -0.10287234593969906,
-     "profit_factor": 0.7834920530693412,
-     "total_return": -41.29028357786043,
-     "max_drawdown": 49.65856508699959,
-     "per_day": 1.5068493150684932,
-     "avg_hold": 7.428282828282828
+     "n": 488,
+     "win_rate": 0.430327868852459,
+     "avg_trade": -0.11968092521107622,
+     "profit_factor": 0.7408291901106809,
+     "total_return": -45.2513441208678,
+     "max_drawdown": 48.965378310332106,
+     "per_day": 1.4855403348554033,
+     "avg_hold": 7.149590163934426
     }
    }
   },
   "lvn_break+1d": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.9313996041920758,
+   "is_pf": 0.9278873533690821,
    "oos": {
     "BTC": {
-     "n": 275,
-     "win_rate": 0.34545454545454546,
-     "avg_trade": -0.09617172400117496,
-     "profit_factor": 0.7330921435035177,
-     "total_return": -23.77080742179698,
-     "max_drawdown": 23.77080742179698,
-     "per_day": 0.837138508371385,
-     "avg_hold": 9.458181818181819
+     "n": 273,
+     "win_rate": 0.34065934065934067,
+     "avg_trade": -0.10333074816672165,
+     "profit_factor": 0.7182636856255751,
+     "total_return": -25.108020448146405,
+     "max_drawdown": 25.495742586841097,
+     "per_day": 0.8310502283105022,
+     "avg_hold": 9.172161172161172
     },
     "ETH": {
      "n": 250,
@@ -1276,7 +1276,7 @@
   },
   "orb": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.8295398497152042,
+   "is_pf": 0.8293497204355936,
    "oos": {
     "BTC": {
      "n": 503,
@@ -1312,7 +1312,7 @@
   },
   "orb+1d": {
    "best": "3.0/1.5/48",
-   "is_pf": 0.9153823022100855,
+   "is_pf": 0.9160502137796344,
    "oos": {
     "BTC": {
      "n": 270,
