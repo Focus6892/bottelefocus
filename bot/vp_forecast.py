@@ -87,6 +87,19 @@ def live_features(k, frame, sym, raw):
     return f
 
 
+def _label(key, val):
+    """Tên nhóm đọc được một mình trong bản tin (giá trị gốc trong nghiên cứu ngắn gọn hơn)."""
+    if key == "state":
+        return "giá trong vùng giá trị" if val == "trong vùng" else f"giá {val}"
+    if key == "width":
+        return f"vùng giá trị {val}"
+    if key == "node":
+        return "node khối lượng bình thường" if val == "bình thường" else f"giá ở {val}"
+    if key == "dist":
+        return "cách POC vừa" if val == "vừa" else val
+    return val
+
+
 def evidence(pooled, frame, horizon, feats):
     """Các nhóm khớp đặc trưng hiện tại có |z| >= Z_MIN: [(mô tả, Δ mở rộng, Δ tăng, tỷ lệ biên độ, cont, cờ)]."""
     try:
@@ -104,7 +117,7 @@ def evidence(pooled, frame, horizon, feats):
         sig_e, sig_u = abs(g["z_expand"]) >= Z_MIN, abs(g["z_up"]) >= Z_MIN
         sig_c = g["z_cont"] is not None and abs(g["z_cont"]) >= Z_MIN
         if sig_e or sig_u or sig_c:
-            hits.append({"desc": val, "n": g["n"], "d_expand": g["p_expand"] - base["p_expand"], "d_up": g["p_up"] - base["p_up"],
+            hits.append({"desc": _label(key, val), "n": g["n"], "d_expand": g["p_expand"] - base["p_expand"], "d_up": g["p_up"] - base["p_up"],
                          "range_ratio": g["range_ratio"], "cont": g["cont"], "sig_e": sig_e, "sig_u": sig_u, "sig_c": sig_c, "side": feats.get("side", 0)})
     return base, hits
 
@@ -115,7 +128,7 @@ def forecast(frames, pooled):
         return None
     out = {}
     for name, pairs in HORIZONS.items():
-        d_exp, d_up, rr, reasons, bases = [], [], [], [], []
+        d_exp, d_up, rr, reasons, bases = [], [], [], {}, []
         for frame, horizon in pairs:
             feats = frames.get(frame)
             if not feats:
@@ -127,19 +140,21 @@ def forecast(frames, pooled):
             tag = vp_vol.FRAMES[frame]["label"].split(" ")[0]
             for h in hits:
                 rr.append(h["range_ratio"])
+                why = reasons.setdefault(f"{h['desc']} ({tag})", [])  # gộp các tác dụng của cùng một nhóm vào một vế
                 if h["sig_e"]:
                     d_exp.append(h["d_expand"])
-                    reasons.append(f"{h['desc']} ({tag}): mở rộng {h['d_expand']*100:+.0f} điểm, biên độ ×{h['range_ratio']:.2f}")
+                    why.append(f"mở rộng {h['d_expand']*100:+.0f} điểm, biên độ ×{h['range_ratio']:.2f}")
                 if h["sig_u"]:
                     d_up.append(h["d_up"])
-                    reasons.append(f"{h['desc']} ({tag}): xác suất tăng {h['d_up']*100:+.0f} điểm")
+                    why.append(f"xác suất tăng {h['d_up']*100:+.0f} điểm")
                 if h["sig_c"] and h["cont"] is not None and h["side"]:
                     # tiếp tục < 50% nghĩa là hay quay lại POC: thiên hướng ngược với phía đang đứng
                     lean = (1 if h["cont"] > 0.5 else -1) * h["side"]
                     d_up.append(lean * abs(h["cont"] - 0.5))
-                    reasons.append(f"{h['desc']} ({tag}): {'đi tiếp' if h['cont'] > 0.5 else 'quay về POC'} {max(h['cont'], 1 - h['cont'])*100:.0f}% số lần")
+                    why.append(f"{'đi tiếp' if h['cont'] > 0.5 else 'quay về POC'} {max(h['cont'], 1 - h['cont'])*100:.0f}% số lần")
         if not bases:
             continue
+        reasons = [f"{k}: {', '.join(v)}" for k, v in reasons.items() if v]
         base_p = sum(b["p_expand"] for b in bases) / len(bases)
         base_range = sum(b["range"] for b in bases) / len(bases)
         ex = sum(d_exp) / len(d_exp) if d_exp else 0.0
