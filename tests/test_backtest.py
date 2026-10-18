@@ -148,3 +148,63 @@ def test_vp_vol_profiles_and_features():
     assert vp_vol.targets(k4, len(k4) - 1, 6, 42) is None  # không đủ nến tới
     t = vp_vol.targets(k4, 1000, 6, 42)
     assert t and t["ratio"] > 0 and t["range"] > 0
+
+
+def test_scalp_mtf_aggregate_filter_and_fast_sim_match():
+    import random
+    from backtest import scalp, scalp_mtf as M
+    rnd = random.Random(3)
+    t0 = 1_700_006_400_000  # 00:00 UTC
+    px, k5 = 100.0, []
+    for i in range(288 * 6 + 7):  # 6 ngày + 7 nến lẻ
+        o = px; px *= 1 + rnd.gauss(0, 0.003)
+        k5.append({"t": t0 + i * 300_000, "o": o, "h": max(o, px) * 1.001, "l": min(o, px) * 0.999, "c": px, "v": 1.0 + i % 5})
+    k1h = M.aggregate(k5, 12)
+    assert len(k1h) == 6 * 24  # nến 1h cuối chưa đủ 12 nến con thì bỏ
+    w = k5[12:24]
+    assert k1h[1] == {"t": w[0]["t"], "o": w[0]["o"], "h": max(x["h"] for x in w), "l": min(x["l"] for x in w), "c": w[-1]["c"], "v": sum(x["v"] for x in w)}
+    # mô phỏng nhanh khớp từng lệnh với scalp.simulate khi dùng cùng phí (taker cả hai chiều, không trượt giá)
+    atr = scalp.atr14(k5)
+    sigs = [(i, 1 if i % 3 else -1, None, None, None, None) for i in range(20, len(k5) - 60, 37)]
+    sigs += [(i, 1, k5[i]["c"] * 0.997, None, None, None) for i in range(40, len(k5) - 60, 101)]
+    sigs.sort(key=lambda s: s[0])
+    prep = M.prepare(k5, atr, sigs)
+    for ti, tp in enumerate(M.TP_GRID):
+        for si, sl in enumerate(M.SL_GRID):
+            for hold in M.HOLD_GRID:
+                fast = M.run_combo(k5, prep, ti, si, hold, 0, len(k5), fee_tp=scalp.TAKER, slip=0.0)
+                ref = []
+                busy = -1
+                # chạy tham chiếu từng tín hiệu theo đúng thứ tự, phí vào tùy loại lệnh
+                for s in sigs:
+                    if s[0] < busy:
+                        continue
+                    tr = scalp.simulate(k5, atr, [s[:5]], tp, sl, hold, scalp.MAKER if s[2] is not None else scalp.TAKER)
+                    if tr:
+                        ref.append(tr[0]); busy = tr[0][2] + 1
+                    elif s[2] is not None:
+                        busy = min(s[0] + 5, len(k5))
+                assert [(a[0], a[1], a[2]) for a in fast] == [(a[0], a[1], a[2]) for a in ref]
+                assert all(abs(a[3] - b[3]) < 1e-12 for a, b in zip(fast, ref))
+    # lọc khung lớn: chỉ giữ tín hiệu cùng chiều xu hướng
+    reg = {"4h": [1] * len(k5), "1d": [-1] * len(k5)}
+    assert M.apply_filter(sigs, reg, "4h") == [s for s in sigs if s[1] == 1]
+    assert M.apply_filter(sigs, reg, "4h+1d") == []
+    assert M.apply_filter(sigs, reg, "1h") is None
+
+
+def test_scalp_mtf_time_signals():
+    from backtest import scalp_mtf as M
+    t0 = 1_700_006_400_000  # thứ Tư 15/11/2023 00:00 UTC
+    k = [{"t": t0 + i * 900_000, "o": 100.0 + i * 0.01, "h": 100.1 + i * 0.01, "l": 99.9 + i * 0.01, "c": 100.01 + i * 0.01, "v": 1.0} for i in range(96 * 3)]
+    ctx = {"ms": 900_000}
+    s = M.sig_tod22(k, ctx)
+    assert len(s) == 3 and all((k[i + 1]["t"] - t0) % 86_400_000 == 22 * 3_600_000 and hov == 7 for i, _, _, _, _, hov in s)
+    prep = M.prepare(k, [0.1] * len(k), s)
+    tr = M.run_combo(k, prep, 0, 0, 8, 0, len(k))
+    assert len(tr) == 3 and all((k[m]["t"] + 900_000 - t0) % 86_400_000 == 0 for _, _, m, _ in tr)  # đóng lúc 00:00
+    d = M.sig_ism_day(k, ctx)
+    assert len(d) == 3 and all(x[1] == 1 for x in d)  # giá tăng dần -> 30 phút đầu tăng -> long cuối ngày
+    us = M.sig_ism_us(k, ctx)
+    assert us and all(x[1] == 1 for x in us)
+    assert M._us_open(t0) == int(14.5 * 3_600_000) and M._us_open(1_689_206_400_000) == int(13.5 * 3_600_000)
