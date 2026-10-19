@@ -1,4 +1,8 @@
 """Kiểm thử phần không cần mạng của bot chat Claude."""
+import pytest
+
+pytest.importorskip("anthropic")  # chỉ có khi cài chatbot/requirements.txt
+
 from chatbot.main import parse_ids, split_text, trim
 
 
