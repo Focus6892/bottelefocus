@@ -11,7 +11,7 @@
   "BTCUSDT:scalp:squeeze_1d": 1792504800000,
   "SOLUSDT:scalp:squeeze_1d": 1792504800000
  },
- "last_digest_hour": "2026-10-20T21",
+ "last_digest_hour": "2026-10-20T22",
  "trend_1d": {
   "BTCUSDT": "up",
   "ETHUSDT": "up",
@@ -25,8 +25,8 @@
   "SOLUSDT:vp_4h": "below",
   "SOLUSDT:vp_1d": "inside"
  },
- "market_regime": "btc_strength",
- "market_text": "BTC mạnh hơn altcoin, stablecoin đứng yên",
+ "market_regime": "btc_season",
+ "market_text": "Tiền vào BTC là chính, altcoin tăng yếu hơn hoặc giảm so với BTC",
  "reco": {
   "BTCUSDT": "LONG",
   "ETHUSDT": "NGOÀI",
