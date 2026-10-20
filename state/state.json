@@ -9,7 +9,7 @@
   "ETHUSDT:scalp:vp_limit": 1792414800000,
   "SOLUSDT:scalp:vp_limit": 1792429200000
  },
- "last_digest_hour": "2026-10-20T03",
+ "last_digest_hour": "2026-10-20T04",
  "trend_1d": {
   "BTCUSDT": "up",
   "ETHUSDT": "up",
@@ -23,8 +23,8 @@
   "SOLUSDT:vp_4h": "below",
   "SOLUSDT:vp_1d": "inside"
  },
- "market_regime": "risk_off_alt",
- "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC",
+ "market_regime": "btc_strength",
+ "market_text": "BTC mạnh hơn altcoin, stablecoin đứng yên",
  "reco": {
   "BTCUSDT": "LONG",
   "ETHUSDT": "NGOÀI",
