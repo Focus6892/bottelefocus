@@ -7,11 +7,11 @@
  "alerts": {
   "BTCUSDT:inside_4h": 1792238400000,
   "ETHUSDT:scalp:vp_limit": 1792526400000,
-  "SOLUSDT:scalp:vp_limit": 1792522800000,
+  "SOLUSDT:scalp:vp_limit": 1792537200000,
   "BTCUSDT:scalp:squeeze_1d": 1792504800000,
   "SOLUSDT:scalp:squeeze_1d": 1792504800000
  },
- "last_digest_hour": "2026-10-20T23",
+ "last_digest_hour": "2026-10-21T00",
  "trend_1d": {
   "BTCUSDT": "up",
   "ETHUSDT": "up",
