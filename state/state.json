@@ -1,7 +1,7 @@
 {
  "trend": {
   "BTCUSDT": "flat",
-  "ETHUSDT": "flat",
+  "ETHUSDT": "down",
   "SOLUSDT": "flat"
  },
  "alerts": {
@@ -14,10 +14,10 @@
   "SOLUSDT:inside_4h": 1792785600000,
   "ETHUSDT:inside_4h": 1792828800000
  },
- "last_digest_hour": "2026-10-24T23",
+ "last_digest_hour": "2026-10-25T00",
  "trend_1d": {
   "BTCUSDT": "up",
-  "ETHUSDT": "up",
+  "ETHUSDT": "down",
   "SOLUSDT": "up"
  },
  "vp": {
@@ -32,7 +32,7 @@
  "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC",
  "reco": {
   "BTCUSDT": "NGOÀI",
-  "ETHUSDT": "NGOÀI",
+  "ETHUSDT": "SHORT",
   "SOLUSDT": "NGOÀI"
  }
 }
