@@ -14,14 +14,14 @@
   "SOLUSDT:inside_4h": 1792785600000,
   "ETHUSDT:inside_4h": 1792828800000
  },
- "last_digest_hour": "2026-10-27T18",
+ "last_digest_hour": "2026-10-27T22",
  "trend_1d": {
   "BTCUSDT": "up",
   "ETHUSDT": "down",
   "SOLUSDT": "up"
  },
  "vp": {
-  "BTCUSDT:vp_4h": "below",
+  "BTCUSDT:vp_4h": "inside",
   "BTCUSDT:vp_1d": "inside",
   "ETHUSDT:vp_4h": "below",
   "ETHUSDT:vp_1d": "inside",
