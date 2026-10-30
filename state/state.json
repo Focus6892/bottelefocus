@@ -12,9 +12,10 @@
   "SOLUSDT:scalp:squeeze_1d": 1792594800000,
   "ETHUSDT:scalp:squeeze_1d": 1792594800000,
   "SOLUSDT:inside_4h": 1792785600000,
-  "ETHUSDT:inside_4h": 1792828800000
+  "ETHUSDT:inside_4h": 1792828800000,
+  "SOLUSDT:long_hot": 1793344445.0571783
  },
- "last_digest_hour": "2026-10-30T01",
+ "last_digest_hour": "2026-10-30T07",
  "trend_1d": {
   "BTCUSDT": "up",
   "ETHUSDT": "down",
@@ -28,8 +29,8 @@
   "SOLUSDT:vp_4h": "below",
   "SOLUSDT:vp_1d": "inside"
  },
- "market_regime": "risk_off",
- "market_text": "Tiền rút về stablecoin, thị trường giảm hoặc chờ",
+ "market_regime": "risk_off_alt",
+ "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC",
  "reco": {
   "BTCUSDT": "NGOÀI",
   "ETHUSDT": "SHORT",
