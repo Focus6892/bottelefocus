@@ -11,11 +11,11 @@
   "BTCUSDT:scalp:squeeze_1d": 1792504800000,
   "SOLUSDT:scalp:squeeze_1d": 1792594800000,
   "ETHUSDT:scalp:squeeze_1d": 1792594800000,
-  "SOLUSDT:inside_4h": 1792785600000,
+  "SOLUSDT:inside_4h": 1793476800000,
   "ETHUSDT:inside_4h": 1792828800000,
   "SOLUSDT:long_hot": 1793344445.0571783
  },
- "last_digest_hour": "2026-10-31T22",
+ "last_digest_hour": "2026-11-01T01",
  "trend_1d": {
   "BTCUSDT": "up",
   "ETHUSDT": "down",
