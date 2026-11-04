@@ -7,7 +7,7 @@
  "alerts": {
   "BTCUSDT:inside_4h": 1792238400000,
   "ETHUSDT:scalp:vp_limit": 1793566800000,
-  "SOLUSDT:scalp:vp_limit": 1793235600000,
+  "SOLUSDT:scalp:vp_limit": 1793754000000,
   "BTCUSDT:scalp:squeeze_1d": 1793512800000,
   "SOLUSDT:scalp:squeeze_1d": 1792594800000,
   "ETHUSDT:scalp:squeeze_1d": 1792594800000,
@@ -15,9 +15,9 @@
   "ETHUSDT:inside_4h": 1793620800000,
   "SOLUSDT:long_hot": 1793344445.0571783
  },
- "last_digest_hour": "2026-11-02T19",
+ "last_digest_hour": "2026-11-04T02",
  "trend_1d": {
-  "BTCUSDT": "up",
+  "BTCUSDT": "down",
   "ETHUSDT": "down",
   "SOLUSDT": "down"
  },
@@ -25,14 +25,14 @@
   "BTCUSDT:vp_4h": "below",
   "BTCUSDT:vp_1d": "inside",
   "ETHUSDT:vp_4h": "below",
-  "ETHUSDT:vp_1d": "below",
+  "ETHUSDT:vp_1d": "inside",
   "SOLUSDT:vp_4h": "below",
   "SOLUSDT:vp_1d": "inside"
  },
  "market_regime": "risk_off_alt",
  "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC",
  "reco": {
-  "BTCUSDT": "NGOÀI",
+  "BTCUSDT": "SHORT",
   "ETHUSDT": "SHORT",
   "SOLUSDT": "SHORT"
  }
