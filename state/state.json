@@ -2,7 +2,7 @@
  "trend": {
   "BTCUSDT": "flat",
   "ETHUSDT": "flat",
-  "SOLUSDT": "flat"
+  "SOLUSDT": "down"
  },
  "alerts": {
   "BTCUSDT:inside_4h": 1792238400000,
@@ -15,22 +15,22 @@
   "ETHUSDT:inside_4h": 1793620800000,
   "SOLUSDT:long_hot": 1793344445.0571783
  },
- "last_digest_hour": "2026-11-05T11",
+ "last_digest_hour": "2026-11-05T18",
  "trend_1d": {
   "BTCUSDT": "down",
   "ETHUSDT": "down",
   "SOLUSDT": "down"
  },
  "vp": {
-  "BTCUSDT:vp_4h": "inside",
+  "BTCUSDT:vp_4h": "below",
   "BTCUSDT:vp_1d": "inside",
-  "ETHUSDT:vp_4h": "inside",
+  "ETHUSDT:vp_4h": "below",
   "ETHUSDT:vp_1d": "inside",
   "SOLUSDT:vp_4h": "below",
   "SOLUSDT:vp_1d": "inside"
  },
- "market_regime": "btc_season",
- "market_text": "Tiền vào BTC là chính, altcoin tăng yếu hơn hoặc giảm so với BTC",
+ "market_regime": "risk_off",
+ "market_text": "Tiền rút về stablecoin, thị trường giảm hoặc chờ",
  "reco": {
   "BTCUSDT": "SHORT",
   "ETHUSDT": "SHORT",
