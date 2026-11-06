@@ -6,7 +6,7 @@
  },
  "alerts": {
   "BTCUSDT:inside_4h": 1792238400000,
-  "ETHUSDT:scalp:vp_limit": 1793566800000,
+  "ETHUSDT:scalp:vp_limit": 1793941200000,
   "SOLUSDT:scalp:vp_limit": 1793844000000,
   "BTCUSDT:scalp:squeeze_1d": 1793512800000,
   "SOLUSDT:scalp:squeeze_1d": 1792594800000,
@@ -15,7 +15,7 @@
   "ETHUSDT:inside_4h": 1793620800000,
   "SOLUSDT:long_hot": 1793344445.0571783
  },
- "last_digest_hour": "2026-11-06T00",
+ "last_digest_hour": "2026-11-06T06",
  "trend_1d": {
   "BTCUSDT": "down",
   "ETHUSDT": "down",
@@ -29,8 +29,8 @@
   "SOLUSDT:vp_4h": "below",
   "SOLUSDT:vp_1d": "below"
  },
- "market_regime": "risk_off_alt",
- "market_text": "Tiền rút về stablecoin, altcoin bị bán mạnh hơn BTC",
+ "market_regime": "risk_off",
+ "market_text": "Tiền rút về stablecoin, thị trường giảm hoặc chờ",
  "reco": {
   "BTCUSDT": "SHORT",
   "ETHUSDT": "SHORT",
