@@ -2,13 +2,3 @@
 [BTCUSDT] nguồn: okx
 [ETHUSDT] nguồn: okx
 [SOLUSDT] nguồn: okx
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/runner/work/bottelefocus/bottelefocus/bot/main.py", line 161, in <module>
-    run(force_digest="--digest" in args, dry="--dry" in args)
-  File "/home/runner/work/bottelefocus/bottelefocus/bot/main.py", line 146, in run
-    telegram.send(msg)
-  File "/home/runner/work/bottelefocus/bottelefocus/bot/telegram.py", line 18, in send
-    raise RuntimeError(f"Telegram lỗi {r.status_code}: {r.text[:200]}")
-RuntimeError: Telegram lỗi 400: {"ok":false,"error_code":400,"description":"Bad Request: can't parse entities: Unsupported start tag \"\" at byte offset 390"}
