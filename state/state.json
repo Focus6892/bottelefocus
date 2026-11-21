@@ -16,7 +16,7 @@
   "SOLUSDT:long_hot": 1793344445.0571783,
   "ETHUSDT:price_move": 1795247034.994779
  },
- "last_digest_hour": "2026-11-21T07",
+ "last_digest_hour": "2026-11-21T15",
  "trend_1d": {
   "BTCUSDT": "down",
   "ETHUSDT": "down",
@@ -27,7 +27,7 @@
   "BTCUSDT:vp_1d": "below",
   "ETHUSDT:vp_4h": "below",
   "ETHUSDT:vp_1d": "below",
-  "SOLUSDT:vp_4h": "below",
+  "SOLUSDT:vp_4h": "inside",
   "SOLUSDT:vp_1d": "below"
  },
  "market_regime": "risk_off",
