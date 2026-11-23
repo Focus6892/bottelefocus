@@ -1,3 +1,4 @@
-[BTCUSDT] nguồn: binance
-[ETHUSDT] nguồn: binance
-[SOLUSDT] nguồn: binance
+[BTCUSDT] Binance lỗi (Binance /fapi/v1/klines lỗi: 451 Client Error:  for url: https://fapi.binance.com/fapi/v1/klines?symbol=BTCUSDT&interval=4h&limit=200); chuyển sang OKX
+[BTCUSDT] nguồn: okx
+[ETHUSDT] nguồn: okx
+[SOLUSDT] nguồn: okx
