@@ -1,11 +1,11 @@
 {
  "trend": {
-  "BTCUSDT": "flat",
+  "BTCUSDT": "down",
   "ETHUSDT": "flat",
   "SOLUSDT": "flat"
  },
  "alerts": {
-  "BTCUSDT:inside_4h": 1795219200000,
+  "BTCUSDT:inside_4h": 1795478400000,
   "ETHUSDT:scalp:vp_limit": 1795118400000,
   "SOLUSDT:scalp:vp_limit": 1794157200000,
   "BTCUSDT:scalp:squeeze_1d": 1793512800000,
@@ -16,14 +16,14 @@
   "SOLUSDT:long_hot": 1793344445.0571783,
   "ETHUSDT:price_move": 1795247034.994779
  },
- "last_digest_hour": "2026-11-23T22",
+ "last_digest_hour": "2026-11-24T06",
  "trend_1d": {
   "BTCUSDT": "down",
   "ETHUSDT": "down",
   "SOLUSDT": "down"
  },
  "vp": {
-  "BTCUSDT:vp_4h": "below",
+  "BTCUSDT:vp_4h": "inside",
   "BTCUSDT:vp_1d": "below",
   "ETHUSDT:vp_4h": "below",
   "ETHUSDT:vp_1d": "below",
